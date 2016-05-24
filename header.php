@@ -35,45 +35,48 @@
   </style>
 </head>
 <body>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Medic Bac Lieu Logo</h3>
+        </div>
+        <div class="col-md-6">
+          <form class="navbar-form navbar-right search-form" role="search">
+            <div class="form-group has-feedback">
+              <label for="search" class="sr-only">Search</label>
+              <input type="text" class="form-control" placeholder="Search" id="search" name="search">
+              <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+ 
+      
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Login <span class="glyphicon glyphicon-log-in"></span></a>
-          <div class="dropdown-menu">
-            <form id="formLogin" class="form container-fluid">
-              <div class="form-group">
-                <label for="usr">Name:</label>
-                <input type="text" class="form-control" id="usr">
-              </div>
-              <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd">
-              </div>
-              <button type="button" id="btnLogin" class="btn btn-block">Login</button>
-            </form>
-            <div class="container-fluid">
-              <br>
-              <a class="small" href="#">Forgot password?</a>
-            </div> 
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-default navbar-nav">
+                <li><a href="#">Trang Chủ</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Giới Thiệu <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Giới thiệu chung</a></li>
+                    <li><a href="#">Ban lãnh đạo</a></li>
+                    <li><a href="#">Đội ngũ bác sĩ</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+<br>
