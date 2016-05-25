@@ -2361,3 +2361,39 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
+
+// Add by ThangTGM
+$(document).ready(function(){
+  // Add start ThangTGM: Change Language
+  $('#toggle_event_editing button').click(function(){
+    if($(this).hasClass('locked_active') || $(this).hasClass('unlocked_inactive')){
+      /* code to do when unlocking */
+          $('#switch_status').html('Switched on.');
+    }else{
+      /* code to do when locking */
+          $('#switch_status').html('Switched off.');
+    }
+    
+    /* reverse locking status */
+    $('#toggle_event_editing button').eq(0).toggleClass('locked_inactive locked_active btn-default btn-info');
+    $('#toggle_event_editing button').eq(1).toggleClass('unlocked_inactive unlocked_active btn-info btn-default');
+  });
+  // Add end ThangTGM
+
+  // Add start ThangTGM: Editor tool
+  $(document).ready(function() {
+    $('#summernote').summernote({
+      height: 300,                 // set editor height
+      minHeight: null,             // set minimum height of editor
+      maxHeight: null,             // set maximum height of editor
+      focus: true                  // set focus to editable area after initializing summernote
+    });
+  });
+  // Add end ThangTGM
+
+  // Test show html
+  $("#show_html").click(function(){
+    var markupStr = $('#summernote').summernote('code');
+    alert(markupStr); 
+  })
+})
