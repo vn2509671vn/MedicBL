@@ -31,8 +31,6 @@
               <p>Cố gắng thoát khỏi những đêm dài vắng em
                   Chỉ mình anh với chiếc bóng trên tường
                   Lòng anh day dứt không yên chỉ cố gắng không ngã quỵ
-              fherjkgherjkerkerhjkerke
-              thangtgm
               </p>
             </div>
           </div>
