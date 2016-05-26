@@ -1,8 +1,8 @@
 <!-- Add start Header-->
-<?php require("header.php");?>
+<?php require("../header.php");?>
 <!-- Add end Header-->
 <!-- Add start slider-->
-<?php require("slider.php");?>
+<?php require("../slider.php");?>
 <!-- Add end slider-->
 
 <div class="container text-center">    
@@ -44,7 +44,7 @@
       <hr class="divider">
       <div class="row">
           <div class="col-sm-12">
-            <iframe width="100%" height="auto" src="_html5/Project1.html"></iframe>
+            <iframe width="100%" height="auto" src="../_html5/Project1.html"></iframe>
           </div>
       </div>
       <div class="row">
@@ -59,5 +59,5 @@
   </div>
 </div>
 <!-- Add start footer-->
-<?php require("footer.php");?>
+<?php require("../footer.php");?>
 <!-- Add end footer-->
