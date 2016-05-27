@@ -2395,5 +2395,20 @@ $(document).ready(function(){
   $("#show_html").click(function(){
     var markupStr = $('#summernote').summernote('code');
     alert(markupStr); 
-  })
+  });
+  
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 300);
+        return false;
+    });
 })

@@ -5330,24 +5330,32 @@ button.list-group-item {
   color: #c7ddef;
 }
 .list-group-item-success {
-  color: #3c763d;
-  background-color: #dff0d8;
+  color: #fff;
+  background-color: #73b744;
 }
-a.list-group-item-success,
+
 button.list-group-item-success {
   color: #3c763d;
+}
+
+a.list-group-item-success{
+  color: #fff;
 }
 a.list-group-item-success .list-group-item-heading,
 button.list-group-item-success .list-group-item-heading {
   color: inherit;
 }
-a.list-group-item-success:hover,
 button.list-group-item-success:hover,
-a.list-group-item-success:focus,
 button.list-group-item-success:focus {
   color: #3c763d;
   background-color: #d0e9c6;
 }
+a.list-group-item-success:hover,
+a.list-group-item-success:focus {
+  color: #fff;
+  background-color: #1b7b57;
+}
+
 a.list-group-item-success.active,
 button.list-group-item-success.active,
 a.list-group-item-success.active:hover,
@@ -6812,6 +6820,21 @@ footer {
 .divider{
   margin-top: 0px !important;
   border-top: 1px solid #0BA525;
+}
+
+.scrollup {
+    position: fixed;
+    bottom: 6%;
+    right: 1%;
+    display: none;
+    background-color: #73b744;
+    color: #fff;
+    border-radius: 3px;
+    padding: 6px 10px;
+}
+
+.non-marginTop{
+    margin-bottom: 0px !important;
 }
 
 /*Add end ThangTGM*/

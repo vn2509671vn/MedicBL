@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap-social.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.js"></script>
   <!-- include summernote css/js-->
@@ -17,6 +19,7 @@
           <img src="../images/logo/bl-logo-transparentsm.png" width="auto" height="80">
         </div>
         <div class="col-md-6 col-xs-8">
+          <h5 class="text-right non-marginTop">Language: <a href="#">VN</a> | <a href="#">EN</a></h5>
           <form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Tìm kiếm...">
@@ -27,7 +30,6 @@
                     </span>
                 </div>
           </form>
-
         </div>
       </div>
  
@@ -47,16 +49,16 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-default navbar-nav">
-                <li><a href="content.php">Trang Chủ</a></li>
+                <li><a href="content.php">TRANG CHỦ</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Giới Thiệu <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >GIỚI THIỆU <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Giới thiệu chung</a></li>
                     <li><a href="#">Ban lãnh đạo</a></li>
                     <li><a href="#">Đội ngũ bác sĩ</a></li>
                   </ul>
                 </li>
-                <li><a href="_TestEditor.php">Test Editor</a></li>
+                <li><a href="_TestEditor.php">DỊCH VỤ</a></li>
                 <li><a href="tintuc.php">TIN TỨC</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
