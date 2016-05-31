@@ -53,13 +53,47 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >GIỚI THIỆU <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Giới thiệu chung</a></li>
-                    <li><a href="#">Ban lãnh đạo</a></li>
-                    <li><a href="#">Đội ngũ bác sĩ</a></li>
+                    <li><a href="#">GIỚI THIỆU CHUNG</a></li>
+                    <li><a href="#">TẦM NHÌN - SỨ MỆNH</a></li>
+                    <li><a href="#">VÌ SAO CHỌN THANH VŨ MEDIC BẠC LIỆU</a></li>
+                    <li><a href="#">CẢM NGHĨ KHÁCH HÀNG</a></li>
                   </ul>
                 </li>
-                <li><a href="_TestEditor.php">DỊCH VỤ</a></li>
-                <li><a href="tintuc.php">TIN TỨC</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >DỊCH VỤ Y KHOA <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="chuyenkhoa.php">CÁC CHUYÊN KHOA</a></li>
+                    <li><a href="#">BẢNG GIÁ CHUNG</a></li>
+                    <li><a href="#">KIỂM TRA SỨC KHỎE TÔNG QUÁT</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >DÀNH CHO KHÁCH HÀNG <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">THANH TOÁN BẢO HIỂM</a></li>
+                    <li><a href="#">THẺ KHÁCH HÀNG</a></li>
+                    <li><a href="#">BỆNH ÁN ĐIỆN TỬ</a></li>
+                    <li><a href="#">HẸN LỊCH KHÁM</a></li>
+                    <li><a href="#">HƯỚNG DẪN KHÁCH KHÁM</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >TIN TỨC - SỰ KIỆN <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">CHƯƠNG TRÌNH ƯU ĐÃI</a></li>
+                    <li><a href="#">TIN TỨC - HOẠT ĐỘNG</a></li>
+                    <li><a href="#">BẢN TIN SỨC KHỎE</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >LIÊN HỆ <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">DANH BẠ ĐIỆN THOẠI</a></li>
+                    <li><a href="#">PHẢN HỒI KHÁCH HÀNG</a></li>
+                    <li><a href="#">SƠ ĐỒ 360</a></li>
+                    <li><a href="#">SƠ ĐỒ GOOGLE MAP</a></li>
+                  </ul>
+                </li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
