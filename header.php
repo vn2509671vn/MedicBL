@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.js"></script>
+  <script src="../bootstrap/js/function.js"></script>
   <!-- include summernote css/js-->
   <link href="../editorPlugin/summernote.css" rel="stylesheet">
   <script src="../editorPlugin/summernote.js"></script>
@@ -24,7 +25,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Tìm kiếm...">
                     <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">
+                        <button type="submit" class="btn btn-success">
                         <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
@@ -49,17 +50,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-default navbar-nav">
-                <li><a href="content.php">TRANG CHỦ</a></li>
-                <li class="dropdown">
+                <li id="homepage"><a href="content.php">TRANG CHỦ</a></li>
+                <li class="dropdown" id = "camnghi_kh">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >GIỚI THIỆU <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">GIỚI THIỆU CHUNG</a></li>
                     <li><a href="#">TẦM NHÌN - SỨ MỆNH</a></li>
                     <li><a href="#">VÌ SAO CHỌN THANH VŨ MEDIC BẠC LIỆU</a></li>
-                    <li><a href="#">CẢM NGHĨ KHÁCH HÀNG</a></li>
+                    <li><a href="camnghi_kh.php">CẢM NGHĨ KHÁCH HÀNG</a></li>
                   </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="chuyenkhoa">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >DỊCH VỤ Y KHOA <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="chuyenkhoa.php">CÁC CHUYÊN KHOA</a></li>
