@@ -4,6 +4,35 @@
       <hr class="divider">
       <div class="row">
           <div class="col-sm-12">
+            <a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-sm-12">
+            <a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-sm-12">
+            <a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-heading golden-background text-black">CHUYÊN KHOA MŨI NHỌN</div>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-eye-open"></span> KHOA NỘI</a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-eye-open"></span> KHOA NGOẠI</a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-eye-open"></span> KHOA SẢN</a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-eye-open"></span> KHOA NHI</a>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-12">
             <iframe width="100%" height="auto" src="../_html5/Project1.html"></iframe>
           </div>
       </div>

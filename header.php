@@ -14,13 +14,32 @@
   <link href="../editorPlugin/summernote.css" rel="stylesheet">
   <script src="../editorPlugin/summernote.js"></script>
 </head>
+<?php
+session_start();
+function checkLang(){
+  if (isset($_GET['lang'])){
+      $_SESSION['lang'] = $_GET['lang'];
+      $lang = $_SESSION['lang'];
+      return "../languages/$lang.php";
+  }
+  else if (isset($_SESSION['lang'])){
+     $lang = $_SESSION['lang'];
+     return "../languages/$lang.php";
+  }
+  else{
+    return "../languages/vi.php";
+  } 
+}
+
+require(checkLang());
+?>
 <body>
       <div class="container">
         <div class="col-md-6 col-xs-4">
           <img src="../images/logo/bl-logo-transparentsm.png" width="auto" height="80">
         </div>
         <div class="col-md-6 col-xs-8">
-          <h5 class="text-right non-marginTop">Language: <a href="#">VN</a> | <a href="#">EN</a></h5>
+          <h5 class="text-right non-marginTop"><?php echo $main['language']; ?>: <a href="#" id="Vi-lang"><?php echo $main['vi'];?></a> | <a href="#" id="En-lang"><?php echo $main['en'];?></a></h5>
           <form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Tìm kiếm...">
@@ -50,7 +69,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-default navbar-nav">
-                <li id="homepage"><a href="content.php">TRANG CHỦ</a></li>
+                <li id="homepage"><a href="homepage.php">TRANG CHỦ</a></li>
                 <li class="dropdown" id = "camnghi_kh">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >GIỚI THIỆU <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
@@ -64,7 +83,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >DỊCH VỤ Y KHOA <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="chuyenkhoa.php">CÁC CHUYÊN KHOA</a></li>
-                    <li><a href="#">BẢNG GIÁ CHUNG</a></li>
+                    <li><a href="banggia.php">BẢNG GIÁ CHUNG</a></li>
                     <li><a href="#">KIỂM TRA SỨC KHỎE TÔNG QUÁT</a></li>
                   </ul>
                 </li>
@@ -76,6 +95,7 @@
                     <li><a href="#">BỆNH ÁN ĐIỆN TỬ</a></li>
                     <li><a href="#">HẸN LỊCH KHÁM</a></li>
                     <li><a href="#">HƯỚNG DẪN KHÁCH KHÁM</a></li>
+                    <li><a href="#">LỊCH TRỰC BÁC SĨ</a></li>
                   </ul>
                 </li>
                 <li class="dropdown">

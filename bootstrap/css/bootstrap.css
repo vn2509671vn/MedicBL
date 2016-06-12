@@ -6929,4 +6929,27 @@ footer {
     margin-bottom: 0px !important;
 }
 
+.blue{
+  color: blue;
+}
+
+.panel-default > .panel-heading.golden-background{
+  background-color: #FFD700;
+}
+
+.panel-default > .panel-heading.text-black{
+  color: rgba(0, 0, 0, 0.94);
+}
+
+.text-black{
+  color: rgba(0, 0, 0, 0.94);
+}
+
+.blue-background{
+  background-color: blue;
+}
+
+.size-50{
+  font-size: 30px;
+}
 /*Add end ThangTGM*/

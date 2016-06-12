@@ -2419,4 +2419,24 @@ $(document).ready(function(){
 				}
       }); 
 		});
+    
+    $("#Vi-lang").click(function(){
+      window.location.href = "?lang=vi"; 
+    });
+
+    $("#En-lang").click(function(){
+      window.location.href = "?lang=en"; 
+    });
+    
+    // Add function dropdown hover
+    $(function(){
+      if($(window).width() > 768){
+        $('.dropdown').hover(function() {
+            $(this).addClass('open');
+        },
+        function() {
+            $(this).removeClass('open');
+        });
+      }
+    });
 })
