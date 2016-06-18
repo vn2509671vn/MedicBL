@@ -1,18 +1,27 @@
 <!-- Add start Header-->
 <?php require("../header.php");?>
 <!-- Add end Header-->
+<!-- Add start model-->
+<?php require("../models/right_content.php");
+  $chuyenkhoa_muinhon = getchuyenkhoa_muinhon($_SESSION['lang']);
+?>
+<!-- Add end model-->
 
 <div class="container text-center">    
   <div class="row">
     <br>
     <!-- Left content-->
-    <div class="col-sm-8">
+    <div class="col-md-8">
       <div class="col-sm-12">
-        <h3 class="text-left text-green">CÁC CHUYÊN KHOA</h3>
-        <hr class="divider">
+        <div class="row text-left">
+          <div class="col-sm-12">
+            <a class="text-left a-title"><?php echo $main['cacchuyenkhoa']; ?></a>
+          </div>
+        </div>
+        <br>
         <div class="row text-left">
           <!-- Test start -->
-              
+            <div class="col-md-12">
               <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                   <div class="panel-heading">
@@ -57,7 +66,7 @@
                   </div>
                 </div>
               </div>
-              
+            </div>
           <!-- Test end -->
         </div>
         </div>

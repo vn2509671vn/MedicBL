@@ -4,6 +4,9 @@
 <!-- Add start slider-->
 <?php require("../slider.php");?>
 <!-- Add end slider-->
+<!-- Add start services-->
+<?php require("../services.php");?>
+<!-- Add end services-->
 
 <div class="container text-center">    
   <div class="row">
@@ -73,6 +76,6 @@
 
 <!-- Add start script active menu-->
 <script type="text/javascript">
-    selectorMenu("camnghi_kh");
+    selectorMenu("gioithieu");
 </script>
 <!-- Add end script active menu-->

@@ -3,34 +3,34 @@
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="http://placehold.it/1200x400?text=IMAGE" alt="Image">
-        <div class="carousel-caption">
-          <h3>Sell $</h3>
-          <p>Money Money.</p>
-        </div>      
+        <img src="https://p.w3layouts.com/demos/hospice/web/images/banner1.jpg" alt="Image">
+        <!--<div class="carousel-caption">-->
+        <!--  <h3>Sell $</h3>-->
+        <!--  <p>Money Money.</p>-->
+        <!--</div>      -->
       </div>
 
       <div class="item">
-        <img src="http://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
-        <div class="carousel-caption">
-          <h3>More Sell $</h3>
-          <p>Lorem ipsum...</p>
-        </div>      
+        <img src="https://p.w3layouts.com/demos/hospice/web/images/banner2.jpg" alt="Image">
+        <!--<div class="carousel-caption">-->
+        <!--  <h3>More Sell $</h3>-->
+        <!--  <p>Lorem ipsum...</p>-->
+        <!--</div>      -->
       </div>
 
-      <div class="item">
-        <img src="http://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
-        <div class="carousel-caption">
-          <h3>More Sell $</h3>
-          <p>Mistake...</p>
-        </div>      
-      </div>
+      <!--<div class="item">-->
+      <!--  <img src="http://placehold.it/1200x400?text=Another Image Maybe" alt="Image">-->
+      <!--  <div class="carousel-caption">-->
+      <!--    <h3>More Sell $</h3>-->
+      <!--    <p>Mistake...</p>-->
+      <!--  </div>      -->
+      <!--</div>-->
     </div>
 
     <!-- Left and right controls -->

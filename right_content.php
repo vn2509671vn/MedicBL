@@ -1,7 +1,11 @@
     <!-- Right content-->
     <div class="col-sm-4">
-      <h3 class="text-left text-green">Tiện ích</h3>
-      <hr class="divider">
+      <div class="row text-left">
+        <div class="col-sm-12">
+          <a class="text-left a-title"><?php echo $main['tienich'];?></a>
+        </div>
+      </div>
+      <br>
       <div class="row">
           <div class="col-sm-12">
             <a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>
@@ -24,10 +28,9 @@
         <div class="col-sm-12">
           <div class="panel panel-default text-left">
             <div class="panel-heading golden-background text-black">CHUYÊN KHOA MŨI NHỌN</div>
-              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-eye-open"></span> KHOA NỘI</a>
-              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-eye-open"></span> KHOA NGOẠI</a>
-              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-eye-open"></span> KHOA SẢN</a>
-              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-eye-open"></span> KHOA NHI</a>
+            <?php while($list_chuyenkhoa_muinhon = mysql_fetch_assoc($chuyenkhoa_muinhon)): ?>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $list_chuyenkhoa_muinhon['name']; ?></a>
+            <?php endwhile;?>
             </div>
         </div>
       </div>
