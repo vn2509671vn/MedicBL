@@ -14,8 +14,12 @@
     <!-- Left content-->
     <div class="col-sm-8">
       <div class="col-sm-12">
-        <h3 class="text-left text-green">Cảm nghĩ khách hàng</h3>
-        <hr class="divider">
+        <div class="row text-left">
+          <div class="col-sm-12">
+            <a class="text-left a-title"><?php echo $main['camnghi']; ?></a>
+          </div>
+        </div>
+        <br>
         <div class="row text-left">
           <div class="col-sm-12">
             <h3 class="title">How to Fight Fraud with Artificial Intelligence and Intelligent Analytics</h3>
@@ -33,10 +37,15 @@
             <p class="text-muted">Presented by <a href="#">ThangTGM</a></p>
           </div>
         </div>
+        <hr class="divider">
       </div>
       <div class="col-sm-12">
-        <h3 class="text-left text-green">Gửi cảm nghĩ</h3>
-        <hr class="divider">
+        <div class="row text-left">
+          <div class="col-sm-12">
+            <a class="text-left a-title"><?php echo $main['guicamnghi']; ?></a>
+          </div>
+        </div>
+        <br>
         <form class="form-horizontal" role="form" method="post" action="#">
         	<div class="form-group">
         		<label for="name" class="col-sm-2 control-label">Họ Tên:</label>
@@ -67,6 +76,23 @@
     </div>
 
     <!-- Right content-->
+    <div class="col-sm-4">
+      <div class="row text-left">
+        <div class="col-sm-12">
+          <a class="text-left a-title"><?php echo $main['tienich'];?></a>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <a href="gioithieu.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> GIỚI THIỆU CHUNG</a>
+            <a href="tamnhinsumenh.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> TẦM NHÌN - SỨ MỆNH</a>
+            <a href="visaochontv.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> VÌ SAO CHỌN THANH VŨ MEDIC BẠC LIÊU</a>
+            <a href="camnghi_kh.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> CẢM NGHĨ KHÁCH HÀNG</a>
+          </div>
+        </div>
+      </div>
     <?php require("../right_content.php");?>
   </div>
 </div>

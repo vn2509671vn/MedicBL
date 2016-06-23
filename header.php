@@ -40,7 +40,7 @@ require('../config.php');
           <img class="img-responsive" src="../images/logo/logo.png" width="auto" height="80">
         </div>
         <div class="col-md-6 col-xs-8">
-          <h5 class="text-right non-marginTop"><?php echo $main['language']; ?>: <a href="#" id="Vi-lang"><?php echo $main['vi'];?></a> | <a href="#" id="En-lang"><?php echo $main['en'];?></a></h5>
+          <h5 class="text-right non-marginTop"><?php echo $main['language']; ?>: <a href="#" id="Vi-lang" class="<?php if($_SESSION['lang'] == 'en') echo 'non-active-language'; else echo 'active-language';?>"><?php echo $main['vi'];?></a> | <a href="#" id="En-lang" class="<?php if($_SESSION['lang'] == 'en') echo 'active-language'; else echo 'non-active-language';?>"><?php echo $main['en'];?></a></h5>
           <form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Tìm kiếm...">
@@ -75,8 +75,8 @@ require('../config.php');
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >GIỚI THIỆU <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="gioithieu.php">GIỚI THIỆU CHUNG</a></li>
-                    <li><a href="#">TẦM NHÌN - SỨ MỆNH</a></li>
-                    <li><a href="#">VÌ SAO CHỌN THANH VŨ MEDIC BẠC LIỆU</a></li>
+                    <li><a href="tamnhinsumenh.php">TẦM NHÌN - SỨ MỆNH</a></li>
+                    <li><a href="visaochontv.php">VÌ SAO CHỌN THANH VŨ MEDIC BẠC LIỆU</a></li>
                     <li><a href="camnghi_kh.php">CẢM NGHĨ KHÁCH HÀNG</a></li>
                   </ul>
                 </li>

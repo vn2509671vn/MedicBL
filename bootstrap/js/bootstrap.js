@@ -2413,9 +2413,15 @@ $(document).ready(function(){
 				if($(objectID).hasClass('in'))
 				{
            $(objectID).collapse('hide');
+           $(this).css({
+             'color':'black'
+           });
 				}
 				else{
            $(objectID).collapse('show');
+           $(this).css({
+             'color':'#ffc600'
+           });
 				}
       }); 
 		});

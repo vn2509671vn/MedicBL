@@ -1,12 +1,17 @@
 <!-- Add start Header-->
 <?php require("../header.php");?>
 <!-- Add end Header-->
+<!-- Add start slider-->
+<?php require("../slider.php");?>
+<!-- Add end slider-->
+<!-- Add start services-->
+<?php require("../services.php");?>
+<!-- Add end services-->
 <!-- Add start model-->
-<?php require("../models/right_content.php");
-  $chuyenkhoa_muinhon = getchuyenkhoa_muinhon($_SESSION['lang']);
+<?php require("../models/chuyenkhoa.php");
+$services = getservices($_SESSION['lang']);
 ?>
 <!-- Add end model-->
-
 <div class="container text-center">    
   <div class="row">
     <br>
@@ -23,48 +28,44 @@
           <!-- Test start -->
             <div class="col-md-12">
               <div class="panel-group" id="accordion">
+                <?php while($service = mysql_fetch_assoc($services)):?>
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="panel-title">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                        Collapsible Group Item #1 <i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
+                      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#<?php echo $service['services_id'];?>">
+                        <?php echo $service['name'];?> <i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
                       </a>
                     </h4>
                   </div>
-                  <div id="collapseOne" class="panel-collapse collapse in">
+                  <div id="<?php echo $service['services_id'];?>" class="panel-collapse collapse">
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      <?php $chuyenkhoa = getchuyenkhoa_byID($service['services_id'], $_SESSION['lang']);
+                            $num_rows_chuyenkhoa = mysql_num_rows($chuyenkhoa);
+                            $num_cols = $num_rows_chuyenkhoa/8; // 8 items/column
+                            $current_row = 0;
+                            while($list_chuyenkhoa = mysql_fetch_assoc($chuyenkhoa)):
+                      ?>
+                      <?php if($current_row == 0 || $current_row == 8 || $current_row == 16 || $current_row == 24):?>
+                      <div class="col-md-6">
+                        <ul>
+                          <?php $flag = TRUE;?>
+                      <?php endif;?>
+                          <li><a href="chuyenkhoa_chitiet.php?id=<?php echo $list_chuyenkhoa['chuyenkhoa_id'];?>"><?php echo $list_chuyenkhoa['name'];?></a></li>
+                      <?php $current_row += 1;?>
+                      <?php if($current_row == 8 || $current_row == 16 || $current_row == 24 || $current_row == 32):?>
+                        </ul>
+                      </div>
+                      <?php $flag = FALSE;?>
+                      <?php endif;?>
+                      <?php endwhile;?>
+                      <?php if($flag): ?>
+                        </ul>
+                      </div>
+                      <?php endif;?>
                     </div>
                   </div>
                 </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                         Collapsible Group Item #2 <i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseTwo" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                    </div>
-                  </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                        Collapsible Group Item #3 <i class="indicator glyphicon glyphicon-chevron-up pull-right"></i>
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseThree" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                    </div>
-                  </div>
-                </div>
+                <?php endwhile;?>
               </div>
             </div>
           <!-- Test end -->
@@ -73,7 +74,26 @@
       </div>
 
     <!-- Add start right content-->
-    <?php require("../right_content.php");?>
+    <div class="col-sm-4">
+      <div class="col-sm-12">
+        <div class="row text-left">
+          <div class="col-sm-12">
+            <a class="text-left a-title"><?php echo $main['tienich'];?></a>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-default text-left">
+              <a href="chuyenkhoa.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> CÁC CHUYÊN KHOA</a>
+              <a href="banggia.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> BẢNG GIÁ CHUNG</a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> KIỂM TRA SỨC KHỎE TỔNG QUÁT</a>
+            </div>
+          </div>
+        </div>
+      <?php require("../right_content.php");?>
+      </div>
+    </div>
     <!-- Add end right content-->
   </div>
 </div>
