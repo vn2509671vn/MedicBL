@@ -141,7 +141,7 @@ if(!isset($_SESSION['ses_name'])){
                         <a href="#"><i class="fa fa-desktop "></i>Departments Doctors<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="function/general/department_type/index.php"><i class="fa fa-toggle-on"></i>Department Type</a>
+                                <a href="function/general/department_doctor/index.php"><i class="fa fa-toggle-on"></i>Department Doctor</a>
                             </li>
                             <li>
                                 <a href="function/general/department/index.php"><i class="fa fa-toggle-on"></i>Department</a>

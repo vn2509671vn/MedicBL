@@ -26,7 +26,7 @@ $posts = get_4new_post();
         <br>
         <?php while($post = mysql_fetch_assoc($posts)): ?>
         <div class="row text-left">
-          <div class="col-sm-4"><a href="#" class=""><img src="<?php echo $post['post_image'];?>" class="img-responsive"></a>
+          <div class="col-sm-4"><a href="#" class=""><img src="../admin/upload/tintuc/<?php echo $post['post_image'];?>" style="width:220px; height:163px" class="img-responsive"></a>
           </div>
           <div class="col-sm-8">
             <h4 class="title"><a href="#"><?php echo $post['post_title'];?></a></h4>

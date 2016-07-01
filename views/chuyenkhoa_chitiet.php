@@ -11,7 +11,7 @@
 <?php require("../models/chuyenkhoa.php");
 require("../models/doctors.php");
 $infoDetail = mysql_fetch_array(getchuyenkhoa_detail($_GET['id'] ,$_SESSION['lang']));
-$listDoctors = getdotors_bychuyenkhoaID($_GET['id']);
+$listDoctors = getdotors_bychuyenkhoaID($_GET['id'], $_SESSION['lang']);
 $listChuyenkhoa = getchuyenkhoa_byID($infoDetail['services_id'], $_SESSION['lang']);
 ?>
 <!-- Add end model-->
@@ -31,8 +31,8 @@ $listChuyenkhoa = getchuyenkhoa_byID($infoDetail['services_id'], $_SESSION['lang
           <!-- Test start -->
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home">Giới thiệu</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Đội ngũ bác sĩ</a></li>
+                    <li class="active"><a data-toggle="tab" href="#home"><?php echo $main['gioithieu'];?></a></li>
+                    <li><a data-toggle="tab" href="#menu1"><?php echo $main['doingubacsi'];?></a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="home" class="tab-pane fade in active">
@@ -40,15 +40,15 @@ $listChuyenkhoa = getchuyenkhoa_byID($infoDetail['services_id'], $_SESSION['lang
                       <?php echo $infoDetail['descript']; ?>
                     </div>
                     <div id="menu1" class="tab-pane fade">
-                      <h3>Đội ngũ bác sĩ</h3>
-                      <div class="row">
+                      <!--<h3>Đội ngũ bác sĩ</h3>-->
+                      <div class="row margin-mid-5">
                         <?php while($doctor_list = mysql_fetch_array($listDoctors)):?>
                           <div class="col-sm-6 col-md-4 col-xs-12">
                             <div class="thumbnail">
-                              <img src="<?php echo $doctor_list['image']?>" alt="...">
+                              <img src="<?php echo $doctor_list['image']?>" alt="..." class="height-157">
                               <div class="caption">
-                                <h3><?php echo $doctor_list['doctor_name']?></h3>
-                                <p><a href="#" class="btn btn-primary" role="button">Chi tiết</a></p>
+                                <h3><?php echo $doctor_list['name']?></h3>
+                                <p><a href="#" class="btn btn-primary" role="button"><?php echo $main['chitiet'];?></a></p>
                               </div>
                             </div>
                           </div>

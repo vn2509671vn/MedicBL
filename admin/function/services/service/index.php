@@ -33,10 +33,19 @@ if (!isset($_SESSION['ses_name'])) {
     <script type="text/javascript" src="../../../assets/editor/ckfinder/ckfinder.js" ></script>
     <script type="text/javascript" src="../../../assets/js/jquery-1.11.3-jquery.min.js"></script>
     <script type="text/javascript">
+        $(document).ready(function(){
+        $("select").change(function(){
+            $(this).find("option:selected").each(function(){
+                //$(this).attr("value")
+                
+            });
+        }).change();
+        });
+        </script>
+    <script type="text/javascript">
         $(document).ready(function () {
 
             $("#btn-view").hide();
-
             $("#btn-add").click(function () {
                 $(".content-loader").fadeOut('slow', function () {
                     $(".content-loader").fadeIn('slow');
@@ -148,7 +157,7 @@ if (!isset($_SESSION['ses_name'])) {
                         <a href="#"><i class="fa fa-yelp "></i>Departments Doctors <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../general/department_type/index.php"><i class="fa fa-toggle-on"></i>Department Type</a>
+                                <a href="../../general/department_doctor/index.php"><i class="fa fa-toggle-on"></i>Department Doctor</a>
                             </li>
                             <li>
                                 <a href="../../general/department/index.php"><i class="fa fa-coffee"></i>Department</a>

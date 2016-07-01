@@ -2,6 +2,10 @@
     #dis {
         display: none;
     }
+    #eventForm .form-control-feedback {
+    top: 0;
+    right: -15px;
+}
 </style>
 
 
@@ -13,7 +17,7 @@
 <form method='post' enctype="multipart/form-data"  id='emp-SaveForm' action="#">
 
     <table class='table table-bordered'>
-
+        <input id="post_temp" type="text" value="1" name="post_temp" style='display:none;'  readonly="readonly"/>
         <tr>
             <td>
                 <label class="control-label">Post Title VN</label>
@@ -99,14 +103,24 @@
                 </script>
             </td>
         </tr>
-        <tr>
+        <div class="form-group">
             <td>
-                <label class="control-label">Upload Images</label>
+                <label class="control-label">Post Image</label>
             </td>
             <td>
-                <input class="input-group" type="file" name="post_image">
-            </td>
-        </tr>
+                <div class="">
+                             <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="post_image" type="file"></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                             <input type="button" class="btn btn-info" value="Upload" onclick = "return addPost()"/>
+                </div>
+            </td>    
+                        
+         </div>
         <tr>
             <td>
                 <label class="control-label">Post Status</label>

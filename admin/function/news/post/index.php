@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 include("../../../../connect/config.php");
 if (!isset($_SESSION['ses_name'])) {
@@ -21,11 +21,53 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../..//assets/css/font-awesome.css" rel="stylesheet"/>    <!--CUSTOM BASIC STYLES-->
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
     <link href="../../../assets/css/custom.css" rel="stylesheet"/>
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../assets/css/bootstrap-fileupload.min.css" type="text/css" /> <!--  Thêm vào ngày 30/06/2016 -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link href="../../../assets/img/icon/icon_bv.ico" rel="shortcut icon" type="image/x-icon"/>
     <script type="text/javascript" src="../../../assets/editor/ckeditor/ckeditor.js" ></script>
     <script type="text/javascript" src="../../../assets/editor/ckfinder/ckfinder.js" ></script>
     <script type="text/javascript" src="../../../assets/js/jquery-1.11.3-jquery.min.js"></script>
+    <script type="text/javascript">
+    function addPost(){
+         var data = new FormData($('#emp-SaveForm')[0]);
+            $.ajax({
+				    type:"POST",
+                    url:"insert.php",
+                    data:data,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
+                      {
+            				var image = data;
+                            document.getElementById('post_temp').value = image;
+                            alert("Uploaded Image: " + image);
+                       }
+        				});
+      
+    }
+    function changePost(){
+         var data = new FormData($('#emp-UpdateForm')[0]);
+            $.ajax({
+				    type:"POST",
+                    url:"insert.php",
+                    data:data,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
+                      {
+            				var image = data;
+                            document.getElementById('post_temp').value = image;
+                            alert("Uploaded Image: " + image);
+                       }
+        				});
+      
+    }
+</script>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -80,6 +122,7 @@ if (!isset($_SESSION['ses_name'])) {
                     class="fa fa-envelope-o fa-2x"></i></a>
             <a href="../../booking/book.php" class="btn btn-primary" title="New Booking"><b>40 </b><i
                     class="fa fa-bars fa-2x"></i></a>
+                    
             <a href="../../../logout.php" onclick="return check()" class="btn btn-danger" title="Logout"><i
                     class="fa fa-exclamation-circle fa-2x"></i></a>
 
@@ -142,16 +185,16 @@ if (!isset($_SESSION['ses_name'])) {
                         <a href="#"><i class="fa fa-yelp "></i>Departments Doctors <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../general/department_type/index.php"><i class="fa fa-toggle-on"></i>Department Type</a>
+                                <a href="../../general/department_doctor/index.php"><i class="fa fa-toggle-on"></i>Department Doctor</a>
                             </li>
                             <li>
-                                <a href="../../general/department.php"><i class="fa fa-coffee"></i>Department</a>
+                                <a href="../../general/department.index.php"><i class="fa fa-coffee"></i>Department</a>
                             </li>
                             <li>
-                                <a href="../../general/doctor.php"><i class="fa fa-flash "></i>Doctors</a>
+                                <a href="../../general/doctor/index.php"><i class="fa fa-flash "></i>Doctors</a>
                             </li>
                             <li>
-                                <a href="../../general/speciality.php"><i class="fa fa-key "></i>Specialities</a>
+                                <a href="../../general/speciality/index.php"><i class="fa fa-key "></i>Specialities</a>
                             </li>
                         </ul>
                     </li>
@@ -263,8 +306,9 @@ if (!isset($_SESSION['ses_name'])) {
                                 <?php
                                 require_once '../../../../connect/dbconfig.php';
 
-                                $stmt = $db_con->prepare("SELECT * FROM posts ORDER BY post_date DESC");
+                                $stmt = $db_con->prepare("SELECT * FROM posts p left join category cat on p.cat_id = cat.cat_id ORDER BY p.post_date desc, p.cat_id ASC");
                                 $stmt->execute();
+                                $count =1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $post_title = $row['post_title'];
                                     $post_title = substr($post_title,0,80) . '...';
@@ -281,7 +325,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     $post_excerpt_en = substr($post_excerpt_en,0,80) . '...';
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['post_id']; ?></td>
+                                        <td><?php echo $count; ?></td>
                                         <td><?php echo $post_title; ?></td>
                                         <td><?php echo $post_title_en; ?></td>
                                         <td><?php echo $post_excerpt; ?></td>
@@ -289,7 +333,7 @@ if (!isset($_SESSION['ses_name'])) {
                                         <td><?php echo $post_content; ?></td>
                                         <td><?php echo $post_content_en; ?></td>
                                         <td><?php echo $row['post_image']; ?></td>
-                                        <td><?php echo $row['cat_id']; ?></td>
+                                        <td><?php echo $row['cat_title_vn']; ?></td>
                                         <td><?php echo $row['post_count']; ?></td>
                                         <td><?php echo $row['post_date']; ?></td>
                                         <td><?php echo $row['post_status']; ?></td>
@@ -304,6 +348,8 @@ if (!isset($_SESSION['ses_name'])) {
                                             </a></td>
                                     </tr>
                                     <?php
+                                    $count = $count + 1;
+                                    
                                 }
                                 ?>
                                 </tbody>
@@ -340,6 +386,7 @@ if (!isset($_SESSION['ses_name'])) {
 <script src="../../../assets/js/jquery-1.12.3.min.js"></script>
 <script src="../../../assets/js/crud.js" type="text/javascript"></script>
 <script src="../../../assets/js/jquery.dataTables.min.js"></script>
+<script src="../../../assets/js/bootstrap-fileupload.js"></script>   <!--- Moi them vao ngay 2606  -->
 <!--<script src="../../../assets/css/bootstrap.min.css"></script>-->
 <script type="text/javascript" src="../../../assets/js/datatables.min.js"></script>-->
 

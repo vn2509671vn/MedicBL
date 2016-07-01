@@ -47,10 +47,10 @@ $hosInfo = mysql_fetch_array(getvisaochontv($_SESSION['lang']));
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
-              <a href="gioithieu.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> GIỚI THIỆU CHUNG</a>
-              <a href="tamnhinsumenh.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> TẦM NHÌN - SỨ MỆNH</a>
-              <a href="visaochontv.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> VÌ SAO CHỌN THANH VŨ MEDIC BẠC LIÊU</a>
-              <a href="camnghi_kh.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> CẢM NGHĨ KHÁCH HÀNG</a>
+              <a href="gioithieu.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['gioithieuchung']; ?></a>
+              <a href="tamnhinsumenh.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['tamnhinsumenh']; ?></a>
+              <a href="visaochontv.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['visaochon']; ?></a>
+              <a href="camnghi_kh.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['camnghi']; ?></a>
             </div>
           </div>
         </div>

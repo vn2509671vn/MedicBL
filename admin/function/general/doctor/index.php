@@ -20,6 +20,9 @@ if (!isset($_SESSION['ses_name'])) {
 
     <!-- BOOTSTRAP STYLES-->
     <link href="../../../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../assets/css/datepicker.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/css/datepicker3.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/css/bootstrap-fileupload.min.css" type="text/css" />
     <!-- FONTAWESOME STYLES-->
     <link href="../../..//assets/css/font-awesome.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
@@ -33,8 +36,47 @@ if (!isset($_SESSION['ses_name'])) {
     <script type="text/javascript" src="../../../assets/editor/ckfinder/ckfinder.js" ></script>
     <script type="text/javascript" src="../../../assets/js/jquery-1.11.3-jquery.min.js"></script>
     <script type="text/javascript">
+    function changeBusiness(){
+         var data = new FormData($('#emp-SaveForm')[0]);
+            $.ajax({
+				    type:"POST",
+                    url:"insert.php",
+                    data:data,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
+                      {
+            				var image = data;
+                            document.getElementById('doctor_temp').value = image;
+                            alert("Uploaded Image: " + image);
+                       }
+        				});
+      
+    }
+    function changeDoctor(){
+         var data = new FormData($('#emp-UpdateForm')[0]);
+            $.ajax({
+				    type:"POST",
+                    url:"insert.php",
+                    data:data,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
+                      {
+            				var image = data;
+                            document.getElementById('doctor_temp').value = image;
+                            alert("Uploaded Image: " + image);
+                       }
+        				});
+      
+    }
+</script>
+    <script type="text/javascript">
         $(document).ready(function () {
-
             $("#btn-view").hide();
 
             $("#btn-add").click(function () {
@@ -57,11 +99,6 @@ if (!isset($_SESSION['ses_name'])) {
 
         });
     </script>
-    <script type="text/javascript">
-                    $(function () {
-                        $('#date').datetimepicker();
-                    });
-                </script>
     <script type="text/javascript">
         function check() {
             if (confirm("Bạn thật sự muốn thoát ?")) {
@@ -153,16 +190,16 @@ if (!isset($_SESSION['ses_name'])) {
                         <a class="active-menu-top" href="#"><i class="fa fa-yelp "></i>Departments Doctors <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse in">
                             <li>
-                                <a href="../department_type/index.php"><i class="fa fa-toggle-on"></i>Department Type</a>
+                                <a href="../department_doctor/index.php"><i class="fa fa-toggle-on"></i>Department Doctor</a>
                             </li>
                             <li>
                                 <a href="../department/index.php"><i class="fa fa-coffee"></i>Department</a>
                             </li>
                             <li>
-                                <a class="active-menu" href="index.php"><i class="fa fa-flash "></i>Doctors</a>
+                                <a class="active-menu" href="../doctor/index.php"><i class="fa fa-flash "></i>Doctors</a>
                             </li>
                             <li>
-                                <a href="../speciality/index.php"><i class="fa fa-key "></i>Specialities</a>
+                                <a  href="../speciality/index.php"><i class="fa fa-key "></i>Specialities</a>
                             </li>
                         </ul>
                     </li>
@@ -258,14 +295,14 @@ if (!isset($_SESSION['ses_name'])) {
                                     <th>Doctor Name VN</th>
                                     <th>Doctor Name EN</th>
                                     <th>Doctor Born</th>
-                                    <th>Doctor Speciality ID</th>
+                                    <th>Doctor Speciality</th>
                                     <th>Doctor Image</th>
                                     <th>Doctor Experience VN</th>
                                     <th>Doctor Experience EN</th>
                                     <th>Doctor Call</th>
                                     <th>Doctor Qualification VN</th>
                                     <th>Doctor Qualification EN</th>
-                                    <th>Doctor ChuyenKhoa ID</th>
+                                    <th>Doctor ChuyenKhoa</th>
                                     <th>edit</th>
                                     <th>delete</th>
                                 </tr>
@@ -274,13 +311,15 @@ if (!isset($_SESSION['ses_name'])) {
                                 <?php
                                 require_once '../../../../connect/dbconfig.php';
 
-                                $stmt = $db_con->prepare("SELECT * FROM doctors ORDER BY doctor_id DESC");
+                                $stmt = $db_con->prepare("SELECT * FROM doctors dt 
+                                left join specialities sp on dt.doctor_speciality_id = sp.speciality_id
+                                left join chuyenkhoa ck on dt.chuyenkhoa_id = ck.chuyenkhoa_id ORDER BY doctor_id DESC");
                                 $stmt->execute();
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $doctor_name_vn = $row['doctor_name_vn'];
                                     $doctor_name_en = $row['doctor_name_en'];
                                     $doctor_porn = $row['doctor_born'];
-                                    $doctor_speciality_id = $row['doctor_speciality_id'];
+                                    $doctor_speciality_id = $row['speciality_name'];
                                     $doctor_image = $row['doctor_image'];
                                     $doctor_experience_vn = $row['doctor_experience_vn'];
                                     $doctor_experience_vn = substr($doctor_experience_vn,0,80) . '...';
@@ -291,7 +330,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     $doctor_qualification_vn = substr($doctor_qualification_vn,0,80) . '...';
                                     $doctor_qualification_en = $row['doctor_qualification_en'];
                                     $doctor_qualification_en = substr($doctor_qualification_en,0,80) . '...';
-                                    
+                                    $doctor_chuyenkhoa_id = $row['chuyenkhoa_name'];
                                     ?>
                                     <tr>
                                         <td><?php echo $row['doctor_id']; ?></td>
@@ -305,7 +344,7 @@ if (!isset($_SESSION['ses_name'])) {
                                         <td><?php echo $doctor_call; ?></td>
                                         <td><?php echo $doctor_qualification_vn; ?></td>
                                         <td><?php echo $doctor_qualification_en; ?></td>
-                                        <td><?php echo $doctor_name_vn; ?></td>
+                                        <td><?php echo $doctor_chuyenkhoa_id; ?></td>
                                         <td align="center">
                                             <a id="<?php echo $row['doctor_id']; ?>" class="edit-link" href="#"
                                                title="Edit">
@@ -350,16 +389,15 @@ if (!isset($_SESSION['ses_name'])) {
 <!-- CUSTOM SCRIPTS -->
 <script src="../../../assets/js/custom.js"></script>
 <script src="../../../assets/js/jquery-1.12.3.min.js"></script>
+<script src="../../../assets/js/bootstrap-fileupload.js"></script>   <!--- Moi them vao ngay 2606  -->
 <script src="../../../assets/js/crud.js" type="text/javascript"></script>
 <script src="../../../assets/js/jquery.dataTables.min.js"></script>
-<!--<script src="bootstrap/js/bootstrap.min.css"></script>-->
-<script type="text/javascript" src="../../../assets/js/datatables.min.js"></script>-->
-
+<script type="text/javascript" src="../../../assets/js/datatables.min.js"></script>
+<script type="text/javascript" src="../../../assets/js/bootstrap-datepicker.min.js"></script>
 
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
         $('#user').DataTable();
-
         $('#user')
             .removeClass('display')
             .addClass('table table-bordered');

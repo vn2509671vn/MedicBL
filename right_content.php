@@ -32,7 +32,7 @@ $chuyenkhoa_muinhon = getchuyenkhoa_muinhon($_SESSION['lang']);
       <div class="row">
         <div class="col-sm-12">
           <div class="panel panel-default text-left">
-            <div class="panel-heading golden-background text-black">CHUYÊN KHOA MŨI NHỌN</div>
+            <div class="panel-heading golden-background text-black"><?php echo $main['chuyenkhoamuinhon'];?></div>
             <?php while($list_chuyenkhoa_muinhon = mysql_fetch_assoc($chuyenkhoa_muinhon)): ?>
               <a href="#" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $list_chuyenkhoa_muinhon['name']; ?></a>
             <?php endwhile;?>

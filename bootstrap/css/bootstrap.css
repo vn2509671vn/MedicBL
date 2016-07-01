@@ -6961,6 +6961,10 @@ footer {
   background-color: blue;
 }
 
+.gray-background{
+  background: #f2f2f2;
+}
+
 .size-50{
   font-size: 30px;
 }
@@ -6983,7 +6987,7 @@ footer {
 
 .a-title:hover {
   text-decoration: none;
-  color: black;
+  color: black !important;
 }
 
 .non-active-language{
@@ -6998,10 +7002,59 @@ footer {
   color: #ffc600;
 }
 
+.color-black{
+  color: black;
+}
+
 .list-group-item.active-item, .list-group-item.active-item:hover, .list-group-item.active-item:focus{
     z-index: 2;
     color: #fff;
     background-color: #f7bb1a;
     border-color: #f5be13;
+}
+
+.width-100per{
+  width: 100% !important;
+}
+
+.non-underline{
+  text-decoration: none !important;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.padding-left-0 {
+    padding-left: 0px;
+  }
+
+.padding-right-0 {
+    padding-right: 0px;
+  }
+
+.golden-background {
+  background-color: #ffc600 !important;
+} 
+
+.height-157 {
+  height: 157px !important;
+}
+@media (min-width: 768px){
+  .font-size-12 {
+    padding-left: 0px;
+  }
+  
+  .navbar-nav.border-right > li {
+    border-right: 1px solid #ffc600;
+  }
+  
+  .navbar-nav.border-right > li:last-child {
+    border-right: none;
+  }
+  
+  .width-40per{
+    width: 40% !important;
+  }
 }
 /*Add end ThangTGM*/

@@ -1,26 +1,26 @@
     <!-- Right content-->
-    <div class="col-sm-4">
-      <div class="col-sm-12">
+    <div class="col-md-4">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12 col-sd-12 col-xs-12">
             <a class="text-left a-title"><?php echo $main['tienich'];?></a>
           </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-12 col-sd-12 col-xs-12">
               <iframe width="100%" height="auto" src="../_html5/Project1.html"></iframe>
             </div>
         </div>
         <br>
          <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-12 col-sd-12 col-xs-12">
               <iframe width="100%" height="auto" src="../_html5/Project1.html"></iframe>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-12 col-sd-12 col-xs-12">
               <iframe width="100%" height="315px" src="https://www.youtube.com/embed/aWILjDmNtfk" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>

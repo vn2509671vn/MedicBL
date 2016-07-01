@@ -7,6 +7,7 @@ include("../../../../connect/dbconfig.php");
     date_default_timezone_set('Asia/Ho_Chi_Minh');
     $date  = date('Y-m-d H:i:s');
     $post_title = $_POST['post_title'];
+    $userpic = $_POST['post_temp'];
     $post_title_en = $_POST['post_title_en'];
     $post_content = $_POST['post_content'];
     $post_content_en = $_POST['post_content_en'];

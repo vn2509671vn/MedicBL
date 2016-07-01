@@ -148,7 +148,7 @@ if (!isset($_SESSION['ses_name'])) {
                         <a class="active-menu-top" href="#"><i class="fa fa-yelp "></i>Departments Doctors <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse in">
                             <li>
-                                <a href="../department_type/index.php"><i class="fa fa-toggle-on"></i>Department Type</a>
+                                <a href="../department_doctor/index.php"><i class="fa fa-toggle-on"></i>Department Doctor</a>
                             </li>
                             <li>
                                 <a href="../department/index.php"><i class="fa fa-coffee"></i>Department</a>

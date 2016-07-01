@@ -3,6 +3,10 @@
 #dis{
 	display:none;
 }
+#eventForm .form-control-feedback {
+    top: 0;
+    right: -15px;
+}
 </style>
 
 
@@ -16,7 +20,8 @@
 	 <form method='post' id='emp-SaveForm' action="#">
  
     <table class='table table-bordered'>
- 
+        <input id="department_temp" type="text" value="1" name="department_temp" style='display:none;'  readonly="readonly"/>
+        <input id="department_position_temp" type="text" value="1" name="department_position_temp" style='display:none;'  readonly="readonly"/>
         <tr>
             <td>Department Name VN</td>
             <td><input type='text' name='department_name_vn' class='form-control' placeholder='EX : Nội tim mạch' required /></td>
@@ -54,25 +59,53 @@
                 </script>
             </td>
         </tr>
-        <tr>
-            <td>Department Image</td>
-            <td><input type='file' name='department_images' class='form-control' required></td>
-        </tr>
-        <tr>
-            <td>Department Position</td>
-            <td><input type='file' name='department_postion' class='form-control' required></td>
-        </tr>
-        <tr>
-            <td>Department Type</td>
+        <tr class="form-group">
             <td>
-                <select name="department_type_id" class="form-control">
+                <label class="control-label">Department Image</label>
+            </td>
+            <td>
+                <div class="">
+                             <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="department_image" type="file"></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                             <input type="button" class="btn btn-info" value="Upload" onclick = "return addDepartment()"/>
+                </div>
+            </td>    
+                        
+         </tr>
+        <tr class="form-group">
+            <td>
+                <label class="control-label">Department Position Image</label>
+            </td>
+            <td>
+                <div class="">
+                             <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="department_position_image" type="file"></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                             <input type="button" class="btn btn-info" value="Upload" onclick = "return addDepartment_Position()"/>
+                </div>
+            </td>    
+                        
+         </tr>
+        <tr>
+            <td>Department ChuyenKhoa</td>
+            <td>
+                <select name="chuyenkhoa_id" class="form-control">
                     <?php
                     require_once '../../../../connect/dbconfig.php';
-                    $stmt = $db_con->prepare("SELECT * FROM department_type");
+                    $stmt = $db_con->prepare("SELECT * FROM chuyenkhoa");
                     $stmt->execute();
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         ?>
-                        <option value="<?php echo $row['department_type_id']; ?>"><?php echo $row['department_type_name_vn']; ?></option>
+                        <option value="<?php echo $row['chuyenkhoa_id']; ?>"><?php echo $row['chuyenkhoa_name']; ?></option>
                         <?php
                     }
                     ?>

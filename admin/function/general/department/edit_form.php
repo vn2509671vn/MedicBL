@@ -7,7 +7,7 @@ if($_GET['edit_id'])
 	$stmt=$db_con->prepare("SELECT * FROM department WHERE department_id=:id");
 	$stmt->execute(array(':id'=>$id));	
 	$row=$stmt->fetch(PDO::FETCH_ASSOC);
-	$department_type = $row['department_type_id'];
+	$department_chuyenkhoa_id= $row['department_chuyenkhoa_id'];
 }
 
 ?>
@@ -79,16 +79,16 @@ if($_GET['edit_id'])
             <td><input type='file' name='department_postion' class='form-control' required></td>
         </tr>
         <tr>
-            <td>Department Type</td>
+            <td>Department Chuyenkhoa</td>
             <td>
-                <select name="department_type_id" class="form-control">
+                <select name="department_chuyenkhoa_id" class="form-control">
                     <?php
                     require_once '../../../../connect/dbconfig.php';
-                    $stmt = $db_con->prepare("SELECT * FROM department_type");
+                    $stmt = $db_con->prepare("SELECT * FROM chuyenkhoa");
                     $stmt->execute();
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         ?>
-                        <option <?php if($row[department_type_id] == $department_type) {echo 'selected';} ?> value="<?php echo $row['department_type_id']; ?>"><?php echo $row['department_type_name_vn']; ?></option>
+                        <option <?php if($row['chuyenkhoa_id'] == $department_chuyenkhoa_id) {echo 'selected';} ?> value="<?php echo $row['chuyenkhoa_id']; ?>"><?php echo $row['chuyenkhoa_name']; ?></option>
                         <?php
                     }
                     ?>

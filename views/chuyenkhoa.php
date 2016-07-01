@@ -85,9 +85,9 @@ $services = getservices($_SESSION['lang']);
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-default text-left">
-              <a href="chuyenkhoa.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> CÁC CHUYÊN KHOA</a>
-              <a href="banggia.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> BẢNG GIÁ CHUNG</a>
-              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> KIỂM TRA SỨC KHỎE TỔNG QUÁT</a>
+              <a href="chuyenkhoa.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['cacchuyenkhoa'];?></a>
+              <a href="banggia.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['bangiadichvu'];?></a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['kiemtrasuckhoe'];?></a>
             </div>
           </div>
         </div>

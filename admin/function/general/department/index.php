@@ -22,6 +22,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../../assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
     <link href="../../..//assets/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../assets/css/bootstrap-fileupload.min.css" type="text/css" />
     <!--CUSTOM BASIC STYLES-->
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
@@ -32,6 +33,84 @@ if (!isset($_SESSION['ses_name'])) {
     <script type="text/javascript" src="../../../assets/editor/ckeditor/ckeditor.js" ></script>
     <script type="text/javascript" src="../../../assets/editor/ckfinder/ckfinder.js" ></script>
     <script type="text/javascript" src="../../../assets/js/jquery-1.11.3-jquery.min.js"></script>
+    <script type="text/javascript">
+    function addDepartment(){
+         var data = new FormData($('#emp-SaveForm')[0]);
+            $.ajax({
+				    type:"POST",
+                    url:"insert.php",
+                    data:data,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
+                      {
+            				var image = data;
+                            document.getElementById('department_temp').value = image;
+                            alert("Uploaded Image: " + image);
+                       }
+        				});
+      
+    }
+    function changeDepartment(){
+         var data = new FormData($('#emp-UpdateForm')[0]);
+            $.ajax({
+				    type:"POST",
+                    url:"insert.php",
+                    data:data,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
+                      {
+            				var image = data;
+                            document.getElementById('department_temp').value = image;
+                            alert("Uploaded Image: " + image);
+                       }
+        				});
+      
+    }
+    function addDepartment_Position(){
+         var data = new FormData($('#emp-SaveForm')[0]);
+            $.ajax({
+				    type:"POST",
+                    url:"insert.php",
+                    data:data,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
+                      {
+            				var image_department = data;
+                            document.getElementById('department_position_temp').value = image_department;
+                            alert("Uploaded Image: " + image_department);
+                       }
+        				});
+      
+    }
+    function changeDepartment_Position(){
+         var data = new FormData($('#emp-UpdateForm')[0]);
+            $.ajax({
+				    type:"POST",
+                    url:"insert.php",
+                    data:data,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
+                      {
+            				var image = data;
+                            document.getElementById('department_position_temp').value = image;
+                            alert("Uploaded Image: " + image);
+                       }
+        				});
+      
+    }
+</script>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -148,7 +227,7 @@ if (!isset($_SESSION['ses_name'])) {
                         <a class="active-menu-top" href="#"><i class="fa fa-yelp "></i>Departments Doctors <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse in">
                             <li>
-                                <a href="../department_type/index.php"><i class="fa fa-toggle-on"></i>Department Type</a>
+                                <a href="../department_doctor/index.php"><i class="fa fa-toggle-on"></i>Department Doctor</a>
                             </li>
                             <li>
                                 <a class="active-menu" href="index.php"><i class="fa fa-coffee"></i>Department</a>
@@ -256,7 +335,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     <th>Department Description EN</th>
                                     <th>Department Images</th>
                                     <th>Department Position</th>
-                                    <th>Department Type</th>
+                                    <th>Department ChuyenKhoa</th>
                                     <th>edit</th>
                                     <th>delete</th>
                                 </tr>
@@ -265,7 +344,7 @@ if (!isset($_SESSION['ses_name'])) {
                                 <?php
                                 require_once '../../../../connect/dbconfig.php';
 
-                                    $stmt = $db_con->prepare("SELECT * FROM department dp left join department_type dt on dp.department_type_id = dt.department_type_id ORDER BY department_id DESC");
+                                    $stmt = $db_con->prepare("SELECT * FROM department dp left join chuyenkhoa ck on dp.department_chuyenkhoa_id = ck.chuyenkhoa_id ORDER BY department_id DESC");
                                 $stmt->execute();
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $department_id = $row['department_id'];
@@ -277,7 +356,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     $department_descript_en = substr($department_descript_en,0,80) . '...';
                                     $department_images = $row['department_images'];
                                     $department_position = $row['department_position'];
-                                    $department_type_id = $row['department_type_name_vn'];
+                                    $department_chuyenkhoa_id = $row['chuyenkhoa_name'];
                                     ?>
                                     <tr>
                                         <td><?php echo $department_id; ?></td>
@@ -287,7 +366,7 @@ if (!isset($_SESSION['ses_name'])) {
                                         <td><?php echo $department_descript_en; ?></td>
                                         <td><?php echo $department_images; ?></td>
                                         <td><?php echo $department_position; ?></td>
-                                        <td><?php echo $department_type_id; ?></td>
+                                        <td><?php echo $department_chuyenkhoa_id; ?></td>
                                         <td align="center">
                                             <a id="<?php echo $row['department_id']; ?>" class="edit-link" href="#"
                                                title="Edit">
@@ -333,6 +412,7 @@ if (!isset($_SESSION['ses_name'])) {
 <script src="../../../assets/js/custom.js"></script>
 <script src="../../../assets/js/jquery-1.12.3.min.js"></script>
 <script src="../../../assets/js/crud.js" type="text/javascript"></script>
+<script src="../../../assets/js/bootstrap-fileupload.js"></script>   <!--- Moi them vao ngay 2606  -->
 <script src="../../../assets/js/jquery.dataTables.min.js"></script>
 <!--<script src="bootstrap/js/bootstrap.min.css"></script>-->
 <script type="text/javascript" src="../../../assets/js/datatables.min.js"></script>-->

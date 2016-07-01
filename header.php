@@ -10,9 +10,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="../bootstrap/js/bootstrap.js"></script>
   <script src="../bootstrap/js/function.js"></script>
+  <!-- Include IconHover -->
+  <link rel="stylesheet" type="text/css" href="../IconHoverEffects/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="../IconHoverEffects/css/component.css" />
+	<script src="../IconHoverEffects/js/modernizr.custom.js"></script>
   <!-- include summernote css/js-->
   <link href="../editorPlugin/summernote.css" rel="stylesheet">
   <script src="../editorPlugin/summernote.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-datetimepicker.min.css">
+  
+  <!-- Plugin for Calendar -->
+  <script src="../bootstrap/js/jquery.easyui.min.js"></script>
+  <script src="../bootstrap/js/bootstrap-datetimepicker.min.js"></script>
 </head>
 <?php
 session_start();
@@ -36,6 +47,9 @@ require('../config.php');
 ?>
 <body>
       <div class="container margin-mid-5">
+        <div class="col-md-12 text-right">
+          <p>Hotline: 123456789</p>
+        </div>
         <div class="col-md-6 col-xs-4">
           <img class="img-responsive" src="../images/logo/logo.png" width="auto" height="80">
         </div>

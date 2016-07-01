@@ -1,3 +1,4 @@
+<?php
 function stripUnicode($str){ 
   if(!$str) return false; 
    $unicode = array( 
@@ -34,3 +35,4 @@ function changeTitle($str){
     $str = str_replace(' ','-',$str); 
     return $str; 
 } 
+?>
