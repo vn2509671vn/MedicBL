@@ -349,7 +349,6 @@ if (!isset($_SESSION['ses_name'])) {
                                     </tr>
                                     <?php
                                     $count = $count + 1;
-                                    
                                 }
                                 ?>
                                 </tbody>

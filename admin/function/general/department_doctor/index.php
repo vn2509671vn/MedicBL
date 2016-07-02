@@ -26,6 +26,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
     <link href="../../../assets/css/custom.css" rel="stylesheet"/>
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link href="../../../assets/img/icon/icon_bv.ico" rel="shortcut icon" type="image/x-icon"/>
@@ -287,15 +288,15 @@ if (!isset($_SESSION['ses_name'])) {
                                                                 left join department dp on dd.department_id = dp.department_id
                                                                 left join doctors dt on dd.doctor_id = dt.doctor_id ORDER BY dd.department_id DESC");
                                 $stmt->execute();
+                                $count=1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $department_name_vn = $row['department_name_vn'];
                                     $doctor_name_vn = $row['doctor_name_vn'];
                                     $department_name_en = $row['department_name_en'];
                                     $doctor_name_en = $row['doctor_name_en'];
-                                    $count = 1;
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['department_id']; ?></td>
+                                        <td><?php echo $count; ?></td>
                                         <td><?php echo $department_name_vn; ?></td>
                                         <td><?php echo $doctor_name_vn; ?></td>
                                         <td><?php echo $department_name_en; ?></td>
@@ -311,6 +312,7 @@ if (!isset($_SESSION['ses_name'])) {
                                             </a></td>
                                     </tr>
                                     <?php
+                                    $count=$count+1;
                                 }
                                 ?>
                                 </tbody>

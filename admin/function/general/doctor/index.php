@@ -23,6 +23,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link rel="stylesheet" href="../../../assets/css/datepicker.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/css/datepicker3.min.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/css/bootstrap-fileupload.min.css" type="text/css" />
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
     <link href="../../..//assets/css/font-awesome.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
@@ -315,6 +316,7 @@ if (!isset($_SESSION['ses_name'])) {
                                 left join specialities sp on dt.doctor_speciality_id = sp.speciality_id
                                 left join chuyenkhoa ck on dt.chuyenkhoa_id = ck.chuyenkhoa_id ORDER BY doctor_id DESC");
                                 $stmt->execute();
+                                $count = 1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $doctor_name_vn = $row['doctor_name_vn'];
                                     $doctor_name_en = $row['doctor_name_en'];
@@ -333,7 +335,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     $doctor_chuyenkhoa_id = $row['chuyenkhoa_name'];
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['doctor_id']; ?></td>
+                                        <td><?php echo $count; ?></td>
                                         <td><?php echo $doctor_name_vn; ?></td>
                                         <td><?php echo $doctor_name_en; ?></td>
                                         <td><?php echo $doctor_porn; ?></td>
@@ -356,6 +358,7 @@ if (!isset($_SESSION['ses_name'])) {
                                             </a></td>
                                     </tr>
                                     <?php
+                                    $count = $count+1;
                                 }
                                 ?>
                                 </tbody>

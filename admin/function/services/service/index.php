@@ -26,6 +26,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
     <link href="../../../assets/css/custom.css" rel="stylesheet"/>
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link href="../../../assets/img/icon/icon_bv.ico" rel="shortcut icon" type="image/x-icon"/>
@@ -273,6 +274,7 @@ if (!isset($_SESSION['ses_name'])) {
 
                                 $stmt = $db_con->prepare("SELECT * FROM services ORDER BY services_id DESC");
                                 $stmt->execute();
+                                $count = 1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $services_descript = $row['services_descript'];
                                     //$services_descript = substr($services_descript,0,strpos($services_descript,'.')) . '...';
@@ -282,7 +284,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     $services_descript_en = substr($services_descript_en,0,80) . '...';
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['services_id']; ?></td>
+                                        <td><?php echo $count; ?></td>
                                         <td><?php echo $row['services_name']; ?></td>
                                         <td><?php echo $row['services_name_en']; ?></td>
                                         <td><?php echo $services_descript; ?></td>
@@ -298,6 +300,7 @@ if (!isset($_SESSION['ses_name'])) {
                                             </a></td>
                                     </tr>
                                     <?php
+                                    $count=$count+1;
                                 }
                                 ?>
                                 </tbody>

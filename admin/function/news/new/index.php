@@ -26,6 +26,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
     <link href="../../../assets/css/custom.css" rel="stylesheet"/>
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link href="../../../assets/img/icon/icon_bv.ico" rel="shortcut icon" type="image/x-icon"/>
@@ -265,14 +266,19 @@ if (!isset($_SESSION['ses_name'])) {
 
                                 $stmt = $db_con->prepare("SELECT * FROM category ORDER BY cat_id");
                                 $stmt->execute();
+                                $count =1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    $cat_descrip_vn = $row['cat_descrip_vn'];
+                                    $cat_descrip_vn =substr($cat_descrip_vn,0,80) . '...';
+                                    $cat_descrip_en = $row['cat_descrip_en'];
+                                    $cat_descrip_en =substr($cat_descrip_en,0,80) . '...';
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['cat_id']; ?></td>
+                                        <td><?php echo $count; ?></td>
                                         <td><?php echo $row['cat_title_vn']; ?></td>
                                         <td><?php echo $row['cat_title_en']; ?></td>
-                                        <td><?php echo $row['cat_descrip_vn']; ?></td>
-                                        <td><?php echo $row['cat_descrip_en']; ?></td>
+                                        <td><?php echo $cat_descrip_vn; ?></td>
+                                        <td><?php echo $cat_descrip_en; ?></td>
                                         <td><?php echo $row['cat_date']; ?></td>
                                         <td align="center">
                                             <a id="<?php echo $row['cat_id']; ?>" class="edit-link" href="#"
@@ -285,6 +291,7 @@ if (!isset($_SESSION['ses_name'])) {
                                             </a></td>
                                     </tr>
                                     <?php
+                                    $count =$count+1;
                                 }
                                 ?>
                                 </tbody>

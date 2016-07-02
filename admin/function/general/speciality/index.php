@@ -24,6 +24,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../..//assets/css/font-awesome.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
     <link href="../../../assets/css/custom.css" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
@@ -264,6 +265,7 @@ if (!isset($_SESSION['ses_name'])) {
 
                                 $stmt = $db_con->prepare("SELECT * FROM specialities ORDER BY speciality_id DESC");
                                 $stmt->execute();
+                                $count =1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $speciality_name = $row['speciality_name'];
                                     $speciality_name_en = $row['speciality_name_en'];
@@ -271,7 +273,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     $speciality_descript_en = $row['speciality_descript_en'];
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['speciality_id']; ?></td>
+                                        <td><?php echo $count; ?></td>
                                         <td><?php echo $speciality_name; ?></td>
                                         <td><?php echo $speciality_name_en ?></td>
                                         <td><?php echo $speciality_descript; ?></td>
@@ -287,6 +289,7 @@ if (!isset($_SESSION['ses_name'])) {
                                             </a></td>
                                     </tr>
                                     <?php
+                                    $count = $count+1;
                                 }
                                 ?>
                                 </tbody>

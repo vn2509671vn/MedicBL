@@ -29,21 +29,9 @@ $chuyenkhoa = getchuyenkhoa($_SESSION['lang']);
         <!-- Thông tin bệnh nhân-->
          <div class="col-md-6 col-xs-12">
            <h4>Bạn muốn đặt hẹn khám cho</h4>
-           <div class="col-md-6"><label class="radio-inline"><input type="radio" name="rdio" value="a" checked="checked" /> Bản thân</label></div>
-           <div class="col-md-6"><label class="radio-inline"><input type="radio" name="rdio" value="a" /> Người thân</label></div>
+           <div class="col-md-6"><label class="radio-inline"><input type="radio" name="rdio" checked="checked" id="banthan" value="banthan"/> Bản thân</label></div>
+           <div class="col-md-6"><label class="radio-inline"><input type="radio" name="rdio" id="nguoithan" value="nguoithan"/> Người thân</label></div>
            <br>
-           <div class="col-md-12 padding-left-0 padding-right-0" id="thongtinnguoithan">
-             <h4>Thông tin người đặt lịch</h4>
-             <div class="col-md-12 margin-mid-5">
-               <input type="text" name="benhnhan_nam" placeholder="Nhập họ tên" class="form-control"/>
-             </div>
-             <div class="col-md-12 margin-mid-5">
-               <input type="text" name="benhnhan_email" placeholder="Nhập email" class="form-control"/>
-             </div>
-             <div class="col-md-12 margin-mid-5">
-               <input type="text" name="benhnhan_phone" placeholder="Nhập sdt" maxlenght="11" class="form-control"/>
-             </div>
-           </div>
            <h4>Thông tin bệnh nhân</h4>
            <div class="col-md-6 margin-mid-5 col-xs-6">
              <select class="form-control" id="gioitinh">
@@ -62,13 +50,16 @@ $chuyenkhoa = getchuyenkhoa($_SESSION['lang']);
            </div>
            <div class="col-md-12 padding-left-0 padding-right-0" id="thongtinbenhnhan">
              <div class="col-md-12 margin-mid-5">
-               <input type="text" name="benhnhan_nam" placeholder="Nhập họ tên" class="form-control"/>
+               <input type="text" name="benhnhan_name" placeholder="Họ tên bệnh nhân" class="form-control" id="benhnhan_name"/>
+             </div>
+             <div class="col-md-12 margin-mid-5 nguoithan_name" style="display:none;">
+               <input type="text" name="nguoithan_name" placeholder="Nhập họ tên" class="form-control" id="nguoithan_name"/>
              </div>
              <div class="col-md-12 margin-mid-5">
-               <input type="text" name="benhnhan_email" placeholder="Nhập email" class="form-control"/>
+               <input type="text" name="benhnhan_email" placeholder="Email bệnh nhân" class="form-control" id="benhnhan_email"/>
              </div>
              <div class="col-md-12 margin-mid-5">
-               <input type="text" name="benhnhan_phone" placeholder="Nhập sdt" maxlenght="11" class="form-control"/>
+               <input type="text" name="benhnhan_phone" placeholder="Số điện thoại bệnh nhân" maxlenght="11" class="form-control" id="benhnhan_phone" />
              </div>
            </div>
          </div>
@@ -150,10 +141,41 @@ $chuyenkhoa = getchuyenkhoa($_SESSION['lang']);
       }
     });
     
+    // Calendar
     $(function() {
     $('#datetimepicker1').datetimepicker({
       language: 'pt-BR'
     });
+    
+    // Change radio button
+    // $('#element1_id').attr('placeholder','Some New Text 1');
+    $('input[type=radio]').change( function() {
+      if($(this).val() == "banthan"){
+        $(".nguoithan_name").hide();
+        $("#benhnhan_name").attr("placeholder", "Họ tên bệnh nhân");
+        $("#benhnhan_email").attr("placeholder", "Email bệnh nhân");
+        $("#benhnhan_phone").attr("placeholder", "Số điện thoại bệnh nhân");
+      }
+      else {
+        $(".nguoithan_name").show();
+        $("#nguoithan_name").attr("placeholder", "Họ tên người thân");
+        $("#benhnhan_name").attr("placeholder", "Họ tên bệnh nhân");
+        $("#benhnhan_email").attr("placeholder", "Email người thân");
+        $("#benhnhan_phone").attr("placeholder", "Số điện thoại người thân");
+      }
+    });
+    
+    $('#benhnhan_phone').keypress(function (event) {
+        var keycode;
+
+        keycode = event.keyCode ? event.keyCode : event.which;
+
+        if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 ||
+                keycode == 37 ||keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+            event.preventDefault();
+        }
+    });
+
   });
 </script>
 <!-- Add end script active menu-->

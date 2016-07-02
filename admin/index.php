@@ -25,6 +25,7 @@ if(!isset($_SESSION['ses_name'])){
     <link href="assets/css/basic.css" rel="stylesheet" />
     <!--CUSTOM MAIN STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href="assets/img/icon/icon_bv.ico" rel="shortcut icon" type="image/x-icon" />

@@ -22,6 +22,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
     <link href="../../assets/css/font-awesome.css" rel="stylesheet"/>
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
     <link href="../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
@@ -130,10 +131,10 @@ if (!isset($_SESSION['ses_name'])) {
                         <a href="#"><i class="fa fa-desktop "></i>News<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../news/new.php"><i class="fa fa-toggle-on"></i>News Category</a>
+                                <a href="../news/new/index.php"><i class="fa fa-toggle-on"></i>News Category</a>
                             </li>
                             <li>
-                                <a href="../news/post.php"><i class="fa fa-bell "></i>Posts</a>
+                                <a href="../news/post/index.php"><i class="fa fa-bell "></i>Posts</a>
                             </li>
                         </ul>
                     </li>
@@ -149,13 +150,13 @@ if (!isset($_SESSION['ses_name'])) {
                                 <a href="../general/department_doctor/index.php"><i class="fa fa-toggle-on"></i>Department Doctor</a>
                             </li>
                             <li>
-                                <a href="../general/department.php"><i class="fa fa-coffee"></i>Department</a>
+                                <a href="../general/department/index.php"><i class="fa fa-coffee"></i>Department</a>
                             </li>
                             <li>
-                                <a href="../general/doctor.php"><i class="fa fa-flash "></i>Doctors</a>
+                                <a href="../general/doctor/index.php"><i class="fa fa-flash "></i>Doctors</a>
                             </li>
                             <li>
-                                <a href="../general/speciality.php"><i class="fa fa-key "></i>Specialities</a>
+                                <a href="../general/speciality/index.php"><i class="fa fa-key "></i>Specialities</a>
                             </li>
                         </ul>
                     </li>
@@ -270,10 +271,11 @@ if (!isset($_SESSION['ses_name'])) {
 
                                 $stmt = $db_con->prepare("SELECT * FROM user ORDER BY user_id DESC");
                                 $stmt->execute();
+                                $count =1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['user_id']; ?></td>
+                                        <td><?php echo $count; ?></td>
                                         <td><?php echo $row['user_name']; ?></td>
                                         <td><?php echo $row['user_username']; ?></td>
                                         <td><?php echo $row['user_password']; ?></td>
@@ -290,6 +292,7 @@ if (!isset($_SESSION['ses_name'])) {
                                             </a></td>
                                     </tr>
                                     <?php
+                                    $count = $count+1;
                                 }
                                 ?>
                                 </tbody>

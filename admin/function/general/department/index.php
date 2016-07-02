@@ -23,6 +23,7 @@ if (!isset($_SESSION['ses_name'])) {
     <!-- FONTAWESOME STYLES-->
     <link href="../../..//assets/css/font-awesome.css" rel="stylesheet"/>
     <link rel="stylesheet" href="../../../assets/css/bootstrap-fileupload.min.css" type="text/css" />
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
@@ -346,6 +347,7 @@ if (!isset($_SESSION['ses_name'])) {
 
                                     $stmt = $db_con->prepare("SELECT * FROM department dp left join chuyenkhoa ck on dp.department_chuyenkhoa_id = ck.chuyenkhoa_id ORDER BY department_id DESC");
                                 $stmt->execute();
+                                $count =1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $department_id = $row['department_id'];
                                     $department_name_vn = $row['department_name_vn'];
@@ -359,7 +361,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     $department_chuyenkhoa_id = $row['chuyenkhoa_name'];
                                     ?>
                                     <tr>
-                                        <td><?php echo $department_id; ?></td>
+                                        <td><?php echo $count; ?></td>
                                         <td><?php echo $department_name_vn; ?></td>
                                         <td><?php echo $department_name_en; ?></td>
                                         <td><?php echo $department_descript_vn; ?></td>
@@ -378,6 +380,7 @@ if (!isset($_SESSION['ses_name'])) {
                                             </a></td>
                                     </tr>
                                     <?php
+                                    $count = $count + 1;
                                 }
                                 ?>
                                 </tbody>

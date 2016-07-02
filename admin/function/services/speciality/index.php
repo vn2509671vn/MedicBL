@@ -22,6 +22,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../../assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
     <link href="../../..//assets/css/font-awesome.css" rel="stylesheet"/>
+    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
@@ -266,6 +267,7 @@ if (!isset($_SESSION['ses_name'])) {
 
                                 $stmt = $db_con->prepare("SELECT ck.chuyenkhoa_id,ck.chuyenkhoa_name,ck.chuyenkhoa_name_en,ck.chuyenkhoa_descript,ck.chuyenkhoa_descript_en,sv.services_name,ck.chuyenkhoa_muinhon FROM chuyenkhoa ck LEFT JOIN services sv on ck.services_id = sv.services_id");
                                 $stmt->execute();
+                                $count =1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $chuyenkhoa_descript = $row['chuyenkhoa_descript'];
                                     $chuyenkhoa_descript = substr($chuyenkhoa_descript,0,80) . '...';
@@ -279,7 +281,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     }
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['chuyenkhoa_id']; ?></td>
+                                        <td><?php echo $count; ?></td>
                                         <td><?php echo $row['chuyenkhoa_name']; ?></td>
                                         <td><?php echo $row['chuyenkhoa_name_en']; ?></td>
                                         <td><?php echo $chuyenkhoa_descript; ?></td>
@@ -297,6 +299,7 @@ if (!isset($_SESSION['ses_name'])) {
                                             </a></td>
                                     </tr>
                                     <?php
+                                    $count = $count +1;
                                 }
                                 ?>
                                 </tbody>
