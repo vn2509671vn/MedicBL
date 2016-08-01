@@ -21,53 +21,53 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../..//assets/css/font-awesome.css" rel="stylesheet"/>    <!--CUSTOM BASIC STYLES-->
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
     <link href="../../../assets/css/custom.css" rel="stylesheet"/>
+    <link href="../../../assets/css/buttons.dataTables.min.css" rel="stylesheet"/>
     <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="../../../assets/css/bootstrap-fileupload.min.css" type="text/css" /> <!--  Thêm vào ngày 30/06/2016 -->
+    <link rel="stylesheet" href="../../../assets/css/bootstrap-fileupload.min.css" type="text/css"/>
+    <!--  Thêm vào ngày 30/06/2016 -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link href="../../../assets/img/icon/icon_bv.ico" rel="shortcut icon" type="image/x-icon"/>
-    <script type="text/javascript" src="../../../assets/editor/ckeditor/ckeditor.js" ></script>
-    <script type="text/javascript" src="../../../assets/editor/ckfinder/ckfinder.js" ></script>
+    <script type="text/javascript" src="../../../assets/editor/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="../../../assets/editor/ckfinder/ckfinder.js"></script>
     <script type="text/javascript" src="../../../assets/js/jquery-1.11.3-jquery.min.js"></script>
     <script type="text/javascript">
-    function addPost(){
-         var data = new FormData($('#emp-SaveForm')[0]);
+        function addPost() {
+            var data = new FormData($('#emp-SaveForm')[0]);
             $.ajax({
-				    type:"POST",
-                    url:"insert.php",
-                    data:data,
-                    mimeType: "multipart/form-data",
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success:function(data)
-                      {
-            				var image = data;
-                            document.getElementById('post_temp').value = image;
-                            alert("Uploaded Image: " + image);
-                       }
-        				});
-      
-    }
-    function changePost(){
-         var data = new FormData($('#emp-UpdateForm')[0]);
+                type: "POST",
+                url: "insert.php",
+                data: data,
+                mimeType: "multipart/form-data",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    var image = data;
+                    document.getElementById('post_temp').value = image;
+                    alert("Uploaded Image: " + image);
+                }
+            });
+
+        }
+        function changePost() {
+            var data = new FormData($('#emp-UpdateForm')[0]);
             $.ajax({
-				    type:"POST",
-                    url:"insert.php",
-                    data:data,
-                    mimeType: "multipart/form-data",
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success:function(data)
-                      {
-            				var image = data;
-                            document.getElementById('post_temp').value = image;
-                            alert("Uploaded Image: " + image);
-                       }
-        				});
-      
-    }
-</script>
+                type: "POST",
+                url: "insert.php",
+                data: data,
+                mimeType: "multipart/form-data",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    var image = data;
+                    document.getElementById('post_temp').value = image;
+                    alert("Uploaded Image: " + image);
+                }
+            });
+
+        }
+    </script>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -113,16 +113,34 @@ if (!isset($_SESSION['ses_name'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../../index.php">THANH VU HOSPITAL</a>
+            <a class="navbar-brand" href="../../../../views/pagehome.php">THANH VU HOSPITAL</a>
         </div>
 
         <div class="header-right">
 
-            <a href="../../contact/contact.php" class="btn btn-info" title="New Message"><b>30 </b><i
+             <a href="../contact/index.php" class="btn btn-info" title="New Message">
+                <b>
+                    <?php
+                        require_once '../../../../connect/dbconfig.php';
+                        $stmt4 = $db_con->prepare("SELECT * FROM contact b where b.contact_approve = 0");
+                        $stmt4->execute();
+                        $count4 = $stmt4->rowCount();
+                        echo $count4;
+                    ?> 
+                </b><i
                     class="fa fa-envelope-o fa-2x"></i></a>
-            <a href="../../booking/book.php" class="btn btn-primary" title="New Booking"><b>40 </b><i
+            <a href="../booking/index.php" class="btn btn-primary" title="New Booking">
+                <b>
+                    <?php
+                        require_once '../../../../connect/dbconfig.php';
+                        $stmt3 = $db_con->prepare("SELECT * FROM booking b where b.booking_approve = 0");
+                        $stmt3->execute();
+                        $count3 = $stmt3->rowCount();
+                        echo $count3;
+                    ?> 
+                </b><i
                     class="fa fa-bars fa-2x"></i></a>
-                    
+
             <a href="../../../logout.php" onclick="return check()" class="btn btn-danger" title="Logout"><i
                     class="fa fa-exclamation-circle fa-2x"></i></a>
 
@@ -166,10 +184,11 @@ if (!isset($_SESSION['ses_name'])) {
 
                     <!-- BEGIN NEWS   ===================================================================-->
                     <li>
-                        <a class="active-menu-top" href="#"><i class="fa fa-desktop "></i>News<span class="fa arrow"></span></a>
+                        <a class="active-menu-top" href="#"><i class="fa fa-desktop "></i>News<span
+                                class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse in">
                             <li>
-                                <a  href="../new/index.php"><i class="fa fa-toggle-on"></i>News Category</a>
+                                <a href="../new/index.php"><i class="fa fa-toggle-on"></i>News Category</a>
                             </li>
                             <li>
                                 <a class="active-menu" href="index.php"><i class="fa fa-bell "></i>Posts</a>
@@ -185,10 +204,11 @@ if (!isset($_SESSION['ses_name'])) {
                         <a href="#"><i class="fa fa-yelp "></i>Departments Doctors <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../../general/department_doctor/index.php"><i class="fa fa-toggle-on"></i>Department Doctor</a>
+                                <a href="../../general/department_doctor/index.php"><i class="fa fa-toggle-on"></i>Department
+                                    Doctor</a>
                             </li>
                             <li>
-                                <a href="../../general/department.index.php"><i class="fa fa-coffee"></i>Department</a>
+                                <a href="../../general/department/index.php"><i class="fa fa-coffee"></i>Department</a>
                             </li>
                             <li>
                                 <a href="../../general/doctor/index.php"><i class="fa fa-flash "></i>Doctors</a>
@@ -204,14 +224,14 @@ if (!isset($_SESSION['ses_name'])) {
                 ?>
                 <!--  BEGIN CONTACTS   ==========================================================================   -->
                 <li>
-                    <a href="../../contact/contact.php"><i class="fa fa-flash "></i>Contacts</a>
+                    <a href="../../contact/index.php"><i class="fa fa-flash "></i>Contacts</a>
 
                 </li>
                 <!--  END  CONTACTS    ==========================================================================   -->
                 <!--  BEGIN BOOKING   ==========================================================================   -->
 
                 <li>
-                    <a href="../../booking/book.php"><i class="fa fa-anchor "></i>Booking</a>
+                    <a href="../../booking/index.php"><i class="fa fa-anchor "></i>Booking</a>
                 </li>
 
                 <!--  END  BOOKING    ==========================================================================   -->
@@ -226,10 +246,10 @@ if (!isset($_SESSION['ses_name'])) {
                         <ul class="nav nav-second-level">
 
                             <li>
-                                <a href="service.php"><i class="fa fa-desktop "></i>Hospital Services </a>
+                                <a href="../../services/service/index.php"><i class="fa fa-desktop "></i>Hospital Services </a>
                             </li>
                             <li>
-                                <a href="../speciality/index.php"><i class="fa fa-code "></i>ChuyenKhoa List</a>
+                                <a href="../../services/speciality/index.php"><i class="fa fa-code "></i>ChuyenKhoa List</a>
                             </li>
 
 
@@ -246,13 +266,13 @@ if (!isset($_SESSION['ses_name'])) {
                     <!--  BEGIN MENU   ==========================================================================   -->
 
                     <li>
-                        <a href="../../menu/menu.php"><i class="fa fa-sign-in "></i>Menu</a>
+                        <a href="../../menu/index.php"><i class="fa fa-sign-in "></i>Menu</a>
                     </li>
                     <!--  END MENU   ==========================================================================   -->
                     <!--  BEGIN MENU   ==========================================================================   -->
 
                     <li>
-                        <a href="../../comments/comment.php"><i class="fa fa-square-o "></i>Comments</a>
+                        <a href="../../comments/index.php"><i class="fa fa-square-o "></i>Feeling Customer</a>
                     </li>
                     <!--  END MENU   ==========================================================================   -->
                     <?php
@@ -282,7 +302,7 @@ if (!isset($_SESSION['ses_name'])) {
                         <hr/>
 
                         <div class="content-loader">
-                            <table cellspacing="0" width="100%" id="posts"
+                            <table cellspacing="0" id="posts"
                                    class="table table-striped table-hover table-responsive">
                                 <thead>
                                 <tr>
@@ -308,21 +328,21 @@ if (!isset($_SESSION['ses_name'])) {
 
                                 $stmt = $db_con->prepare("SELECT * FROM posts p left join category cat on p.cat_id = cat.cat_id ORDER BY p.post_date desc, p.cat_id ASC");
                                 $stmt->execute();
-                                $count =1;
+                                $count = 1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $post_title = $row['post_title'];
-                                    $post_title = substr($post_title,0,80) . '...';
+                                    $post_title = substr($post_title, 0, 80) . '...';
                                     $post_content = $row['post_content'];
-                                    $post_content = substr($post_content,0,80) . '...';
+                                    $post_content = substr($post_content, 0, 80) . '...';
                                     $post_excerpt = $row['post_excerpt'];
-                                    $post_excerpt = substr($post_excerpt,0,80) . '...';
+                                    $post_excerpt = substr($post_excerpt, 0, 80) . '...';
 
                                     $post_title_en = $row['post_title_en'];
-                                    $post_title_en = substr($post_title_en,0,80) . '...';
+                                    $post_title_en = substr($post_title_en, 0, 80) . '...';
                                     $post_content_en = $row['post_content_en'];
-                                    $post_content_en = substr($post_content_en,0,80) . '...';
+                                    $post_content_en = substr($post_content_en, 0, 80) . '...';
                                     $post_excerpt_en = $row['post_excerpt_en'];
-                                    $post_excerpt_en = substr($post_excerpt_en,0,80) . '...';
+                                    $post_excerpt_en = substr($post_excerpt_en, 0, 80) . '...';
                                     ?>
                                     <tr>
                                         <td><?php echo $count; ?></td>
@@ -367,10 +387,7 @@ if (!isset($_SESSION['ses_name'])) {
     <!-- /. PAGE WRAPPER  -->
 </div>
 <!-- /. WRAPPER  -->
-
-<div id="footer-sec">
-    &copy; 2014 YourCompany | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
-</div>
+<?php include("../../../footer.php");  ?>
 <!-- /. FOOTER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 <!-- JQUERY SCRIPTS -->
@@ -386,16 +403,33 @@ if (!isset($_SESSION['ses_name'])) {
 <script src="../../../assets/js/crud.js" type="text/javascript"></script>
 <script src="../../../assets/js/jquery.dataTables.min.js"></script>
 <script src="../../../assets/js/bootstrap-fileupload.js"></script>   <!--- Moi them vao ngay 2606  -->
-<!--<script src="../../../assets/css/bootstrap.min.css"></script>-->
-<script type="text/javascript" src="../../../assets/js/datatables.min.js"></script>-->
+<script type="text/javascript" src="../../../assets/js/datatables.min.js"></script>
+<script type="text/javascript" src="../../../assets/js/dataTables.buttons.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
-        $('#posts').DataTable();
-
         $('#posts')
             .removeClass('display')
             .addClass('table table-bordered');
+        $('#posts').DataTable(
+             {
+            "scrollX": true,
+            "scrollY": 610,
+            "scrollCollapse": true,
+            "dom":'<<"row"<"col-sm-4"B><"col-sm-4"l><"col-sm-4"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>>',
+             "buttons": [
+                 'excel', 'pdf', 'print'
+             ]
+        }
+        );
+
+        
     });
 </script>
 

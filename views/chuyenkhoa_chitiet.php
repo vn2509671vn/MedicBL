@@ -20,9 +20,9 @@ $listChuyenkhoa = getchuyenkhoa_byID($infoDetail['services_id'], $_SESSION['lang
     <br>
     <!-- Left content-->
     <div class="col-md-8">
-      <div class="col-sm-12">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a class="text-left a-title"><?php echo $infoDetail['name']; ?></a>
           </div>
         </div>
@@ -36,19 +36,19 @@ $listChuyenkhoa = getchuyenkhoa_byID($infoDetail['services_id'], $_SESSION['lang
                 </ul>
                 <div class="tab-content">
                     <div id="home" class="tab-pane fade in active">
-                      <h3>Giới thiệu</h3>
+                      <h3<?php echo $main['gioithieu'];?></h3>
                       <?php echo $infoDetail['descript']; ?>
                     </div>
                     <div id="menu1" class="tab-pane fade">
                       <!--<h3>Đội ngũ bác sĩ</h3>-->
                       <div class="row margin-mid-5">
                         <?php while($doctor_list = mysql_fetch_array($listDoctors)):?>
-                          <div class="col-sm-6 col-md-4 col-xs-12">
+                          <div class="col-md-4 col-xs-12">
                             <div class="thumbnail">
                               <img src="../admin/upload/image_doctor/<?php echo $doctor_list['image']?>" alt="..." class="height-157">
                               <div class="caption">
                                 <h3><?php echo $doctor_list['name']?></h3>
-                                <p><a href="#" class="btn btn-primary" role="button"><?php echo $main['chitiet'];?></a></p>
+                                <p><a href="doctor_chitiet.php?id=<?php echo $doctor_list['doctor_id']?>" class="btn btn-primary" role="button"><?php echo $main['chitiet'];?></a></p>
                               </div>
                             </div>
                           </div>
@@ -63,16 +63,16 @@ $listChuyenkhoa = getchuyenkhoa_byID($infoDetail['services_id'], $_SESSION['lang
       </div>
 
     <!-- Add start right content-->
-    <div class="col-sm-4">
-      <div class="col-sm-12">
+    <div class="col-md-4">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a class="text-left a-title"><?php echo $main['tienich'];?></a>
           </div>
         </div>
         <br>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <div class="panel panel-default text-left">
               <?php while($chuyenkhoa_list = mysql_fetch_array($listChuyenkhoa)):?>
               <a href="chuyenkhoa_chitiet.php?id=<?php echo $chuyenkhoa_list['chuyenkhoa_id'];?>" class="list-group-item <?php echo ($chuyenkhoa_list['chuyenkhoa_id'] == $_GET['id'])?'active-item':'';?>"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $chuyenkhoa_list['name'];?></a>
@@ -92,6 +92,6 @@ $listChuyenkhoa = getchuyenkhoa_byID($infoDetail['services_id'], $_SESSION['lang
 
 <!-- Add start script active menu-->
 <script type="text/javascript">
-    selectorMenu("chuyenkhoa");
+    selectorMenu("id3");
 </script>
 <!-- Add end script active menu-->

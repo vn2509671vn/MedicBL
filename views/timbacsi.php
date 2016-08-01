@@ -17,10 +17,10 @@ $chuyenkhoa = getchuyenkhoa($_SESSION['lang']);
   <div class="row">
     <br>
     <!-- Left content-->
-    <div class="col-sm-8">
-      <div class="col-sm-12">
+    <div class="col-md-8">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a class="text-left a-title"><?php echo $main['timbacsi'];?></a>
           </div>
         </div>
@@ -50,16 +50,16 @@ $chuyenkhoa = getchuyenkhoa($_SESSION['lang']);
     </div>
 
     <!-- Right content-->
-    <div class="col-sm-4">
-      <div class="col-sm-12">
+    <div class="col-md-4">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a class="text-left a-title"><?php echo $main['tienich'];?></a>
           </div>
         </div>
         <br>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <div class="panel panel-default text-left">
               <a href="timbacsi.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['timbacsi'];?></a>
               <a href="datlichhen.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['datlichhen'];?></a>

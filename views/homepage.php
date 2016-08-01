@@ -17,19 +17,19 @@ $posts = get_4new_post();
     <br>
     <!-- Left content-->
     <div class="col-md-8">
-      <div class="col-sm-12">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a class="text-left a-title"><?php echo $main['tintuc'];?></a>
           </div>
         </div>
         <br>
         <?php while($post = mysql_fetch_assoc($posts)): ?>
         <div class="row text-left">
-          <div class="col-sm-4"><a href="#" class=""><img src="../admin/upload/tintuc/<?php echo $post['post_image'];?>" style="width:220px; height:163px" class="img-responsive"></a>
+          <div class="col-md-4"><a href="post_chitiet.php?id=<?php echo $post['post_id'];?>&cat_id=<?php echo $post['cat_id'];?>" class=""><img src="../admin/upload/tintuc/<?php echo $post['post_image'];?>" class="img-responsive"></a>
           </div>
-          <div class="col-sm-8">
-            <h4 class="title"><a href="#"><?php echo $post['post_title'];?></a></h4>
+          <div class="col-md-8">
+            <h4 class="title uppercase"><a href="post_chitiet.php?id=<?php echo $post['post_id'];?>&cat_id=<?php echo $post['cat_id'];?>"><?php echo $post['post_title'];?></a></h4>
             <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> <?php echo $post['post_date'];?></p>
             <p><?php echo $post['post_excerpt'];?></p>
           </div>
@@ -49,6 +49,6 @@ $posts = get_4new_post();
 <!-- Add end footer-->
 <!-- Add start script active menu-->
 <script type="text/javascript">
-    selectorMenu("homepage");
+    selectorMenu("id1");
 </script>
 <!-- Add end script active menu-->

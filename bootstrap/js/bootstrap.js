@@ -2363,17 +2363,18 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 // Add by ThangTGM
+function addOrUpdateUrlParam(uri, paramKey, paramVal) {
+  var re = new RegExp("([?&])" + paramKey + "=[^&#]*", "i");
+  if (re.test(uri)) {
+    uri = uri.replace(re, '$1' + paramKey + "=" + paramVal);
+  } else {
+    var separator = /\?/.test(uri) ? "&" : "?";
+    uri = uri + separator + paramKey + "=" + paramVal;
+  }
+  return uri;
+}
+
 $(document).ready(function(){
-  // Add start ThangTGM: Editor tool
-  $(document).ready(function() {
-    $('#summernote').summernote({
-      height: 300,                 // set editor height
-      minHeight: null,             // set minimum height of editor
-      maxHeight: null,             // set maximum height of editor
-      focus: true                  // set focus to editable area after initializing summernote
-    });
-  });
-  // Add end ThangTGM
 
   // Test show html
   $("#show_html").click(function(){
@@ -2427,11 +2428,15 @@ $(document).ready(function(){
 		});
     
     $("#Vi-lang").click(function(){
-      window.location.href = "?lang=vi"; 
+      //window.location.href = "?lang=vi";
+      var url = addOrUpdateUrlParam(window.location.href,"lang","vi");
+      window.location = url;
     });
 
     $("#En-lang").click(function(){
-      window.location.href = "?lang=en"; 
+      //window.location.href = "?lang=en"; 
+      var url = addOrUpdateUrlParam(window.location.href,"lang","en");
+      window.location = url;
     });
     
     // Add function dropdown hover

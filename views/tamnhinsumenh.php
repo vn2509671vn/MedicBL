@@ -8,7 +8,7 @@
 <?php require("../services.php");?>
 <!-- Add end services-->
 <!-- Add start model-->
-<?php require("../models/posts.php");
+<?php
 $hosInfo = mysql_fetch_array(gettamnhinsumenh($_SESSION['lang']));
 ?>
 <!-- Add end model-->
@@ -17,16 +17,16 @@ $hosInfo = mysql_fetch_array(gettamnhinsumenh($_SESSION['lang']));
   <div class="row">
     <br>
     <!-- Left content-->
-    <div class="col-sm-8">
-      <div class="col-sm-12">
+    <div class="col-md-8">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a class="text-left a-title"><?php echo $main['tamnhinsumenh'];?></a>
           </div>
         </div>
         <br>
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <h3 class="title color-golden"><?php echo $hosInfo['title']; ?></h3>
             <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> <?php echo date_format(date_create($hosInfo['post_date']),"d/m/Y H:i:s"); ?></p>
             <?php echo $hosInfo['content']; ?>
@@ -36,16 +36,16 @@ $hosInfo = mysql_fetch_array(gettamnhinsumenh($_SESSION['lang']));
     </div>
 
     <!-- Right content-->
-    <div class="col-sm-4">
-      <div class="col-sm-12">
+    <div class="col-md-4">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a class="text-left a-title"><?php echo $main['tienich'];?></a>
           </div>
         </div>
         <br>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <div class="panel panel-default text-left">
               <a href="gioithieu.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['gioithieuchung']; ?></a>
               <a href="tamnhinsumenh.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['tamnhinsumenh']; ?></a>
@@ -64,6 +64,6 @@ $hosInfo = mysql_fetch_array(gettamnhinsumenh($_SESSION['lang']));
 
 <!-- Add start script active menu-->
 <script type="text/javascript">
-    selectorMenu("gioithieu");
+    selectorMenu("id2");
 </script>
 <!-- Add end script active menu-->

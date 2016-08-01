@@ -17,9 +17,9 @@ $services = getservices($_SESSION['lang']);
     <br>
     <!-- Left content-->
     <div class="col-md-8">
-      <div class="col-sm-12">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a class="text-left a-title"><?php echo $main['cacchuyenkhoa']; ?></a>
           </div>
         </div>
@@ -74,16 +74,16 @@ $services = getservices($_SESSION['lang']);
       </div>
 
     <!-- Add start right content-->
-    <div class="col-sm-4">
-      <div class="col-sm-12">
+    <div class="col-md-4">
+      <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a class="text-left a-title"><?php echo $main['tienich'];?></a>
           </div>
         </div>
         <br>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <div class="panel panel-default text-left">
               <a href="chuyenkhoa.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['cacchuyenkhoa'];?></a>
               <a href="banggia.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['bangiadichvu'];?></a>
@@ -103,6 +103,6 @@ $services = getservices($_SESSION['lang']);
 
 <!-- Add start script active menu-->
 <script type="text/javascript">
-    selectorMenu("chuyenkhoa");
+    selectorMenu("id3");
 </script>
 <!-- Add end script active menu-->

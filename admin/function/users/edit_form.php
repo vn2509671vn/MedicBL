@@ -43,7 +43,14 @@ if($_GET['edit_id'])
         </tr>
         <tr>
             <td>Is Admin</td>
-            <td><input type='radio' name='user_admin' class='form-control' value='<?php echo $row['user_admin']; ?>'></td>
+            <td>
+                <label>
+                    <input type="radio" name="user_admin" value="1" <?php if($row['user_admin'] == 1){ echo "checked";} ?> > Admin
+                </label>
+                <label>
+                    <input type="radio" name="user_admin" value="0" <?php if($row['user_admin'] == 0){ echo "checked";} ?> > Not Admin
+                </label>
+            </td>
         </tr>
         <tr>
             <td colspan="2">

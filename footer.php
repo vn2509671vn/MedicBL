@@ -1,15 +1,15 @@
+<?php require("../models/menu.php");
+$listmenu = getparentmenu($_SESSION['lang']);
+?>
 <a href="#" class="scrollup">Go Top</a>
 <footer class="container-fluid text-center">
    <div class="container text-left">
        <div class="col-md-9 padding-left-0">
            <div class="col-md-12 font-size-12">
                <ul class="nav navbar-default navbar-nav border-right">
-                   <li><a href="#">TRANG CHỦ</a></li>
-                   <li><a href="#">GIỚI THIỆU</a></li>
-                   <li><a href="#">DỊCH VỤ Y KHOA</a></li>
-                   <li><a href="#">DÀNH CHO KHÁCH HÀNG</a></li>
-                   <li><a href="#">TIN TỨC - SỰ KIỆN</a></li>
-                   <li><a href="#">LIÊN HỆ</a></li>
+                   <?php while($menu = mysql_fetch_array($listmenu)):?>
+                   <li><a id="footerid<?php echo $menu['menu_id'];?>" href="<?php echo $menu['menu_link'];?>"><?php echo $menu['name'];?></a></li>
+                   <?php endwhile;?>
                </ul>
            </div>
            <div class="col-md-12">

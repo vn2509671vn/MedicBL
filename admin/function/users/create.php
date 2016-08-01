@@ -7,11 +7,7 @@ if ($_POST) {
     $user_username = $_POST['user_username'];
     $user_password = $_POST['user_password'];
     $user_password = md5($user_password);
-    if (isset($_POST['user_admin'])) {
-        $user_admin = 1;
-    } else {
-        $user_admin = 0;
-    }
+    $user_admin = $_POST['user_admin'];
     date_default_timezone_set('Asia/Ho_Chi_Minh');
     $date = date('Y-m-d H:i:s');
     try {

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Medic Bạc Liêu</title>
+  
+  <title>Medic</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
@@ -14,16 +15,13 @@
   <link rel="stylesheet" type="text/css" href="../IconHoverEffects/css/default.css" />
 	<link rel="stylesheet" type="text/css" href="../IconHoverEffects/css/component.css" />
 	<script src="../IconHoverEffects/js/modernizr.custom.js"></script>
-  <!-- include summernote css/js-->
-  <link href="../editorPlugin/summernote.css" rel="stylesheet">
-  <script src="../editorPlugin/summernote.js"></script>
-  
-  <link rel="stylesheet" type="text/css" href="../bootstrap/css/easyui.css">
-  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-datetimepicker.min.css">
   
   <!-- Plugin for Calendar -->
-  <script src="../bootstrap/js/jquery.easyui.min.js"></script>
-  <script src="../bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../datepicker/css/datepicker.css">
+  <script src="../datepicker/js/bootstrap-datepicker.js" charset="UTF-8"></script>
+  
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579a1b6fd5569268"></script>
 </head>
 <?php
 session_start();
@@ -38,26 +36,29 @@ function checkLang(){
      return "../languages/$lang.php";
   }
   else{
+    $_SESSION['lang'] = 'vi';
     return "../languages/vi.php";
   } 
 }
 
 require(checkLang());
 require('../config.php');
+require("../models/posts.php");
 ?>
 <body>
-      <div class="container margin-mid-5">
-        <div class="col-md-12 text-right">
-          <p>Hotline: 123456789</p>
-        </div>
-        <div class="col-md-6 col-xs-4">
+      <div class="container margin-mid-5 padding-left-0">
+        <!--<div class="col-md-12 text-right">-->
+          
+        <!--</div>-->
+        <div class="col-md-6 col-xs-4 padding-left-0 padding-right-0">
           <img class="img-responsive" src="../images/logo/logo.png" width="auto" height="80">
         </div>
-        <div class="col-md-6 col-xs-8">
+        <div class="col-md-6 col-xs-8 padding-left-0 padding-right-0">
+          <p class="text-right">Hotline: 123456789</p>
           <h5 class="text-right non-marginTop"><?php echo $main['language']; ?>: <a href="#" id="Vi-lang" class="<?php if($_SESSION['lang'] == 'en') echo 'non-active-language'; else echo 'active-language';?>"><?php echo $main['vi'];?></a> | <a href="#" id="En-lang" class="<?php if($_SESSION['lang'] == 'en') echo 'active-language'; else echo 'non-active-language';?>"><?php echo $main['en'];?></a></h5>
-          <form class="navbar-form navbar-right" role="search">
+          <form class="navbar-form navbar-right" role="search" action="search.php">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm..." name="keyword">
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn-success">
                         <span class="glyphicon glyphicon-search"></span>
@@ -83,54 +84,51 @@ require('../config.php');
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-default navbar-nav">
-                <li id="homepage"><a href="homepage.php">TRANG CHỦ</a></li>
-                <li class="dropdown" id = "gioithieu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >GIỚI THIỆU <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="gioithieu.php">GIỚI THIỆU CHUNG</a></li>
-                    <li><a href="tamnhinsumenh.php">TẦM NHÌN - SỨ MỆNH</a></li>
-                    <li><a href="visaochontv.php">VÌ SAO CHỌN THANH VŨ MEDIC BẠC LIỆU</a></li>
-                    <li><a href="camnghi_kh.php">CẢM NGHĨ KHÁCH HÀNG</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown" id="chuyenkhoa">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >DỊCH VỤ Y KHOA <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="chuyenkhoa.php">CÁC CHUYÊN KHOA</a></li>
-                    <li><a href="banggia.php">BẢNG GIÁ CHUNG</a></li>
-                    <li><a href="#">KIỂM TRA SỨC KHỎE TÔNG QUÁT</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >DÀNH CHO KHÁCH HÀNG <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">THANH TOÁN BẢO HIỂM</a></li>
-                    <li><a href="#">THẺ KHÁCH HÀNG</a></li>
-                    <li><a href="#">BỆNH ÁN ĐIỆN TỬ</a></li>
-                    <li><a href="#">HẸN LỊCH KHÁM</a></li>
-                    <li><a href="#">HƯỚNG DẪN KHÁCH KHÁM</a></li>
-                    <li><a href="#">LỊCH TRỰC BÁC SĨ</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >TIN TỨC - SỰ KIỆN <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">CHƯƠNG TRÌNH ƯU ĐÃI</a></li>
-                    <li><a href="#">TIN TỨC - HOẠT ĐỘNG</a></li>
-                    <li><a href="#">BẢN TIN SỨC KHỎE</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >LIÊN HỆ <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">DANH BẠ ĐIỆN THOẠI</a></li>
-                    <li><a href="#">PHẢN HỒI KHÁCH HÀNG</a></li>
-                    <li><a href="#">SƠ ĐỒ 360</a></li>
-                    <li><a href="#">SƠ ĐỒ GOOGLE MAP</a></li>
-                  </ul>
-                </li>
-              </ul>
+            <?php
+                require('../connect/config.php');
+                if($_SESSION['lang'] == "en"){
+	                $menungang = "select menu_id, menu_name_en as name, menu_link, menu_parent, menu_pos from menu where menu_parent=0";
+                }
+                else {
+                  $menungang = "select menu_id, menu_name_vn as name, menu_link, menu_parent, menu_pos from menu where menu_parent=0";
+                }
+          			$menungang_1=mysql_query($menungang);
+          			if($menungang_1 && mysql_num_rows($menungang_1)>0)
+          			{
+          				echo '<ul class="nav navbar-default navbar-nav">';
+          				while ($menungang_2 = mysql_fetch_array($menungang_1))
+          				{
+          				  
+          					//$menucon="select * from menu where menu_parent={$menungang_2["menu_id"]}";
+          					if($_SESSION['lang'] == "en"){
+    	                $menucon = "select menu_id, menu_name_en as name, menu_link, menu_parent, menu_pos from menu where menu_parent={$menungang_2["menu_id"]}";
+                    }
+                    else {
+                      $menucon = "select menu_id, menu_name_vn as name, menu_link, menu_parent, menu_pos from menu where menu_parent={$menungang_2["menu_id"]}";
+                    }
+          					$menucon_1=mysql_query($menucon);
+          					if($menucon_1 && mysql_num_rows($menucon_1)>0)
+          					{
+          					  
+          					  echo "<li class='dropdown' id='id".$menungang_2['menu_id']."'>";
+          						echo "<a class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false' href='" .$menungang_2['menu_link']. "'>".$menungang_2['name']."<span class='caret'></span></a>";
+          						echo '<ul class="dropdown-menu dropdown-menu2" role="menu">';
+          						while($menucon_2=mysql_fetch_array($menucon_1))
+          						{
+          							echo"<li><a href='". $menucon_2['menu_link'] ."'>" . $menucon_2['name'] . "</a></li>";
+          						}
+          						echo"</ul>";
+          					  echo "</li>";
+          					}
+          					else
+          					{
+          						echo "<li id='id".$menungang_2['menu_id']."'><a href='". $menungang_2['menu_link'] ."'> ".$menungang_2['name']. "</a></li>";
+          					}
+          				}
+          				echo"</ul>";
+          			}
+              ?>
+              <!--</ul>-->
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>

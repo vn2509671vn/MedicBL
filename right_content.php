@@ -12,25 +12,25 @@ $chuyenkhoa_muinhon = getchuyenkhoa_muinhon($_SESSION['lang']);
       <!--</div>-->
       <!--<br>-->
       <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>
           </div>
       </div>
       <br>
       <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>
           </div>
       </div>
       <br>
       <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>
           </div>
       </div>
       <br>
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-12">
           <div class="panel panel-default text-left">
             <div class="panel-heading golden-background text-black"><?php echo $main['chuyenkhoamuinhon'];?></div>
             <?php while($list_chuyenkhoa_muinhon = mysql_fetch_assoc($chuyenkhoa_muinhon)): ?>
@@ -39,13 +39,14 @@ $chuyenkhoa_muinhon = getchuyenkhoa_muinhon($_SESSION['lang']);
             </div>
         </div>
       </div>
+      <br>
       <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <iframe width="100%" height="auto" src="../_html5/Project1.html"></iframe>
           </div>
       </div>
       <div class="row">
-          <div class="col-sm-12">
+          <div class="col-md-12">
             <iframe width="100%" height="auto" src="https://www.youtube.com/embed/KgMt0dtr4Vc" frameborder="0" allowfullscreen></iframe>
           </div>
       </div>

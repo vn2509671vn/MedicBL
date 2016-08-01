@@ -6,6 +6,8 @@ require('../config.php');
     $page -= 1;
     $display = 11;
     $start = $page * $display;
+    $end = $start + 11;
+    $chitiet = $main['chitiet'];
     if($_SESSION["search"] && $_SESSION["chuyenkhoa_id"]){
         $text_search = $_SESSION["search"];
         $chuyenkhoa_id = $_SESSION["chuyenkhoa_id"];
@@ -22,14 +24,14 @@ require('../config.php');
                 FROM doctors as dt, chuyenkhoa as ck 
                 WHERE dt.doctor_name_en LIKE '%".$text_search."%' AND dt.chuyenkhoa_id = '".$chuyenkhoa_id."' AND dt.chuyenkhoa_id = ck.chuyenkhoa_id 
                 ORDER BY dt.doctor_id 
-                LIMIT $start, $display";
+                LIMIT $start, $end";
             }
             else {
                 $query = "SELECT dt.doctor_name_en as name, dt.doctor_id , dt.doctor_image as image 
                 FROM doctors as dt, chuyenkhoa as ck 
                 WHERE dt.doctor_name_en LIKE '%".$text_search."%' AND dt.chuyenkhoa_id = ck.chuyenkhoa_id 
                 ORDER BY dt.doctor_id 
-                LIMIT $start, $display";
+                LIMIT $start, $end";
             }
          }
          else {
@@ -38,14 +40,14 @@ require('../config.php');
                 FROM doctors as dt, chuyenkhoa as ck 
                 WHERE dt.doctor_name_vn LIKE '%".$text_search."%' AND dt.chuyenkhoa_id = '".$chuyenkhoa_id."' AND dt.chuyenkhoa_id = ck.chuyenkhoa_id 
                 ORDER BY dt.doctor_id 
-                LIMIT $start, $display";
+                LIMIT $start, $end";
             }
             else {
                 $query = "SELECT dt.doctor_name_vn as name, dt.doctor_id , dt.doctor_image as image 
                 FROM doctors as dt, chuyenkhoa as ck 
                 WHERE dt.doctor_name_vn LIKE '%".$text_search."%' AND dt.chuyenkhoa_id = ck.chuyenkhoa_id 
                 ORDER BY dt.doctor_id 
-                LIMIT $start, $display";
+                LIMIT $start, $end";
             }
          }
     }
@@ -54,14 +56,14 @@ require('../config.php');
         FROM doctors as dt, chuyenkhoa as ck 
         WHERE dt.doctor_name_vn LIKE '%".$text_search."%' AND dt.chuyenkhoa_id = '".$chuyenkhoa_id."' AND dt.chuyenkhoa_id = ck.chuyenkhoa_id
         ORDER BY dt.doctor_id 
-        LIMIT $start, $display";
+        LIMIT $start, $end";
     }
     else {
         $query = "SELECT dt.doctor_name_vn as name, dt.doctor_id , dt.doctor_image as image 
         FROM doctors as dt, chuyenkhoa as ck 
         WHERE dt.doctor_name_vn LIKE '%".$text_search."%' AND dt.chuyenkhoa_id = ck.chuyenkhoa_id
         ORDER BY dt.doctor_id 
-        LIMIT $start, $display";
+        LIMIT $start, $end";
     }
     
     $result = mysql_query($query);
@@ -79,7 +81,7 @@ require('../config.php');
                     <img src="../admin/upload/image_doctor/'.$row['image'].'" alt="..." class="height-157">
                         <div class="caption">
                             <p>'.$row['name'].'</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Chi tiết</a></p>
+                            <p><a href="doctor_chitiet.php?id='.$row['doctor_id'].'" class="btn btn-success" role="button">CHI TIẾT</a></p>
                         </div>
                     </div>
                 </div>  
@@ -129,22 +131,22 @@ require('../config.php');
     $output .= "<div class ='col-md-12 text-center'><nav role='page'><ul class='pagination'>";
      
     if ($current_page > 1) {
-        $output .= "<li page='1'><a >First</a></li>";
+        $output .= "<li page='1' onclick='pagination(1)'><a href='#'>First</a></li>";
         $previous = $current_page - 1;
-        $output .= "<li page='$previous'><a >Previous</a></li>";
+        $output .= "<li page='$previous' onclick='pagination($previous)'><a href='#'>Previous</a></li>";
     } 
      
     for ($i = $start_page; $i <= $end_page; $i++) {
         if ($current_page == $i)
             $output .= "<li page='$i' class='active'><a>{$i}</a></li>";
         else
-            $output .= "<li page='$i'><a >{$i}</a></li>";
+            $output .= "<li page='$i' onclick='pagination($i)'><a href='#'>{$i}</a></li>";
     }
      
     if ($current_page < $pages) {
         $next = $current_page + 1;
-        $output .= "<li page='$next'><a >Next</a></li>";
-        $output .= "<li page='$pages'><a >Last</a></li>";
+        $output .= "<li page='$next' onclick='pagination($next)'><a href='#'>Next</a></li>";
+        $output .= "<li page='$pages' onclick='pagination($pages)'><a href='#'>Last</a></li>";
     } 
      
     $output = $output . "</div></ul></nav>";

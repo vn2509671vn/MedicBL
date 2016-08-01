@@ -68,7 +68,7 @@ require('../config.php');
                     <img src="../admin/upload/image_doctor/'.$row['image'].'" alt="..." class="height-157">
                         <div class="caption">
                             <p>'.$row['name'].'</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Chi tiết</a></p>
+                            <p><a href="doctor_chitiet.php?id='.$row['doctor_id'].'" class="btn btn-primary" role="button">Chi tiết</a></p>
                         </div>
                     </div>
                 </div>  
@@ -106,13 +106,13 @@ require('../config.php');
     if (1 == $i)
         $output .= "<li page='$i' class='active'><a >{$i}</a></li>";
     else
-        $output .= "<li page='$i'><a >{$i}</a></li>";
+        $output .= "<li page='$i' onclick='pagination($i)'><a href='#'>{$i}</a></li>";
     }
     
     if (1 < $pages) {
         $next = 2;
-        $output .= "<li page='$next'><a >Next</a></li>";
-        $output .= "<li page='$pages'><a >Last</a></li>";
+        $output .= "<li page='$next' onclick='pagination($next)'><a href='#'>Next</a></li>";
+        $output .= "<li page='$pages' onclick='pagination($pages)'><a href='#'>Last</a></li>";
     }
     $output = $output . "</div></ul></nav>";
     echo $output;

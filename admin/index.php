@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 include("../connect/config.php");
 if(!isset($_SESSION['ses_name'])){
@@ -80,13 +80,33 @@ if(!isset($_SESSION['ses_name'])){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../index.php">THANH VU HOSPITAL</a>
+            <a class="navbar-brand" href="../views/homepage.php">THANH VU HOSPITAL</a>
         </div>
 
         <div class="header-right">
 
-            <a href="function/contact/index.php" class="btn btn-info" title="Total of not contact"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
-            <a href="function/booking/index.php" class="btn btn-primary" title="Total of no Booking"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
+             <a href="../contact/index.php" class="btn btn-info" title="New Message">
+                <b>
+                    <?php
+                        require_once '../connect/dbconfig.php';
+                        $stmt4 = $db_con->prepare("SELECT * FROM contact b where b.contact_approve = 0");
+                        $stmt4->execute();
+                        $count4 = $stmt4->rowCount();
+                        echo $count4;
+                    ?> 
+                </b><i
+                    class="fa fa-envelope-o fa-2x"></i></a>
+            <a href="../booking/index.php" class="btn btn-primary" title="New Booking">
+                <b>
+                    <?php
+                        require_once '../connect/dbconfig.php';
+                        $stmt3 = $db_con->prepare("SELECT * FROM booking b where b.booking_approve = 0");
+                        $stmt3->execute();
+                        $count3 = $stmt3->rowCount();
+                        echo $count3;
+                    ?> 
+                </b><i
+                    class="fa fa-bars fa-2x"></i></a>
             <a href="logout.php" onclick="return check()" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
 
         </div>
@@ -189,7 +209,7 @@ if(!isset($_SESSION['ses_name'])){
                         <a href="function/menu/index.php"><i class="fa fa-bug "></i>Menu</a>
                     </li>
                     <li>
-                        <a href="function/comment/index.php"><i class="fa fa-sign-in "></i>Comments</a>
+                        <a href="function/comments/index.php"><i class="fa fa-sign-in "></i>Feeling Customer</a>
                     </li>
                     <?php
                 }
@@ -245,59 +265,9 @@ if(!isset($_SESSION['ses_name'])){
             </div>
             <hr>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="container">
-                        <h1 class="page-head-line">Users</h1>
-                        <button class="btn btn-info" type="button" id="btn-add"> <span class="glyphicon glyphicon-pencil"></span> &nbsp; Add Employee</button>
-                        <button class="btn btn-info" type="button" id="btn-view"> <span class="glyphicon glyphicon-eye-open"></span> &nbsp; View Employee</button>
-                        <hr />
-
-                        <div class="content-loader">
-
-                            <table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
-                                <thead>
-                                <tr>
-                                    <th>Emp ID</th>
-                                    <th>Emp Name</th>
-                                    <th>department</th>
-                                    <th>salary</th>
-                                    <th>edit</th>
-                                    <th>delete</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php
-                                require_once '../connect/dbconfig.php';
-
-                                $stmt = $db_con->prepare("SELECT * FROM user ORDER BY user_id DESC");
-                                $stmt->execute();
-                                while($row=$stmt->fetch(PDO::FETCH_ASSOC))
-                                {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $row['user_id']; ?></td>
-                                        <td><?php echo $row['user_name']; ?></td>
-                                        <td><?php echo $row['user_username']; ?></td>
-                                        <td><?php echo $row['user_password']; ?></td>
-                                        <td align="center">
-                                            <a id="<?php echo $row['user_id']; ?>" class="edit-link" href="#" title="Edit">
-                                                <img src="assets/img/edit.png" width="20px" />
-                                            </a></td>
-                                        <td align="center"><a id="<?php echo $row['user_id']; ?>" class="delete-link" href="#" title="Delete">
-                                                <img src="assets/img/delete.png" width="20px" />
-                                            </a></td>
-                                    </tr>
-                                    <?php
-                                }
-                                ?>
-                                </tbody>
-                            </table>
-
-                        </div>
-
-                    </div>
+                <div class="col-sm-12">
+                    <!-- Content Dashboard -->
                 </div>
-
             </div>
             <!-- /. PAGE INNER  -->
         </div>
@@ -319,7 +289,13 @@ if(!isset($_SESSION['ses_name'])){
 
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function() {
-            $('#example').DataTable();
+            $('#example').DataTable({
+            scrollX: true,
+            scrollCollapse: true,
+            responsive: {
+                details: false
+            }
+        });
 
             $('#example')
                 .removeClass( 'display' )

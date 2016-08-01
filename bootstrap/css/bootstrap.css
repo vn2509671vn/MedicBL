@@ -2505,6 +2505,10 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tfoot > tr:last-child > td {
     border-bottom: 0;
   }
+  
+  .line-hight-nor{
+    line-height: inherit !important;
+  }
 }
 fieldset {
   min-width: 0;
@@ -6862,7 +6866,7 @@ button.close {
 /*# sourceMappingURL=bootstrap.css.map */
 
 /*Add start ThangTGM*/
-.dropdown-menu {
+.dropdown-menu2 {
   opacity:.3;
   -webkit-transform-origin: top;
   -moz-transform-origin: top;
@@ -7040,6 +7044,34 @@ footer {
 .height-157 {
   height: 157px !important;
 }
+
+.focus_error{
+  border-color: red !important;
+}
+
+.text-bold-goldden{
+  font-weight: bold;
+  color: #ffc600;
+}
+
+.text-word-wrap {
+  word-wrap: break-word;
+}
+
+.margin-top-10px{
+  margin-top: 10px;
+}
+
+.margin-top-40px{
+  margin-top: 40px;
+}
+
+.margin-bottom-10px{
+  margin-bottom: 10px
+}
+.uppercase{
+  text-transform: uppercase !important;
+}
 @media (min-width: 768px){
   .font-size-12 {
     padding-left: 0px;
@@ -7056,5 +7088,28 @@ footer {
   .width-40per{
     width: 40% !important;
   }
+}
+
+.image-preview-input {
+    position: relative;
+	overflow: hidden;
+	margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
 }
 /*Add end ThangTGM*/

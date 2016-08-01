@@ -35,4 +35,5 @@ function changeTitle($str){
     $str = str_replace(' ','-',$str); 
     return $str; 
 } 
+
 ?>

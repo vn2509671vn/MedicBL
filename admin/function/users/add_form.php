@@ -32,7 +32,14 @@
         </tr>
         <tr>
             <td>Is Admin</td>
-            <td><input type='radio' name='user_admin' class='form-control' value="admin"></td>
+             <td>
+                <label>
+                    <input type="radio" name="user_admin" value="1"> Admin
+                </label>
+                <label>
+                    <input type="radio" name="user_admin" value="0" checked> Not Admin
+                </label>
+            </td>
         </tr>
         <tr>
             <td colspan="2">

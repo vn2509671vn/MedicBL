@@ -22,6 +22,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../../assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
     <link href="../../..//assets/css/font-awesome.css" rel="stylesheet"/>
+    <link href="../../../assets/css/buttons.dataTables.min.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
     <link href="../../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
@@ -87,14 +88,32 @@ if (!isset($_SESSION['ses_name'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../../index.php">THANH VU HOSPITAL</a>
+            <a class="navbar-brand" href="../../../../views/pagehome.php">THANH VU HOSPITAL</a>
         </div>
 
         <div class="header-right">
 
-            <a href="../../contact/contact.php" class="btn btn-info" title="New Message"><b>30 </b><i
+             <a href="../contact/index.php" class="btn btn-info" title="New Message">
+                <b>
+                    <?php
+                        require_once '../../../../connect/dbconfig.php';
+                        $stmt4 = $db_con->prepare("SELECT * FROM contact b where b.contact_approve = 0");
+                        $stmt4->execute();
+                        $count4 = $stmt4->rowCount();
+                        echo $count4;
+                    ?> 
+                </b><i
                     class="fa fa-envelope-o fa-2x"></i></a>
-            <a href="../../booking/book.php" class="btn btn-primary" title="New Booking"><b>40 </b><i
+            <a href="../booking/index.php" class="btn btn-primary" title="New Booking">
+                <b>
+                    <?php
+                        require_once '../../../../connect/dbconfig.php';
+                        $stmt3 = $db_con->prepare("SELECT * FROM booking b where b.booking_approve = 0");
+                        $stmt3->execute();
+                        $count3 = $stmt3->rowCount();
+                        echo $count3;
+                    ?> 
+                </b><i
                     class="fa fa-bars fa-2x"></i></a>
             <a href="../../../logout.php" onclick="return check()" class="btn btn-danger" title="Logout"><i
                     class="fa fa-exclamation-circle fa-2x"></i></a>
@@ -225,7 +244,7 @@ if (!isset($_SESSION['ses_name'])) {
                     <!--  BEGIN MENU   ==========================================================================   -->
 
                     <li>
-                        <a href="../../comments/comment.php"><i class="fa fa-square-o "></i>Comments</a>
+                        <a href="../../comments/index.php"><i class="fa fa-square-o "></i>Feeling Customer</a>
                     </li>
                     <!--  END MENU   ==========================================================================   -->
                     <?php
@@ -255,7 +274,7 @@ if (!isset($_SESSION['ses_name'])) {
                         <hr/>
 
                         <div class="content-loader">
-                            <table cellspacing="0" width="100%" id="user"
+                            <table cellspacing="0" width="100%" id="service"
                                    class="table table-striped table-hover table-responsive">
                                 <thead>
                                 <tr>
@@ -319,10 +338,7 @@ if (!isset($_SESSION['ses_name'])) {
     <!-- /. PAGE WRAPPER  -->
 </div>
 <!-- /. WRAPPER  -->
-
-<div id="footer-sec">
-    &copy; 2014 YourCompany | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
-</div>
+<?php include("../../../footer.php");  ?>
 <!-- /. FOOTER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 <!-- JQUERY SCRIPTS -->
@@ -336,17 +352,30 @@ if (!isset($_SESSION['ses_name'])) {
 <script src="../../../assets/js/jquery-1.12.3.min.js"></script>
 <script src="../../../assets/js/crud.js" type="text/javascript"></script>
 <script src="../../../assets/js/jquery.dataTables.min.js"></script>
-<!--<script src="bootstrap/js/bootstrap.min.css"></script>-->
-<script type="text/javascript" src="../../../assets/js/datatables.min.js"></script>-->
+<script type="text/javascript" src="../../../assets/js/datatables.min.js"></script>
+<script type="text/javascript" src="../../../assets/js/dataTables.buttons.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 
 
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
-        $('#user').DataTable();
-
-        $('#user')
+        $('#service')
             .removeClass('display')
             .addClass('table table-bordered');
+        $('#service').DataTable({
+            "scrollX": true,
+            "scrollY": 510,
+            "scrollCollapse": true,
+            "dom":'<<"row"<"col-sm-4"B><"col-sm-4"l><"col-sm-4"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>>',
+             "buttons": [
+                 'excel', 'pdf', 'print'
+             ]
+        });
     });
 </script>
 
