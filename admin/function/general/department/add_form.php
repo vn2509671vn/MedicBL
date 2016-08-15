@@ -68,7 +68,7 @@
                              <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
                                 <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="department_image" type="file"></span>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input id="department_image" name="department_image" type="file"></span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                              <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
                                 <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="department_position_image" type="file"></span>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input id="department_position_image" name="department_position_image" type="file"></span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>

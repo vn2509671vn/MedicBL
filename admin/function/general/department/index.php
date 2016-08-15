@@ -37,7 +37,9 @@ if (!isset($_SESSION['ses_name'])) {
     <script type="text/javascript" src="../../../assets/js/jquery-1.11.3-jquery.min.js"></script>
     <script type="text/javascript">
     function addDepartment(){
-         var data = new FormData($('#emp-SaveForm')[0]);
+        var file = document.getElementById("department_image").files[0]; //fetch file
+            var data = new FormData($('#emp-UpdateForm'));                     
+            data.append('department_image', file); //append file to formData object
             $.ajax({
 				    type:"POST",
                     url:"insert.php",
@@ -48,34 +50,17 @@ if (!isset($_SESSION['ses_name'])) {
                     processData: false,
                     success:function(data)
                       {
-            				var image = data;
-                            document.getElementById('department_temp').value = image;
-                            alert("Uploaded Image: " + image);
-                       }
-        				});
-      
-    }
-    function changeDepartment(){
-         var data = new FormData($('#emp-UpdateForm')[0]);
-            $.ajax({
-				    type:"POST",
-                    url:"insert.php",
-                    data:data,
-                    mimeType: "multipart/form-data",
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success:function(data)
-                      {
-            				var image = data;
-                            document.getElementById('department_temp').value = image;
-                            alert("Uploaded Image: " + image);
+            				var department_temp = data;
+                            document.getElementById('department_temp').value = department_temp;
+                            alert("Uploaded Image: " + department_temp);
                        }
         				});
       
     }
     function addDepartment_Position(){
-         var data = new FormData($('#emp-SaveForm')[0]);
+        var file = document.getElementById("department_position_image").files[0]; //fetch file
+            var data = new FormData($('#emp-UpdateForm'));                     
+            data.append('department_position_image', file); //append file to formData object
             $.ajax({
 				    type:"POST",
                     url:"insert.php",
@@ -86,15 +71,38 @@ if (!isset($_SESSION['ses_name'])) {
                     processData: false,
                     success:function(data)
                       {
-            				var image_department = data;
-                            document.getElementById('department_position_temp').value = image_department;
-                            alert("Uploaded Image: " + image_department);
+            				var department_position_temp = data;
+                            document.getElementById('department_position_temp').value = department_position_temp;
+                            alert("Uploaded Image: " + department_position_temp);
+                       }
+        				});
+      
+    }
+    function changeDepartment(){
+        var file = document.getElementById("change_department_image").files[0]; //fetch file
+            var data = new FormData($('#emp-UpdateForm'));                     
+            data.append('change_department_image', file); //append file to formData object
+            $.ajax({
+				    type:"POST",
+                    url:"insert.php",
+                    data:data,
+                    mimeType: "multipart/form-data",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success:function(data)
+                      {
+            				var change_department_temp = data;
+                            document.getElementById('change_department_temp').value = change_department_temp;
+                            alert("Uploaded Image: " + change_department_temp);
                        }
         				});
       
     }
     function changeDepartment_Position(){
-         var data = new FormData($('#emp-UpdateForm')[0]);
+        var file = document.getElementById("change_department_position_image").files[0]; //fetch file
+            var data = new FormData($('#emp-UpdateForm'));                     
+            data.append('change_department_position_image', file); //append file to formData object
             $.ajax({
 				    type:"POST",
                     url:"insert.php",
@@ -105,9 +113,9 @@ if (!isset($_SESSION['ses_name'])) {
                     processData: false,
                     success:function(data)
                       {
-            				var image = data;
-                            document.getElementById('department_position_temp').value = image;
-                            alert("Uploaded Image: " + image);
+            				var change_department_position_temp = data;
+                            document.getElementById('change_department_position_temp').value = change_department_position_temp;
+                            alert("Uploaded Image: " + change_department_position_temp);
                        }
         				});
       

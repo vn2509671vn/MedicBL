@@ -22,14 +22,13 @@ if($_GET['edit_id'])
     
 	</div>
         
- 	
-	 <form method='post' id='emp-UpdateForm' action='#'>
+<form method='post' id='emp-UpdateForm' action='#'>
     <table class='table table-bordered'>
         <input type='hidden' name='id' value='<?php echo $row['infor_id']; ?>' />
-        <input id="logo_temp" type="text" value="1" name="logo_temp" style='display:none;'  readonly="readonly"/>
-        <input id="advertise1_temp" type="text" value="1" name="advertise1_temp" style='display:none;'  readonly="readonly"/>
-        <input id="advertise2_temp" type="text" value="1" name="advertise2_temp" style='display:none;'  readonly="readonly"/>
-        <input id="advertise3_temp" type="text" value="1" name="advertise3_temp" style='display:none;'  readonly="readonly"/>
+        <input id="logo_temp" type="text" value="<?php echo $row['infor_image']; ?>" name="logo_temp" style='display:none;'  readonly="readonly"/>
+        <input id="advertise1_temp" type="text" value="<?php echo $row['infor_advertise1']; ?>" name="advertise1_temp" style='display:none;'  readonly="readonly"/>
+        <input id="advertise2_temp" type="text" value="<?php echo $row['infor_advertise2']; ?>" name="advertise2_temp" style='display:none;'  readonly="readonly"/>
+        <input id="advertise3_temp" type="text" value="<?php echo $row['infor_advertise3']; ?>" name="advertise3_temp" style='display:none;'  readonly="readonly"/>
         <tr>
             <td>
                 <label class="control-label">Name VN</label>
@@ -126,7 +125,7 @@ if($_GET['edit_id'])
                 <div class="addAdvertise1">
                              <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
-                                    <img src="../../upload/infor_hos/<?php echo $row['infor_adverties1']; ?>"> </img>
+                                    <img src="../../upload/infor_hos/<?php echo $row['infor_advertise1']; ?>"> </img>
                                 </div>
                                 <div>
                                     <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input id="infor_addAdvertise1" name="infor_addAdvertise1" type="file"></span>
@@ -146,10 +145,10 @@ if($_GET['edit_id'])
                 <div class="addAdvertise2">
                              <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
-                                    <img src="../../upload/infor_hos/<?php echo $row['infor_adverties2']; ?>"> </img>
+                                    <img src="../../upload/infor_hos/<?php echo $row['infor_advertise2']; ?>"> </img>
                                 </div>
                                 <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="infor_addAdvertise2" type="file"></span>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input id="infor_addAdvertise2" name="infor_addAdvertise2" type="file"></span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
@@ -166,10 +165,10 @@ if($_GET['edit_id'])
                 <div class="addAdvertise3">
                              <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
-                                    <img src="../../upload/infor_hos/<?php echo $row['infor_adverties3']; ?>"> </img>
+                                    <img src="../../upload/infor_hos/<?php echo $row['infor_advertise3']; ?>"> </img>
                                 </div>
                                 <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="infor_addAdvertise3" type="file"></span>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input id="infor_addAdvertise3" name="infor_addAdvertise3" type="file"></span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>

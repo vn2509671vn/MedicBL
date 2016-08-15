@@ -14,7 +14,7 @@ require_once '../../../connect/dbconfig.php';
 	    $infor_fax = $_POST['infor_fax'];
 	    $logo = $_POST['logo_temp'];
 	    $advertise1 = $_POST['advertise1_temp'];
-	    $advertise3 = $_POST['advertise2_temp'];
+	    $advertise2 = $_POST['advertise2_temp'];
 	    $advertise3 = $_POST['advertise3_temp'];
 		try{
             $stmt = $db_con->prepare("UPDATE infor_hos SET 
@@ -27,7 +27,7 @@ require_once '../../../connect/dbconfig.php';
             , infor_email =:i7
             , infor_image =:i8
             , infor_advertise1 =:i9
-            , infor_advertise3 =:i10
+            , infor_advertise2 =:i10
             , infor_advertise3 =:i11
             
             WHERE infor_id=:id");
@@ -40,8 +40,8 @@ require_once '../../../connect/dbconfig.php';
             $stmt->bindParam(":i7", $infor_email);
             $stmt->bindParam(":i8", $logo);
             $stmt->bindParam(":i9", $advertise1);
-            $stmt->bindParam(":i10", $advertise3);
-            $stmt->bindParam(":i10", $advertise3);
+            $stmt->bindParam(":i10", $advertise2);
+            $stmt->bindParam(":i11", $advertise3);
             $stmt->bindParam(":id", $id);
             if ($stmt->execute()) {
                 echo "Successfully Added";

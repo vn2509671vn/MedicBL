@@ -38,7 +38,7 @@ $(document).ready(function() {
  
     <table class='table table-bordered'>
  		<input type='hidden' name='id' value='<?php echo $row['doctor_id']; ?>' />
- 		<input id="doctor_temp" type="text" value="1" name="doctor_temp" style='display:none;'  readonly="readonly"/>
+ 		<input id="doctor_temp" type="text" value="<?php echo $row['doctor_image'] ?>" name="doctor_temp" style='display:none;'  readonly="readonly"/>
         <tr>
             <td>
                 <label class="control-label">

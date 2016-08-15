@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 include("../../../connect/config.php");
 if (!isset($_SESSION['ses_name'])) {
@@ -55,7 +55,7 @@ if (!isset($_SESSION['ses_name'])) {
             data.append('infor_addAdvertise1', file); //append file to formData object
             $.ajax({
                 type: "POST",
-                url: "insert1.php",
+                url: "insert.php",
                 data: data,
                 mimeType: "multipart/form-data",
                 contentType: false,
@@ -115,6 +115,7 @@ if (!isset($_SESSION['ses_name'])) {
         $(document).ready(function () {
 
             $("#btn-view").hide();
+            $("#btn-add").hide();
             $("#btn-add").click(function () {
                 $(".content-loader").fadeOut('slow', function () {
                     $(".content-loader").fadeIn('slow');
@@ -334,7 +335,7 @@ if (!isset($_SESSION['ses_name'])) {
             <div class="row">
                 <div class="col-md-12">
                     <div class="container">
-                        <h1 class="page-head-line">Menu</h1>
+                        <h1 class="page-head-line">ABOUT</h1>
                         <button class="btn btn-info" type="button" id="btn-add"><span
                                 class="glyphicon glyphicon-pencil"></span> &nbsp; Add Menu
                         </button>
@@ -354,11 +355,12 @@ if (!isset($_SESSION['ses_name'])) {
                                     <th>Address VN</th>
                                     <th>Address EN</th>
                                     <th>Phone</th>
+                                    <th>Email</th>
                                     <th>Fax</th>
                                     <th>Logo</th>
-                                    <th>Adverties 1</th>
-                                    <th>Adverties 2</th>
-                                    <th>Adverties 3</th>
+                                    <th>Advertise 1</th>
+                                    <th>Advertise 2</th>
+                                    <th>Advertise 3</th>
                                     <th>edit</th>
                                     <th>delete</th>
                                 </tr>
@@ -381,16 +383,17 @@ if (!isset($_SESSION['ses_name'])) {
                                     $infor_address_en = substr($infor_address_en, 0, 20) . '...';
                                     $infor_phone = $row['infor_phone'];
                                     $infor_phone = substr($infor_phone, 0, 50) . '...';
-
+                                    $infor_email = $row['infor_email'];
+                                    $infor_email = substr($infor_email, 0, 50) . '...';
                                     $infor_fax = $row['infor_fax'];
                                     $infor_fax = substr($infor_fax, 0, 80) . '...';
                                     $infor_image = $row['infor_image'];
                                     $infor_image = substr($infor_image, 0, 50) . '...';
                                     $infor_advertise1 = $row['infor_advertise1'];
                                     $infor_advertise1 = substr($infor_advertise1, 0, 50) . '...';
-                                    $infor_advertise2 = $row['$infor_advertise2'];
+                                    $infor_advertise2 = $row['infor_advertise2'];
                                     $infor_advertise2 = substr($infor_advertise2, 0, 50) . '...';
-                                    $infor_advertise3 = $row['$infor_advertise3'];
+                                    $infor_advertise3 = $row['infor_advertise3'];
                                     $infor_advertise3 = substr($infor_advertise3, 0, 50) . '...';
                                     
                                     ?>
@@ -401,6 +404,7 @@ if (!isset($_SESSION['ses_name'])) {
                                         <td><?php echo $infor_address; ?></td>
                                         <td><?php echo $infor_address_en; ?></td>
                                         <td><?php echo $infor_phone; ?></td>
+                                        <td><?php echo $infor_email; ?></td>
                                         <td><?php echo $infor_fax; ?></td>
                                         <td><?php echo $infor_image; ?></td>
                                         <td><?php echo $infor_advertise1; ?></td>

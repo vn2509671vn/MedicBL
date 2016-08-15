@@ -29,6 +29,8 @@ if($_GET['edit_id'])
  
     <table class='table table-bordered'>
  		<input type='hidden' name='id' value='<?php echo $row['department_id']; ?>' />
+ 		<input id="change_department_temp" type="text" value="<?php echo $row['department_images'] ?>" name="change_department_temp" style='display:none;'  readonly="readonly"/>
+        <input id="change_department_position_temp" type="text" value="<?php echo $row['department_position'] ?>" name="change_department_position_temp" style='display:none;'  readonly="readonly"/>
         <tr>
             <td>Department Name VN</td>
             <td><input type='text' name='department_name_vn' class='form-control' value='<?php echo $row['department_name_vn']; ?>' required /></td>
@@ -70,14 +72,45 @@ if($_GET['edit_id'])
                 </script>
             </td>
         </tr>
-        <tr>
-            <td>Department Image</td>
-            <td><input type='file' name='department_images' class='form-control' required></td>
-        </tr>
-        <tr>
-            <td>Department Position</td>
-            <td><input type='file' name='department_postion' class='form-control' required></td>
-        </tr>
+        <tr class="form-group">
+            <td>
+                <label class="control-label">Department Image</label>
+            </td>
+            <td>
+                <div class="">
+                             <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
+                                    <img src="../../../upload/image_department/<?php echo $row['department_images']; ?>"> </img>
+                                </div>
+                                
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input id="change_department_image" name="change_department_image" type="file"></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                             <input type="button" class="btn btn-info" value="Upload" onclick = "return changeDepartment()"/>
+                </div>
+            </td>
+         </tr>
+        <tr class="form-group">
+            <td>
+                <label class="control-label">Department Position Image</label>
+            </td>
+            <td>
+                <div class="">
+                             <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
+                                    <img src="../../../upload/image_department/<?php echo $row['department_position']; ?>"> </img>
+                                </div>
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input id="change_department_position_image" name="change_department_position_image" type="file"></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                             <input type="button" class="btn btn-info" value="Upload" onclick = "return changeDepartment_Position()"/>
+                </div>
+            </td>
+         </tr>
         <tr>
             <td>Department Chuyenkhoa</td>
             <td>
