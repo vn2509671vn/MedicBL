@@ -23,7 +23,8 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
     <link href="../../assets/css/font-awesome.css" rel="stylesheet"/>
-    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
+    
+    <link href="../../assets/css/buttons.dataTables.min.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
     <link href="../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
@@ -63,20 +64,20 @@ if (!isset($_SESSION['ses_name'])) {
 					}
 				});
             });
-            $(".view").click(function()
-        	{
-        	    var id = $(this).attr("id");
-        	    $.ajax({
-					url: 'view.php',
-					type: 'POST',
-					dataType: 'text',
-					data: "id=" + id,
-					success: function(data){
-						$result = data;
-						alert($result);
-					}
-				});
-			});
+//             $(".view").click(function()
+//         	{
+//         	    var id = $(this).attr("id");
+//         	    $.ajax({
+// 					url: 'view.php',
+// 					type: 'POST',
+// 					dataType: 'text',
+// 					data: "id=" + id,
+// 					success: function(data){
+// 						$result = data;
+// 						alert($result);
+// 					}
+// 				});
+// 			});
         });
     </script>
     <script type="text/javascript">
@@ -166,7 +167,9 @@ if (!isset($_SESSION['ses_name'])) {
                     <li>
                         <a href="../../index.php"><i class="fa fa-dashboard "></i>Dashboard</a>
                     </li>
-
+                    <li>
+                        <a href="../about_hos/index.php"><i class="glyphicon glyphicon-info-sign"></i>About</a>
+                    </li>
                     <!-- BEGIN NEWS   ===================================================================-->
                     <li>
                         <a href="#"><i class="fa fa-desktop "></i>News<span class="fa arrow"></span></a>
@@ -378,23 +381,29 @@ if (!isset($_SESSION['ses_name'])) {
 <script src="../../assets/js/custom.js"></script>
 <script src="../../assets/js/jquery-1.12.3.min.js"></script>
 <script src="../../assets/js/crud.js" type="text/javascript"></script>
-<script src="../../assets/js/jquery.dataTables.min.js"></script>
-<!--<script src="bootstrap/js/bootstrap.min.css"></script>-->
 <script type="text/javascript" src="../../assets/js/datatables.min.js"></script>
-
+<script type="text/javascript" src="../../assets/js/dataTables.buttons.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
         $('#contact')
             .removeClass('display')
             .addClass('table table-bordered');
-        $('#contact').DataTable({
-            scrollX: true,
-            scrollCollapse: true,
-            responsive: {
-                details: false
-            }
-        });
+        $('#contact').DataTable( {
+            "scrollX": true,
+            "scrollY": 510,
+            "scrollCollapse": true,
+            "dom":'<<"row"<"col-sm-4"B><"col-sm-4"l><"col-sm-4"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>>',
+             "buttons": [
+                 'excel', 'pdf', 'print'
+             ]
+        } );
     });
 </script>
 

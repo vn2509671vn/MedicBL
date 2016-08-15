@@ -52,4 +52,10 @@ $main['googlemap'] = 'SƠ ĐỒ GOOGLE MAP';
 $main['guiphanhoi'] = 'SEND';
 $main['cacbaivietlienquan'] = 'BÀI VIẾT LIÊN QUAN';
 $main['ketquatimkiem'] = 'KẾT QUẢ TÌM KIẾM';
+$main['thanhtoanbaohiem'] = 'THANH TOÁN BẢO HIỂM';
+$main['thekhachhang'] = 'THẺ KHÁCH HÀNG';
+$main['banhandientu'] = 'BỆNH ÁN ĐIỆN TỬ';
+$main['huongdankhambenh'] = 'HƯỚNG DẪN KHÁM BỆNH';
+$main['lichtrucbacsi'] = 'LỊCH TRỰC BÁC SĨ';
+$main['hoten'] = 'FULL NAME';
 ?>

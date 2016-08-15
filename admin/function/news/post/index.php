@@ -11,8 +11,7 @@ if (!isset($_SESSION['ses_name'])) {
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="robots" content="index, follow"
-    />
+    <meta name="robots" content="index, follow"/>
     <meta name="keywords" content="Bệnh Viện Đa Khoa Thanh Vũ Medic"/>
     <meta name="description" content="Bệnh Viện Đa Khoa Thanh Vũ Medic"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -24,7 +23,6 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../../assets/css/buttons.dataTables.min.css" rel="stylesheet"/>
     <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="../../../assets/css/bootstrap-fileupload.min.css" type="text/css"/>
-    <!--  Thêm vào ngày 30/06/2016 -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link href="../../../assets/img/icon/icon_bv.ico" rel="shortcut icon" type="image/x-icon"/>
     <script type="text/javascript" src="../../../assets/editor/ckeditor/ckeditor.js"></script>
@@ -72,7 +70,6 @@ if (!isset($_SESSION['ses_name'])) {
         $(document).ready(function () {
 
             $("#btn-view").hide();
-
             $("#btn-add").click(function () {
                 $(".content-loader").fadeOut('slow', function () {
                     $(".content-loader").fadeIn('slow');
@@ -181,7 +178,9 @@ if (!isset($_SESSION['ses_name'])) {
                     <li>
                         <a href="../../../index.php"><i class="fa fa-dashboard "></i>Dashboard</a>
                     </li>
-
+                    <li>
+                        <a href="../../about_hos/index.php"><i class="glyphicon glyphicon-info-sign"></i>About</a>
+                    </li>
                     <!-- BEGIN NEWS   ===================================================================-->
                     <li>
                         <a class="active-menu-top" href="#"><i class="fa fa-desktop "></i>News<span
@@ -333,16 +332,16 @@ if (!isset($_SESSION['ses_name'])) {
                                     $post_title = $row['post_title'];
                                     $post_title = substr($post_title, 0, 80) . '...';
                                     $post_content = $row['post_content'];
-                                    $post_content = substr($post_content, 0, 80) . '...';
+                                    $post_content = substr($post_content, 0, 20) . '...';
                                     $post_excerpt = $row['post_excerpt'];
-                                    $post_excerpt = substr($post_excerpt, 0, 80) . '...';
+                                    $post_excerpt = substr($post_excerpt, 0, 50) . '...';
 
                                     $post_title_en = $row['post_title_en'];
                                     $post_title_en = substr($post_title_en, 0, 80) . '...';
                                     $post_content_en = $row['post_content_en'];
-                                    $post_content_en = substr($post_content_en, 0, 80) . '...';
+                                    $post_content_en = substr($post_content_en, 0, 50) . '...';
                                     $post_excerpt_en = $row['post_excerpt_en'];
-                                    $post_excerpt_en = substr($post_excerpt_en, 0, 80) . '...';
+                                    $post_excerpt_en = substr($post_excerpt_en, 0, 50) . '...';
                                     ?>
                                     <tr>
                                         <td><?php echo $count; ?></td>
@@ -407,8 +406,8 @@ if (!isset($_SESSION['ses_name'])) {
 <script type="text/javascript" src="../../../assets/js/dataTables.buttons.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="../../../assets/js/pdfmake.min.js"></script>
+<script src="../../../assets/js/vfs_fonts.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 

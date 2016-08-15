@@ -12,7 +12,7 @@ $id = $_GET['id'];
 $cat_id = $_GET['cat_id'];
 addView($id);
 $detail = mysql_fetch_array(getchitiet_byID($id, $_SESSION['lang']));
-$listlienquan = getcactinlienquan($_SESSION['lang'], $cat_id, $id);
+$listlienquan = getcactinlienquan($_SESSION['lang'], $detail['cat_id'], $id);
 ?>
 <div class="container text-center">    
     <div class="row">

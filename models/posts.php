@@ -29,6 +29,36 @@
         return mysql_query($query);
     }
     
+    function getkiemtrasuckhoe($lang){
+        if($lang == 'en'){
+            $query = "select posts.post_id, posts.post_title_en as title, posts.post_content_en as content, posts.post_date, posts.post_image from posts where cat_id = '9' and posts.post_status = '1'";
+        }
+        else {
+            $query = "select posts.post_id, posts.post_title as title, posts.post_content as content, posts.post_date, posts.post_image from posts where cat_id = '9' and posts.post_status = '1'";
+        }
+        return mysql_query($query);
+    }
+    
+    function getthanhtoanbaohiem($lang){
+        if($lang == 'en'){
+            $query = "select posts.post_id, posts.post_title_en as title, posts.post_content_en as content, posts.post_date, posts.post_image from posts where cat_id = '10' and posts.post_status = '1'";
+        }
+        else {
+            $query = "select posts.post_id, posts.post_title as title, posts.post_content as content, posts.post_date, posts.post_image from posts where cat_id = '10' and posts.post_status = '1'";
+        }
+        return mysql_query($query);
+    }
+    
+    function getthekhachhang($lang){
+        if($lang == 'en'){
+            $query = "select posts.post_id, posts.post_title_en as title, posts.post_content_en as content, posts.post_date, posts.post_image from posts where cat_id = '12' and posts.post_status = '1'";
+        }
+        else {
+            $query = "select posts.post_id, posts.post_title as title, posts.post_content as content, posts.post_date, posts.post_image from posts where cat_id = '12' and posts.post_status = '1'";
+        }
+        return mysql_query($query);
+    }
+    
     function gettinduocnhieu($lang){
         if($lang == 'en'){
             $query = "select posts.post_id, posts.post_title_en as title, posts.post_date, posts.post_count, posts.post_image, posts.cat_id from posts where cat_id IN(1,2,3) and posts.post_status = '1' ORDER BY post_count DESC LIMIT 0,4";
@@ -41,10 +71,10 @@
     
     function getchitiet_byID($id, $lang){
         if($lang == 'en'){
-            $query = "select posts.post_id, posts.post_title_en as title, posts.post_date, posts.post_count, posts.post_image, posts.post_content_en as content from posts where posts.post_id = '$id' and posts.post_status = '1' ORDER BY post_count DESC LIMIT 0,4";
+            $query = "select posts.post_id, posts.post_title_en as title, posts.post_date, posts.post_count, posts.post_image, posts.post_content_en as content, posts.cat_id from posts where posts.post_id = '$id' and posts.post_status = '1' ORDER BY post_count DESC LIMIT 0,4";
         }
         else {
-            $query = "select posts.post_id, posts.post_title as title, posts.post_date, posts.post_count, posts.post_image, posts.post_content as content from posts where posts.post_id = '$id' and posts.post_status = '1' ORDER BY post_count DESC LIMIT 0,4";
+            $query = "select posts.post_id, posts.post_title as title, posts.post_date, posts.post_count, posts.post_image, posts.post_content as content, posts.cat_id from posts where posts.post_id = '$id' and posts.post_status = '1' ORDER BY post_count DESC LIMIT 0,4";
         }
         return mysql_query($query);
     }

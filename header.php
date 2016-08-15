@@ -22,6 +22,13 @@
   
   <!-- Go to www.addthis.com/dashboard to customize your tools -->
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579a1b6fd5569268"></script>
+  
+  <!-- Plugin for autocomplete -->
+  <script src="../bootstrap/js/currency-autocomplete.js"></script>
+  <script src="../bootstrap/js/jquery.autocomplete.min.js"></script>
+  
+  <!-- Plugin for image map -->
+  <script src="../bootstrap/js/jquery.imagemapster.js"></script>
 </head>
 <?php
 session_start();

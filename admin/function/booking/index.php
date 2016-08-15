@@ -22,7 +22,7 @@ if (!isset($_SESSION['ses_name'])) {
     <link href="../../assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
     <link href="../../assets/css/font-awesome.css" rel="stylesheet"/>
-    <link href="../../../assets/css/datatables.min.css" rel="stylesheet"/>
+    <link href="../../assets/css/buttons.dataTables.min.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
     <link href="../../assets/css/basic.css" rel="stylesheet"/>
     <!--CUSTOM MAIN STYLES-->
@@ -61,6 +61,38 @@ if (!isset($_SESSION['ses_name'])) {
 						document.getElementById(temp_app).value = data;
 					}
 				});
+            });
+            $(".sms-doctor-link").click(function()
+        	{
+        	    var idsms = $(this).attr("id");
+        	    var temp_app = 'status_doctor_temp' + idsms;
+        	    var temp = document.getElementById(temp_app).value;
+        	    var cl = ".sms-doctor-link .img_accept" + idsms;
+        	    if(temp==0){
+                    $.ajax({
+					url: 'sms_process.php',
+					type: 'POST',
+					dataType: 'text',
+					data: "idsms=" + idsms,
+					success: function(data){
+						$result_receive = data;
+						document.getElementById(temp_app).value = data;
+						alert($result_receive);
+						if($result_receive == 1){
+    						$(cl).attr("src", "../../assets/img/accept.png");
+    						alert($result_receive);
+						}
+						else{
+						    alert('Not update ' . $result_receive);
+						}
+					}
+				});
+                    
+        	    }
+        	    else{
+        	        alert("Id is sended!!! Not sent continue");
+        	    }
+                 
             });
         });
     </script>
@@ -151,7 +183,9 @@ if (!isset($_SESSION['ses_name'])) {
                     <li>
                         <a href="../../index.php"><i class="fa fa-dashboard "></i>Dashboard</a>
                     </li>
-
+                    <li>
+                        <a href="../about_hos/index.php"><i class="glyphicon glyphicon-info-sign"></i>About</a>
+                    </li>
                     <!-- BEGIN NEWS   ===================================================================-->
                     <li>
                         <a href="#"><i class="fa fa-desktop "></i>News<span class="fa arrow"></span></a>
@@ -264,7 +298,7 @@ if (!isset($_SESSION['ses_name'])) {
                         <hr/>
 
                         <div class="content-loader">
-                            <table cellspacing="0" width="100%" id="user"
+                            <table cellspacing="0" width="100%" id="booking"
                                    class="table table-striped table-hover table-responsive">
                                 <thead>
                                 <tr>
@@ -318,9 +352,10 @@ if (!isset($_SESSION['ses_name'])) {
                                                 else {
                                                     if($row['booking_status_doctor'] == 0){
                                             ?> 
-                                                    <a id="<?php echo $row['booking_id']; ?>" class=sms_doctor-link" href="#" title="Click to Send SMS Doctor">
-                                                        <img src="../../assets/img/sms.png" width="40px"/>
+                                                    <a id="<?php echo $row['booking_id']; ?>" class="sms-doctor-link" href="#" title="Click to Send SMS Doctor">
+                                                        <img class='img_accept<?php echo $row['booking_id']; ?>' src="../../assets/img/sms.png" width="40px"/>
                                                     </a>
+                                                    <input id="status_doctor_temp<?php echo $row['booking_id']; ?>" type="text" value="<?php echo $row['booking_status_doctor']; ?>" name="status_doctor_temp" style='display:none;'  readonly="readonly"/>
                                                     <?php    
                                                         }
                                                         else if($row['booking_status_doctor'] == 1){
@@ -344,9 +379,10 @@ if (!isset($_SESSION['ses_name'])) {
                                             <?php
                                                 if($row['booking_status_customer'] == 0){
                                             ?> 
-                                                <a id="<?php echo $row['booking_id']; ?>" class="sms_customer-link" href="#" title="Click to Send SMS Customer">
+                                                <a id="<?php echo $row['booking_id']; ?>" class="sms-customer-link" href="#" title="Click to Send SMS Customer">
                                                     <img src="../../assets/img/sms.png" width="40px"/>
                                                 </a>
+                                                <input id="status_customer_temp<?php echo $row['booking_id']; ?>" type="text" value="<?php echo $row['booking_status_customer']; ?>" name="status_customer_temp" style='display:none;'  readonly="readonly"/>
                                             <?php    
                                                 }
                                                 else {
@@ -369,8 +405,6 @@ if (!isset($_SESSION['ses_name'])) {
                                                title="Click to Approve">
                                                 <img class='img_accept<?php echo $row['booking_id']; ?>' <?php if($row['booking_approve']==0){ ?> src="../../assets/img/reject.png" <?php } else { ?> src="../../assets/img/accept.png" <?php }?>  width="40px"/>
                                             </a>
-                                            <input id="status_doctor_temp<?php echo $row['booking_id']; ?>" type="text" value="<?php echo $row['booking_status_doctor']; ?>" name="status_doctor_temp" style='display:none;'  readonly="readonly"/>
-                                            <input id="status_customer_temp<?php echo $row['booking_id']; ?>" type="text" value="<?php echo $row['booking_status_customer']; ?>" name="status_customer_temp" style='display:none;'  readonly="readonly"/>
                                             <input id="booking_approve_temp<?php echo $row['booking_id']; ?>" type="text" value="<?php echo $row['booking_approve']; ?>" name="booking_approve_temp"  style='display:none;'  readonly="readonly" />
                                     
                                         </td>
@@ -418,22 +452,30 @@ if (!isset($_SESSION['ses_name'])) {
 <script src="../../assets/js/custom.js"></script>
 <script src="../../assets/js/jquery-1.12.3.min.js"></script>
 <script src="../../assets/js/crud.js" type="text/javascript"></script>
-<script src="../../assets/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../../assets/js/datatables.min.js"></script>
+<script type="text/javascript" src="../../assets/js/dataTables.buttons.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 
 
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function () {
-     $('#user')
+     $('#booking')
             .removeClass('display')
             .addClass('table table-bordered');
-        $('#user').DataTable({
-            scrollX: true,
-            scrollCollapse: true,
-            responsive: {
-                details: false
-            }
-        });
+        $('#booking').DataTable( {
+            "scrollX": true,
+            "scrollY": 510,
+            "scrollCollapse": true,
+            "dom":'<<"row"<"col-sm-4"B><"col-sm-4"l><"col-sm-4"f>>t<"row"<"col-sm-6"i><"col-sm-6"p>>>',
+             "buttons": [
+                 'excel', 'pdf', 'print'
+             ]
+        } );
 
        
     });

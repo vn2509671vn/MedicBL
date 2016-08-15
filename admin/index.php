@@ -145,7 +145,10 @@ if(!isset($_SESSION['ses_name'])){
                 {
                     ?>
                     <li>
-                        <a class="active-menu" href="index.php"><i class="fa fa-dashboard "></i>Dashboard</a>
+                        <a  class="active-menu" href="index.php"><i class="fa fa-dashboard "></i>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="function/about_hos/index.php"><i class="glyphicon glyphicon-info-sign"></i>About</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-desktop "></i>News<span class="fa arrow"></span></a>
@@ -154,7 +157,7 @@ if(!isset($_SESSION['ses_name'])){
                                 <a href="function/news/new/index.php"><i class="fa fa-toggle-on"></i>News Category</a>
                             </li>
                             <li>
-                                <a href="function/news/post/index.php"><i class="fa fa-bell "></i>Posts</a>
+                                <a  href="function/news/post/index.php"><i class="fa fa-bell "></i>Posts</a>
                             </li>
                         </ul>
                     </li>
