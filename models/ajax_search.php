@@ -7,7 +7,7 @@
     $page -= 1;
     $display = 10;
     $start = $page * $display;
-    $end = $start + 10;
+    $end = 10;
     $output = "";
     if(isset($_SESSION['lang'])){
          if($_SESSION['lang'] == 'en'){
@@ -62,7 +62,7 @@
            $output .= '  
                 <div class="row text-left">
                 <div class="col-md-12">
-                    <h3 class="title uppercase"><a href="doctor_chitiet.php?id='.$row['id'].'">'.$row['title'].'</a></h3>
+                    <h3 class="title capitalize"><a href="doctor_chitiet.php?id='.$row['id'].'">'.$row['title'].'</a></h3>
                             '.$row['content'].'
                         
                 </div>
@@ -74,7 +74,7 @@
                $output .= '  
                 <div class="row text-left">
                 <div class="col-md-12">
-                    <h3 class="title uppercase"><a href="post_chitiet.php?id='.$row['id'].'">'.$row['title'].'</a></h3>
+                    <h3 class="title capitalize"><a href="post_chitiet.php?id='.$row['id'].'">'.$row['title'].'</a></h3>
                             '.$row['content'].'
                         
                 </div>
