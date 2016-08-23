@@ -9,7 +9,13 @@
         <br>
         <div class="row">
             <div class="col-md-12 col-sd-12 col-xs-12">
-              <iframe width="100%" height="auto" src="../_html5/Project1.html"></iframe>
+              <a href="#"><img src="../images/tailieu/download.jpg" width=100% class="img-responsive"></a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12 col-sd-12 col-xs-12">
+              <a href="bantinsuckhoe.php"><img src="../images/tailieu/healthnews.jpg" width=100% class="img-responsive"></a>
             </div>
         </div>
         <br>

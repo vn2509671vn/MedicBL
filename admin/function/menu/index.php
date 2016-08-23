@@ -149,6 +149,9 @@ if (!isset($_SESSION['ses_name'])) {
                     <li>
                         <a href="../about_hos/index.php"><i class="glyphicon glyphicon-info-sign"></i>About</a>
                     </li>
+                    <li>
+                        <a href="../document/index.php"><i class="glyphicon glyphicon-book"></i>Documents</a>
+                    </li>
                     <!-- BEGIN NEWS   ===================================================================-->
                     <li>
                         <a href="#"><i class="fa fa-desktop "></i>News<span class="fa arrow"></span></a>

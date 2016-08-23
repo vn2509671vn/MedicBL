@@ -1,7 +1,5 @@
 <?php
 require_once '../../../connect/dbconfig.php';
-
-	
 	if($_POST)
 	{
 		$id = $_POST['id'];

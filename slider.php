@@ -10,18 +10,24 @@
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <img src="https://p.w3layouts.com/demos/hospice/web/images/banner1.jpg" alt="Image">
-        <!--<div class="carousel-caption">-->
-        <!--  <h3>Sell $</h3>-->
-        <!--  <p>Money Money.</p>-->
-        <!--</div>      -->
+        <div class="carousel-caption">
+          <h3>Header</h3>
+          <p>Container</p>
+        </div>
+        <div class="carousel-caption-left scroll-right">
+          <p>Container.....</p>
+        </div>
       </div>
 
       <div class="item">
         <img src="https://p.w3layouts.com/demos/hospice/web/images/banner2.jpg" alt="Image">
-        <!--<div class="carousel-caption">-->
-        <!--  <h3>More Sell $</h3>-->
-        <!--  <p>Lorem ipsum...</p>-->
-        <!--</div>      -->
+        <div class="carousel-caption">
+          <h3>Header</h3>
+          <p>Container.....</p>
+        </div>
+        <div class="carousel-caption-left scroll-right">
+          <p>Container.....</p>
+        </div>
       </div>
 
       <!--<div class="item">-->

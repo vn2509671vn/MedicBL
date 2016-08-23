@@ -226,6 +226,9 @@ if (!isset($_SESSION['ses_name'])) {
                     <li>
                         <a class="active-menu" href="index.php"><i class="glyphicon glyphicon-info-sign"></i>About</a>
                     </li>
+                    <li>
+                        <a href="../document/index.php"><i class="glyphicon glyphicon-book"></i>Documents</a>
+                    </li>
                     <!-- BEGIN NEWS   ===================================================================-->
                     <li>
                         <a href="#"><i class="fa fa-desktop "></i>News<span class="fa arrow"></span></a>
@@ -378,7 +381,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     $infor_address = $row['infor_address'];
                                     $infor_address = substr($infor_address, 0, 20) . '...';
                                     $infor_name_en = $row['infor_name_en'];
-                                    $infor_name_en = substr($infor_name_en, 0, 80) . '...';
+                                    $infor_name_en = substr($infor_name_en, 0, 20) . '...';
                                     $infor_address_en = $row['infor_address_en'];
                                     $infor_address_en = substr($infor_address_en, 0, 20) . '...';
                                     $infor_phone = $row['infor_phone'];

@@ -3,7 +3,7 @@ require('../config.php');
     $_SESSION["search"] = $_POST["search"];
     $_SESSION["chuyenkhoa_id"] = $_POST["chuyenkhoa_id"];
     $start = 0;
-    $display = 11;
+    $display = 12;
     $output = '';
     if(isset($_SESSION['lang'])){
          if($_SESSION['lang'] == 'en'){
@@ -63,11 +63,11 @@ require('../config.php');
         while($row = mysql_fetch_array($result))  
         {  
            $output .= '  
-                <div class="col-sm-4 col-md-3 col-xs-12">
+                <div class="col-sm-4 col-md-4 col-xs-12 padding-right-0">
                 <div class="thumbnail">
                     <img src="../admin/upload/image_doctor/'.$row['image'].'" alt="..." class="height-157">
                         <div class="caption">
-                            <p>'.$row['name'].'</p>
+                            <p class="min-height-45">'.$row['name'].'</p>
                             <p><a href="doctor_chitiet.php?id='.$row['doctor_id'].'" class="btn btn-primary" role="button">Chi tiết</a></p>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 <div class="container text-center width-100per">    
-  <div class="row gray-background">
+  <div class="row">
     <!--<br>-->
     <!--<div class="col-md-12">-->
     <!--  <div class="col-md-3 col-sm-3 col-xs-6"><a href="#"><span class="glyphicon glyphicon-eye-open size-50 color-golden"></span><p>Tìm Bác Sĩ</p></a></div>-->

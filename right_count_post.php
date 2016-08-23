@@ -17,7 +17,7 @@
         </a>
       </div>
       <div class="media-body">
-        <h4 class="media-heading uppercase"><a href="post_chitiet.php?cat_id=<?php echo $tindocnhieu['cat_id'];?>&id=<?php echo $tindocnhieu['post_id'];?>"><?php echo $tindocnhieu['title'];?></a></h4>
+        <h4 class="media-heading capitalize"><a href="post_chitiet.php?cat_id=<?php echo $tindocnhieu['cat_id'];?>&id=<?php echo $tindocnhieu['post_id'];?>"><?php echo $tindocnhieu['title'];?></a></h4>
         <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> <?php echo $tindocnhieu['post_date'];?></p>
       </div>
     </div>

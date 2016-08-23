@@ -93,7 +93,7 @@ if (!isset($_SESSION['ses_name'])) {
 
         <div class="header-right">
 
-             <a href="../contact/index.php" class="btn btn-info" title="New Message">
+             <a href="../../contact/index.php" class="btn btn-info" title="New Message">
                 <b>
                     <?php
                         require_once '../../../../connect/dbconfig.php';
@@ -104,7 +104,7 @@ if (!isset($_SESSION['ses_name'])) {
                     ?> 
                 </b><i
                     class="fa fa-envelope-o fa-2x"></i></a>
-            <a href="../booking/index.php" class="btn btn-primary" title="New Booking">
+            <a href="../../booking/index.php" class="btn btn-primary" title="New Booking">
                 <b>
                     <?php
                         require_once '../../../../connect/dbconfig.php';
@@ -157,6 +157,9 @@ if (!isset($_SESSION['ses_name'])) {
                     </li>
                     <li>
                         <a href="../../about_hos/index.php"><i class="glyphicon glyphicon-info-sign"></i>About</a>
+                    </li>
+                    <li>
+                        <a href="../../document/index.php"><i class="glyphicon glyphicon-book"></i>Documents</a>
                     </li>
                     <!-- BEGIN NEWS   ===================================================================-->
                     <li>

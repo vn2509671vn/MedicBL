@@ -24,7 +24,7 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <div class="col-md-3">
+                    <div class="col-md-4 padding-right-0 padding-left-0">
                         <div class="thumbnail">
                             <a href="datlichhen.php?ck_id=<?php echo $detail['chuyenkhoa_id'];?>&dt_id=<?php echo $detail['doctor_id'];?>"><img src="../admin/upload/image_doctor/<?php echo $detail['image'];?>" class="img-responsive"></a>
                             <div class="caption">
@@ -32,10 +32,10 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 text-left">
+                    <div class="col-md-8 text-left padding-right-0">
                         <div class="row form-group">
                             <div class = "col-md-4">
-                            <h4 class="text-bold-goldden"><?php echo $main['hoten'];?></h4>
+                            <h5 class="text-bold-goldden"><?php echo $main['hoten'];?></h5>
                             </div>
                             <div class="col-md-8 text-word-wrap margin-top-10px">
                                 <?php echo $detail['name'];?>
@@ -43,7 +43,7 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
                         </div>
                         <div class="row form-group">
                             <div class = "col-md-4">
-                            <h4 class="text-bold-goldden"><?php echo $main['chuyenkhoa'];?></h4>
+                            <h5 class="text-bold-goldden"><?php echo $main['chuyenkhoa'];?></h5>
                             </div>
                             <div class="col-md-8 text-word-wrap margin-top-10px">
                                 <?php echo $detail['chuyenkhoa_name'];?>
@@ -51,7 +51,7 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
                         </div>
                         <div class="row form-group">
                             <div class = "col-md-4">
-                            <h4 class="text-bold-goldden"><?php echo $main['trinhdo'];?></h4>
+                            <h5 class="text-bold-goldden"><?php echo $main['trinhdo'];?></h5>
                             </div>
                             <div class="col-md-8 text-word-wrap margin-top-10px">
                                 <?php echo $detail['speciality_name'];?>
@@ -59,7 +59,7 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
                         </div>
                         <div class="row form-group">
                             <div class = "col-md-4">
-                            <h4 class="text-bold-goldden"><?php echo $main['chungnhan'];?></h4>
+                            <h5 class="text-bold-goldden"><?php echo $main['chungnhan'];?></h5>
                             </div>
                             <div class="col-md-8 text-word-wrap margin-top-10px">
                                 <?php echo $detail['qualification'];?>
@@ -67,7 +67,7 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
                         </div>
                         <div class="row form-group">
                             <div class = "col-md-4">
-                            <h4 class="text-bold-goldden"><?php echo $main['kinhnghiem'];?></h4>
+                            <h5 class="text-bold-goldden"><?php echo $main['kinhnghiem'];?></h5>
                             </div>
                             <div class="col-md-8 text-word-wrap margin-top-10px">
                                 <?php echo $detail['experience'];?>
@@ -76,6 +76,36 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
                     </div>
                 </div>
             </div>
+            
+            <!-- Thumbnail slider -->
+            <div class="col-md-12">
+                <div class="carousel slide row" data-ride="carousel" data-type="multi" data-interval="2000" id="fruitscarousel">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/f44336/000000" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/e91e63/000000" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/9c27b0/000000" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/673ab7/000000" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/4caf50/000000" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/8bc34a/000000" class="img-responsive"></a></div>
+                        </div>
+                    </div>
+                
+                    <a class="left carousel-control" href="#fruitscarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                    <a class="right carousel-control" href="#fruitscarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a> 
+                </div>
+            </div>
+            
         </div>
         
         <!-- Right content-->

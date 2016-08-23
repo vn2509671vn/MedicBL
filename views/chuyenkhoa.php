@@ -30,7 +30,7 @@ $services = getservices($_SESSION['lang']);
               <div class="panel-group" id="accordion">
                 <?php while($service = mysql_fetch_assoc($services)):?>
                 <div class="panel panel-default">
-                  <div class="panel-heading">
+                  <div class="panel-heading cursor" data-toggle="collapse" data-parent="#accordion" href="#<?php echo $service['services_id'];?>">
                     <h4 class="panel-title">
                       <?php $chuyenkhoa = getchuyenkhoa_byID($service['services_id'], $_SESSION['lang']);
                             $num_rows_chuyenkhoa = mysql_num_rows($chuyenkhoa);
@@ -49,7 +49,7 @@ $services = getservices($_SESSION['lang']);
                       ?>
                       <?php if($current_row == 0 || $current_row == 8 || $current_row == 16 || $current_row == 24):?>
                       <div class="col-md-6">
-                        <ul>
+                        <ul id="danhmucchuyenkhoa">
                           <?php $flag = TRUE;?>
                       <?php endif;?>
                           <li><a href="chuyenkhoa_chitiet.php?id=<?php echo $list_chuyenkhoa['chuyenkhoa_id'];?>"><?php echo $list_chuyenkhoa['name'];?></a></li>
@@ -59,7 +59,7 @@ $services = getservices($_SESSION['lang']);
                       </div>
                       <?php $flag = FALSE;?>
                       <?php endif;?>
-                      <?php if($flag): ?>
+                      <?php if($flag==FALSE): ?>
                         </ul>
                       </div>
                       <?php endif;?>
@@ -68,13 +68,14 @@ $services = getservices($_SESSION['lang']);
                     </div>
                   </div>
                 </div>
+                </div>
                 <?php endwhile;?>
               </div>
             </div>
           <!-- Test end -->
         </div>
-        </div>
-      
+      </div>
+    </div>
 
     <!-- Add start right content-->
     <div class="col-md-4">

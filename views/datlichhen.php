@@ -16,6 +16,9 @@ if(isset($_GET['ck_id']) && isset($_GET['dt_id'])){
   $chuyenkhoa_id = $_GET['ck_id'];
   $doctor_id = $_GET['dt_id'];
 }
+else if(isset($_GET['ck_id'])){
+  $chuyenkhoa_id = $_GET['ck_id'];
+}
 ?>
 <!-- Add end model-->
 
@@ -338,20 +341,13 @@ if(isset($_GET['ck_id']) && isset($_GET['dt_id'])){
         $('#dotuoi').removeClass("focus_error");
       }
 
-      if(chuyenkhoa_id == "Null"){
-        $('#chuyenkhoa_id').addClass("focus_error");
-        err = true;
-      }
-      else {
-        $('#chuyenkhoa_id').removeClass("focus_error");
-        // if(doctor_id == "Null"){
-        //   $('#doctor_id').addClass("focus_error");
-        //     err = true;
-        // }
-        // else {
-        //   $('#doctor_id').removeClass("focus_error");
-        // }
-      }
+      // if(chuyenkhoa_id == "Null"){
+      //   $('#chuyenkhoa_id').addClass("focus_error");
+      //   err = true;
+      // }
+      // else {
+      //   $('#chuyenkhoa_id').removeClass("focus_error");
+      // }
       return err;
     }
   // });

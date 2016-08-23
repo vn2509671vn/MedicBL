@@ -4,9 +4,9 @@ require('../config.php');
     $page = $_POST['page'];
     $current_page = $page;
     $page -= 1;
-    $display = 11;
+    $display = 12;
     $start = $page * $display;
-    $end = $start + 11;
+    $end = 12;
     $chitiet = $main['chitiet'];
     if($_SESSION["search"] && $_SESSION["chuyenkhoa_id"]){
         $text_search = $_SESSION["search"];
@@ -76,11 +76,11 @@ require('../config.php');
         while($row = mysql_fetch_array($result))  
         {  
            $output .= '  
-                <div class="col-sm-4 col-md-3 col-xs-12">
+                <div class="col-sm-4 col-md-4 col-xs-12 padding-right-0">
                 <div class="thumbnail">
                     <img src="../admin/upload/image_doctor/'.$row['image'].'" alt="..." class="height-157">
                         <div class="caption">
-                            <p>'.$row['name'].'</p>
+                            <p class="min-height-45">'.$row['name'].'</p>
                             <p><a href="doctor_chitiet.php?id='.$row['doctor_id'].'" class="btn btn-success" role="button">CHI TIẾT</a></p>
                         </div>
                     </div>

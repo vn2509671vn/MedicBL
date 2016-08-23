@@ -1,7 +1,12 @@
 <!-- Add start Header-->
 <?php require("../header.php");?>
 <!-- Add end Header-->
-
+<!-- Add start slider-->
+<?php require("../slider.php");?>
+<!-- Add end slider-->
+<!-- Add start services-->
+<?php require("../services.php");?>
+<!-- Add end services-->
 <div class="container text-center">    
   <div class="row">
     <br>

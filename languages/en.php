@@ -58,4 +58,5 @@ $main['banhandientu'] = 'BỆNH ÁN ĐIỆN TỬ';
 $main['huongdankhambenh'] = 'HƯỚNG DẪN KHÁM BỆNH';
 $main['lichtrucbacsi'] = 'LỊCH TRỰC BÁC SĨ';
 $main['hoten'] = 'FULL NAME';
+$main['taitailieu'] = 'TẢI TÀI LIỆU';
 ?>

@@ -24,7 +24,27 @@ session_start();
             exit();
         }
     }
-    if($doctor == "Null" || $doctor == ""){
+    if($chuyenkhoa == "Null"){
+        $sql = "Insert into booking(
+        booking_name_relatives, 
+        booking_name, 
+        booking_cellphone,
+        booking_gender,
+        booking_age,
+        booking_email,
+        booking_date
+        ) 
+        value(
+        '". $nguoithan_hoten ."',
+        '". $benhnhan_hoten ."',
+        '". $phone ."',
+        '". $gioitinh ."',
+        '". $dotuoi ."',
+        '". $email ."',
+        '". $date ."'
+        )";
+    }
+    else if($doctor == "Null" || $doctor == ""){
         $sql = "Insert into booking(
         booking_name_relatives, 
         booking_name, 
@@ -70,10 +90,5 @@ session_start();
         )";
     }
     $result = mysql_query($sql);
-    if($result == false){
-        $output = 0;
-    }else{
-        $output = 1;
-    }
-    echo $output;
+    echo $result;
  ?>  

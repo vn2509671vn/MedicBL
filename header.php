@@ -25,7 +25,7 @@
   
   <!-- Plugin for autocomplete -->
   <script src="../bootstrap/js/currency-autocomplete.js"></script>
-  <script src="../bootstrap/js/jquery.autocomplete.min.js"></script>
+  <script src="../bootstrap/js/jquery.autocomplete.js"></script>
   
   <!-- Plugin for image map -->
   <script src="../bootstrap/js/jquery.imagemapster.js"></script>
@@ -61,7 +61,7 @@ require("../models/posts.php");
           <img class="img-responsive" src="../images/logo/logo.png" width="auto" height="80">
         </div>
         <div class="col-md-6 col-xs-8 padding-left-0 padding-right-0">
-          <p class="text-right">Hotline: 123456789</p>
+          <p class="text-right">Hotline: <a class="text-error">1800969698</a></p>
           <h5 class="text-right non-marginTop"><?php echo $main['language']; ?>: <a href="#" id="Vi-lang" class="<?php if($_SESSION['lang'] == 'en') echo 'non-active-language'; else echo 'active-language';?>"><?php echo $main['vi'];?></a> | <a href="#" id="En-lang" class="<?php if($_SESSION['lang'] == 'en') echo 'active-language'; else echo 'non-active-language';?>"><?php echo $main['en'];?></a></h5>
           <form class="navbar-form navbar-right" role="search" action="search.php">
                 <div class="input-group">

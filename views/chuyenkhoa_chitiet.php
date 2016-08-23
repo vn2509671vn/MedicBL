@@ -33,6 +33,7 @@ $listChuyenkhoa = getchuyenkhoa_byID($infoDetail['services_id'], $_SESSION['lang
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home"><?php echo $main['gioithieu'];?></a></li>
                     <li><a data-toggle="tab" href="#menu1"><?php echo $main['doingubacsi'];?></a></li>
+                    <li><a href="datlichhen.php?ck_id=<?php echo $_GET['id'];?>"><?php echo $main['datlichhen'];?></a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="home" class="tab-pane fade in active">

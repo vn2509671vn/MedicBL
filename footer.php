@@ -1,7 +1,8 @@
 <?php require("../models/menu.php");
 $listmenu = getparentmenu($_SESSION['lang']);
+$getHosInfo = mysql_fetch_array(getHosInfo($_SESSION['lang']));
 ?>
-<a href="#" class="scrollup">Go Top</a>
+<a href="#" class="scrollup"><span class="glyphicon glyphicon-triangle-top text-white-color" aria-hidden="true"></span></a>
 <footer class="container-fluid text-center">
    <div class="container text-left">
        <div class="col-md-9 padding-left-0">
@@ -13,16 +14,14 @@ $listmenu = getparentmenu($_SESSION['lang']);
                </ul>
            </div>
            <div class="col-md-12">
-               <p><h4>BỆNH VIỆN ĐA KHOA THANH VŨ MEDIC</h4></p>
-               <p>
-                 ĐỊA CHỈ: 183 BÀ TRIỆU, PHƯỜNG 03, TP. BẠC LIÊU, TỈNH BẠC LIÊU
+               <h4><?php echo $getHosInfo['title']; ?></h4>
+                 <?php echo $getHosInfo['address']; ?>
+                 Phone: <?php echo $getHosInfo['infor_phone']; ?>
                  <br>
-                 ĐIỆN THOẠI: 0781.3820225
+                 FAX: <?php echo $getHosInfo['infor_fax']; ?>
                  <br>
-                 FAX: 0781.3956958
-                 <br>
-                 Email: ketoan@medicbaclieu.com
-               </p>
+                 Email: <?php echo $getHosInfo['infor_email']; ?>
+               
            </div>
        </div>
        <div class="col-md-3">

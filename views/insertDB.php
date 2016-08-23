@@ -26,6 +26,9 @@
     if(!isset($_GET['tenbenhnhan'])){
         $err = true;
     }
+    if(!isset($_GET['sdt'])){
+        $err = true;
+    }
     if(!isset($_GET['diachi'])){
         $err = true;
     }
@@ -85,6 +88,7 @@
             'mayte' => $_GET['mayte'],
             'sophieuyeucau' => $_GET['sophieuyeucau'],
             'tenbenhnhan' => $_GET['tenbenhnhan'],
+            'sdt' => $_GET['sdt'],
             'diachi' => $_GET['diachi'],
             'namsinh' => $_GET['namsinh'],
             'gioitinh' => $_GET['gioitinh'],

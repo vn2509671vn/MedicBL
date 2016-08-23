@@ -2409,19 +2409,19 @@ $(document).ready(function(){
     $('#accordion').on('shown.bs.collapse', toggleChevron);
 
     $(function () {			
-      $('a[data-toggle="collapse"]').on('click',function(){
+      $('div[data-toggle="collapse"]').on('click',function(){
 				var objectID=$(this).attr('href');
 				if($(objectID).hasClass('in'))
 				{
            $(objectID).collapse('hide');
-           $(this).css({
+           $(this).find('a').css({
              'color':'black'
            });
 				}
 				else{
            $(objectID).collapse('show');
-           $(this).css({
-             'color':'#ffc600'
+           $(this).find('a').css({
+             'color':'#a5780c'
            });
 				}
       }); 

@@ -45,26 +45,26 @@
                   </label>
                </div>
                <div class="col-md-12 margin-mid-5 padding-left-0 padding-right-0">
-                  <label class="col-md-3">
+                  <label class="col-md-4">
                     Mã số bệnh nhân:
                   </label>
-                  <div class="col-md-9">
+                  <div class="col-md-8">
                     <input type="text" name="benhnhan_maso" placeholder="Mã số bệnh nhân" class="form-control" id="benhnhan_maso"/>
                   </div>
                </div>
                <div class="col-md-12 margin-mid-5 padding-left-0 padding-right-0">
-                 <label class="col-md-3">
-                    Họ Tên:
+                 <label class="col-md-4">
+                    Họ Tên<span class="text-error"> (*):</span>
                   </label>
-                  <div class="col-md-9">
+                  <div class="col-md-8">
                      <input type="text" name="benhnhan_name" placeholder="Họ Tên" class="form-control" id="benhnhan_name"/>
                   </div>
                </div>
                <div class="col-md-12 margin-mid-5 padding-left-0 padding-right-0">
-                <label class="col-md-3">
+                <label class="col-md-4">
                     Ngày sinh:
                 </label>
-                <div class="col-md-9">
+                <div class="col-md-8">
                   <div class='input-group date'>
                       <input class="form-control" id="datepicker" type="text" placeholder="Ngày sinh" />
                       <span class="input-group-addon">
@@ -74,52 +74,52 @@
                 </div>
                </div>
                <div class="col-md-12 margin-mid-5 padding-left-0 padding-right-0">
-                  <label class="col-md-3">
+                  <label class="col-md-4">
                       Địa Chỉ:
                   </label>
-                  <div class="col-md-9">
+                  <div class="col-md-8">
                    <input type="text" name="benhnhan_address" placeholder="Địa Chỉ" class="form-control" id="benhnhan_address"/>
                   </div>
                </div>
                <div class="col-md-12 margin-mid-5 padding-left-0 padding-right-0">
-                <label class="col-md-3">
+                <label class="col-md-4">
                       Email:
                 </label>
-                <div class="col-md-9">
+                <div class="col-md-8">
                  <input type="text" name="benhnhan_email" placeholder="Email" class="form-control" id="benhnhan_email"/>
                 </div>
                </div>
                <div class="col-md-12 margin-mid-5 padding-left-0 padding-right-0">
-                <label class="col-md-3">
-                      Số Điện Thoại:
+                <label class="col-md-4">
+                      Số Điện Thoại<span class="text-error"> (*):</span>
                 </label>
-                <div class="col-md-9">
+                <div class="col-md-8">
                  <input type="text" name="benhnhan_phone" placeholder="Số Điện Thoại" class="form-control" id="benhnhan_phone" />
                 </div>
                </div>
              <!--</div>-->
              <!--<div class="col-md-7">-->
                <div class="col-md-12 margin-mid-5 padding-left-0 padding-right-0">
-                <label class="col-md-3">
-                      Tiêu Đề:
+                <label class="col-md-4">
+                      Tiêu Đề<span class="text-error"> (*):</span>
                 </label>
-                <div class="col-md-9">
+                <div class="col-md-8">
                  <input type="text" name="benhnhan_title" placeholder="Tiêu Đề" class="form-control" id="benhnhan_title" />
                 </div>
                </div>
                <div class="col-md-12 margin-mid-5 padding-left-0 padding-right-0">
-                <label class="col-md-3">
-                      Nội Dung:
+                <label class="col-md-4">
+                      Nội Dung<span class="text-error"> (*):</span>
                 </label>
-                <div class="col-md-9">
+                <div class="col-md-8">
                  <textarea class="form-control" rows="5" id="benhnhan_content" placeholder="Nội Dung" id="benhnhan_content"></textarea>
                 </div>
                </div>
                <div class="col-md-12 col-xs-12 margin-mid-5 padding-left-0 padding-right-0">
-                <label class="col-md-3 col-xs-12">
-                      Nhập mã lệnh:
+                <label class="col-md-4 col-xs-12">
+                      Nhập mã lệnh<span class="text-error"> (*):</span>
                 </label>
-                <div class="col-md-9 col-xs-12">
+                <div class="col-md-8 col-xs-12">
                   <div class="col-md-5 col-xs-5 padding-left-0 padding-right-0">
                     <input type="text" name="txtCaptcha" class="form-control" id="txtCaptcha"/>
                   </div>
@@ -153,10 +153,10 @@
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-default text-left">
-            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['danhbadienthoai'];?></a>
-            <a href="#" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['phanhoikhachang'];?></a>
-            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['sodo360'];?></a>
-            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['googlemap'];?></a>
+            <a href="danhbadienthoai.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['danhbadienthoai'];?></a>
+            <a href="phanhoi_kh.php" class="list-group-item active-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['phanhoikhachang'];?></a>
+            <a href="360site.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['sodo360'];?></a>
+            <a href="taitailieu.php" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $main['taitailieu'];?></a>
           </div>
         </div>
       </div>
