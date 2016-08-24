@@ -29,7 +29,7 @@ else if(isset($_GET['ck_id'])){
     <div class="col-md-8">
       <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-md-12">
+          <div class="col-md-12 padding-left-0">
             <a class="text-left a-title"><?php echo $main['datlichhen'];?></a>
           </div>
         </div>
@@ -42,14 +42,14 @@ else if(isset($_GET['ck_id'])){
            <div class="col-md-6"><label class="radio-inline"><input type="radio" name="rdio" id="nguoithan" value="nguoithan"/> <?php echo $main['nguoithan'];?></label></div>
            <br>
            <h4><?php echo $main['thongtinbenhnhan'];?></h4>
-           <div class="col-md-6 margin-mid-5 col-xs-6">
+           <div class="col-md-6 margin-mid-5">
              <select class="form-control" id="gioitinh">
                <option value="Null"><?php echo $main['gioitinh'];?></option>
                <option value="Nam"><?php echo $main['nam'];?></option>
                <option value="Nu"><?php echo $main['nu'];?></option>
              </select>
            </div>
-           <div class="col-md-6 margin-mid-5 col-xs-6">
+           <div class="col-md-6 margin-mid-5">
              <select class="form-control" id="dotuoi">
                <option value="Null" selected><?php echo $main['dotuoi'];?></option>
                <?php for($i = 1; $i <= 100; $i++):?>
@@ -147,6 +147,7 @@ else if(isset($_GET['ck_id'])){
       <?php require("../right_content.php");?>
       </div>
   </div>
+</div>
 </div>
 <!-- Add start footer-->
 <?php require("../footer.php");?>

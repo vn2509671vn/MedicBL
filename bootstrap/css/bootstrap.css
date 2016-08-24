@@ -4608,7 +4608,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #ddd;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #888;
+  background-color: white;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
@@ -7070,11 +7070,11 @@ footer {
 }
 
 .padding-left-0 {
-    padding-left: 0px;
+    padding-left: 0px !important;
   }
 
 .padding-right-0 {
-    padding-right: 0px;
+    padding-right: 0px !important;
   }
 
 .golden-background {
@@ -7218,5 +7218,64 @@ table {
  -webkit-transform: translateX(100%); /* Browser bug fix */
  transform: translateX(100%); 
  }
+}
+
+.carousel-control.left, .carousel-control.right {
+	background-image:none;
+}
+
+@media (min-width: 992px ) {
+	.carousel-inner .active.left {
+		left: -25%;
+	}
+	.carousel-inner .next {
+		left:  25%;
+	}
+	.carousel-inner .prev {
+		left: -25%;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px ) {
+	.carousel-inner .active.left {
+		left: -33.3%;
+	}
+	.carousel-inner .next {
+		left:  33.3%;
+	}
+	.carousel-inner .prev {
+		left: -33.3%;
+	}
+	.active > div:first-child {
+		display:block;
+	}
+	.active > div:first-child + div {
+		display:block;
+	}
+	.active > div:last-child {
+		display:none;
+	}
+}
+
+@media (max-width: 767px) {
+	.carousel-inner .active.left {
+		left: -100%;
+	}
+	.carousel-inner .next {
+		left:  100%;
+	}
+	.carousel-inner .prev {
+		left: -100%;
+	}
+	.active > div {
+		display:none;
+	}
+	.active > div:first-child {
+		display:block;
+	}
+}
+
+.max-height-20{
+  max-height: 20px !important;
 }
 /*Add end ThangTGM*/

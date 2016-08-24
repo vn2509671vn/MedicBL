@@ -21,7 +21,7 @@ $listlienquan = getcactinlienquan($_SESSION['lang'], $detail['cat_id'], $id);
         <div class="col-md-8">
             <div class="col-md-12">
                 <div class="row text-left">
-                  <div class="col-md-12">
+                  <div class="col-md-12 padding-left-0">
                     <a class="text-left a-title"><?php echo $main['tintuc'];?></a>
                   </div>
                 </div>

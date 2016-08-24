@@ -61,8 +61,8 @@ require("../models/posts.php");
           <img class="img-responsive" src="../images/logo/logo.png" width="auto" height="80">
         </div>
         <div class="col-md-6 col-xs-8 padding-left-0 padding-right-0">
-          <p class="text-right">Hotline: <a class="text-error">1800969698</a></p>
-          <h5 class="text-right non-marginTop"><?php echo $main['language']; ?>: <a href="#" id="Vi-lang" class="<?php if($_SESSION['lang'] == 'en') echo 'non-active-language'; else echo 'active-language';?>"><?php echo $main['vi'];?></a> | <a href="#" id="En-lang" class="<?php if($_SESSION['lang'] == 'en') echo 'active-language'; else echo 'non-active-language';?>"><?php echo $main['en'];?></a></h5>
+          <p class="text-right">Hotline: <a class="text-error non-underline">1800969698</a></p>
+          <h5 class="text-right non-marginTop"><?php echo $main['language']; ?>: <a href="#" id="Vi-lang"><image src="../images/flag/vietnam_flag.png" class="max-height-20"></image></a> | <a href="#" id="En-lang"><image src="../images/flag/United-Kingdom-flag.png" class="max-height-20"></image></a></h5>
           <form class="navbar-form navbar-right" role="search" action="search.php">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Tìm kiếm..." name="keyword">

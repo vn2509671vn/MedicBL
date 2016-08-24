@@ -15,7 +15,7 @@
     <div class="col-md-8">
       <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-md-12">
+          <div class="col-md-12 padding-left-0">
             <a class="text-left a-title"><?php echo $main['phanhoikhachang']; ?></a>
           </div>
         </div>
@@ -162,6 +162,7 @@
       </div>
     <?php require("../right_content.php");?>
   </div>
+</div>
 </div>
 <!-- Add start footer-->
 <?php require("../footer.php");?>

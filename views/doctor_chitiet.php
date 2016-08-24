@@ -10,6 +10,7 @@
 <?php require("../models/doctors.php");
 $id = $_GET['id'];
 $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
+$listlienquan = getdotors_bychuyenkhoaID($detail['chuyenkhoa_id'], $_SESSION['lang']);
 ?>
 <div class="container text-center">    
     <div class="row">
@@ -18,7 +19,7 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
         <div class="col-md-8">
             <div class="col-md-12">
                 <div class="row text-left">
-                  <div class="col-md-12">
+                  <div class="col-md-12 padding-left-0">
                     <a class="text-left a-title"><?php echo $main['doingubacsi'];?></a>
                   </div>
                 </div>
@@ -81,31 +82,25 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
             <div class="col-md-12">
                 <div class="carousel slide row" data-ride="carousel" data-type="multi" data-interval="2000" id="fruitscarousel">
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/f44336/000000" class="img-responsive"></a></div>
+                        <?php $isActive = 1;?>
+                        <?php while($bslienquan = mysql_fetch_array($listlienquan)):?>
+                        <div class="item <?php if($isActive == 1) echo 'active';else echo '';?>">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <a href="doctor_chitiet.php?id=<?php echo $bslienquan['doctor_id'];?>" class="thumbnail">
+                                    <img src="../admin/upload/image_doctor/<?php echo $bslienquan['image'];?>" class="img-responsive">
+                                    <p class="min-height-45"><?php echo $bslienquan['name'];?></p>
+                                </a>
+                            </div>
                         </div>
-                        <div class="item">
-                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/e91e63/000000" class="img-responsive"></a></div>
-                        </div>
-                        <div class="item">
-                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/9c27b0/000000" class="img-responsive"></a></div>
-                        </div>
-                        <div class="item">
-                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/673ab7/000000" class="img-responsive"></a></div>
-                        </div>
-                        <div class="item">
-                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/4caf50/000000" class="img-responsive"></a></div>
-                        </div>
-                        <div class="item">
-                            <div class="col-md-3"><a href="#"><img src="http://placehold.it/300/8bc34a/000000" class="img-responsive"></a></div>
-                        </div>
+                        <?php $isActive += 1;?>
+                        <?php endwhile;?>
                     </div>
                 
                     <a class="left carousel-control" href="#fruitscarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
                     <a class="right carousel-control" href="#fruitscarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a> 
                 </div>
             </div>
-            
+            <br>
         </div>
         
         <!-- Right content-->
@@ -120,3 +115,25 @@ $detail = mysql_fetch_array(getdoctor_detail($id, $_SESSION['lang']));
 <!-- Add start footer-->
 <?php require("../footer.php");?>
 <!-- Add end footer-->
+<script>
+jQuery(document).ready(function() {
+        
+	jQuery('.carousel[data-type="multi"] .item').each(function(){
+		var next = jQuery(this).next();
+		if (!next.length) {
+			next = jQuery(this).siblings(':first');
+		}
+		next.children(':first-child').clone().appendTo(jQuery(this));
+	  
+	    // So luong hinh anh hien thi
+		for (var i=0;i<1;i++) {
+			next=next.next();
+			if (!next.length) {
+				next = jQuery(this).siblings(':first');
+			}
+			next.children(':first-child').clone().appendTo($(this));
+		}
+	});
+        
+});
+</script>

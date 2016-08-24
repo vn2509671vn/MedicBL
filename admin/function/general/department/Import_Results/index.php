@@ -69,24 +69,21 @@
 		$file = $_FILES['file']['tmp_name'];
 		$handle = fopen($file, "r");
 		$c = 0;
-		while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
+		while(($filesop = fgetcsv($handle, 5000, ",")) !== false)
 		{
-			$ngaychidinh = $filesop[0];
-			$sid = $filesop[1];
-			$stt = $filesop[2];
-			$mabenhnhan = $filesop[3];
-			$mayte = $filesop[4];
-			$tenbenhnhan= $filesop[5];
-			$diachi = $filesop[6];
-			$namsinh = $filesop[7];
-			$gioitinh = $filesop[8];
-			$chandoan = $filesop[9];
-			$tendoituong = $filesop[10];
-			$tennoichidinh = $filesop[11];
-			$tenbacsi = $filesop[12];
+			$sid = $filesop[0];
+			$maxetnghiem = $filesop[1];
+			$sophieuyeucau = $filesop[2];
+			$tenxetnghiem = $filesop[3];
+			$ketqua = $filesop[4];
+			$chisobinhthuong= $filesop[5];
+			$donvi = $filesop[6];
+			$batthuong = $filesop[7];
+			$tennhomxn = $filesop[8];
+			$thutunhomxn = $filesop[9];
 			
-			$sql = mysql_query("INSERT INTO patient_info (ngaychidinh,sid,stt,mabenhnhan,mayte,tenbenhnhan,diachi,namsinh,gioitinh,chandoan,tendoituong,tennoichidinh,tenbacsi) 
-			VALUES ('$ngaychidinh','$sid','$stt','$mabenhnhan','$mayte','$tenbenhnhan','$diachi','$namsinh','$gioitinh','$chandoan','$tendoituong','$tennoichidinh','$tenbacsi')");
+			$sql = mysql_query("INSERT INTO ketqua_xetnghiem(sid,maxetnghiem,sophieuyeucau,tenxetnghiem,ketqua,chisobinhthuong,donvi,batthuong,tennhomxn,thutunhomxn) 
+			VALUES ('$sid','$maxetnghiem','$sophieuyeucau','$tenxetnghiem','$ketqua','$chisobinhthuong','$donvi','$batthuong','$tennhomxn','$thutunhomxn')");
 			$c = $c + 1;
 		}
 		

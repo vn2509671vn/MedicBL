@@ -11,7 +11,7 @@
         <div class="col-md-12">
             <div class="col-md-12">
                 <div class="row text-left">
-                  <div class="col-sm-12">
+                  <div class="col-sm-12 padding-left-0">
                     <a class="text-left a-title line-hight-nor"><?php echo $main['timphong'];?></a>
                   </div>
                 </div>

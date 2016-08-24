@@ -20,7 +20,7 @@ $chuyenkhoa = getchuyenkhoa($_SESSION['lang']);
     <div class="col-md-8">
       <div class="col-md-12">
         <div class="row text-left">
-          <div class="col-md-12">
+          <div class="col-md-12 padding-left-0">
             <a class="text-left a-title"><?php echo $main['timbacsi'];?></a>
           </div>
         </div>
@@ -71,6 +71,7 @@ $chuyenkhoa = getchuyenkhoa($_SESSION['lang']);
       <?php require("../right_content.php");?>
       </div>
   </div>
+</div>
 </div>
 <!-- Add start footer-->
 <?php require("../footer.php");?>
