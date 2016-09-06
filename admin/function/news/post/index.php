@@ -30,6 +30,15 @@ if (!isset($_SESSION['ses_name'])) {
     <script type="text/javascript" src="../../../assets/js/jquery-1.11.3-jquery.min.js"></script>
     <script type="text/javascript">
         function addPost() {
+            var ajax_sendding = false;
+            if (ajax_sendding == true){
+                    alert('Dang Load Ajax');
+                    return false;
+                }
+            ajax_sendding = true;
+            $("#dis").html('');
+            $("#emp-SaveForm").slideUp();
+            $('#loadding').show();
             var data = new FormData($('#emp-SaveForm')[0]);
             $.ajax({
                 type: "POST",
@@ -41,13 +50,33 @@ if (!isset($_SESSION['ses_name'])) {
                 processData: false,
                 success: function (data) {
                     var image = data;
-                    document.getElementById('post_temp').value = image;
-                    alert("Uploaded Image: " + image);
+                    if(image == "error"){
+                        alert(" File Only 22Mb Size!!!! Please Upload orther file it'size < 2Mb");
+                        $("#emp-SaveForm").slideDown();
+                    }else{
+                        document.getElementById('post_temp').value = image;
+                        $("#emp-SaveForm").slideDown();
+                        $("#dis").show();
+                        $("#dis").html('<div class="alert alert-info">Uploaded</div>');
+                    }
                 }
+            }).always(function(){
+                ajax_sendding = false;
+                $('#loadding').hide();
+                //$("#dis").html('');
             });
 
         }
         function changePost() {
+            var ajax_sendding = false;
+            if (ajax_sendding == true){
+                    alert('Dang Load Ajax');
+                    return false;
+                }
+            ajax_sendding = true;
+            $("#dis").html('');
+            $("#emp-UpdateForm").slideUp();
+            $('#loadding').show();
             var data = new FormData($('#emp-UpdateForm')[0]);
             $.ajax({
                 type: "POST",
@@ -59,9 +88,19 @@ if (!isset($_SESSION['ses_name'])) {
                 processData: false,
                 success: function (data) {
                     var image = data;
-                    document.getElementById('post_temp').value = image;
-                    alert("Uploaded Image: " + image);
+                    if(image == "error"){
+                        alert(" File Only 2Mb Size!!!! Please Upload orther file it'size < 2Mb");
+                        $("#emp-UpdateForm").slideDown();
+                    }else{
+                        document.getElementById('post_temp').value = image;
+                        $("#emp-UpdateForm").slideDown();
+                        $("#dis").show();
+                        $("#dis").html('<div class="alert alert-info">Uploaded</div>');
+                    }
                 }
+            }).always(function(){
+                ajax_sendding = false;
+                $('#loadding').hide();
             });
 
         }
@@ -320,6 +359,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     <th>Post View</th>
                                     <th>Post Date</th>
                                     <th>Post Status</th>
+                                    <th>Post Slider</th>
                                     <th>edit</th>
                                     <th>delete</th>
                                 </tr>
@@ -333,18 +373,18 @@ if (!isset($_SESSION['ses_name'])) {
                                 $count = 1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $post_title = $row['post_title'];
-                                    $post_title = substr($post_title, 0, 80) . '...';
+                                    $post_title = substr($post_title, 0,80) . '...';
                                     $post_content = $row['post_content'];
-                                    $post_content = substr($post_content, 0, 20) . '...';
+                                    $post_content = substr($post_content, 0, 5) . '...';
                                     $post_excerpt = $row['post_excerpt'];
-                                    $post_excerpt = substr($post_excerpt, 0, 50) . '...';
+                                    $post_excerpt = substr($post_excerpt, 0, 5) . '...';
 
                                     $post_title_en = $row['post_title_en'];
                                     $post_title_en = substr($post_title_en, 0, 80) . '...';
                                     $post_content_en = $row['post_content_en'];
-                                    $post_content_en = substr($post_content_en, 0, 50) . '...';
+                                    $post_content_en = substr($post_content_en, 0, 5) . '...';
                                     $post_excerpt_en = $row['post_excerpt_en'];
-                                    $post_excerpt_en = substr($post_excerpt_en, 0, 50) . '...';
+                                    $post_excerpt_en = substr($post_excerpt_en, 0, 5) . '...';
                                     ?>
                                     <tr>
                                         <td><?php echo $count; ?></td>
@@ -359,6 +399,7 @@ if (!isset($_SESSION['ses_name'])) {
                                         <td><?php echo $row['post_count']; ?></td>
                                         <td><?php echo $row['post_date']; ?></td>
                                         <td><?php echo $row['post_status']; ?></td>
+                                        <td><?php echo $row['post_slider']; ?></td>
                                         <td align="center">
                                             <a id="<?php echo $row['post_id']; ?>" class="edit-link" href="#"
                                                title="Edit">

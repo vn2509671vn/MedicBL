@@ -14,9 +14,10 @@ require_once '../../../../connect/dbconfig.php';
 	    $post_excerpt = $_POST['post_excerpt'];
 	    $post_excerpt_en = $_POST['post_excerpt_en'];
 	    $post_status = $_POST['post_status'];
+	    $post_slider = $_POST['post_slider'];
 	    $cat_id = $_POST['cat_id'];
 		try{
-            $stmt = $db_con->prepare("UPDATE posts SET post_date=:p1, post_title=:p2, post_title_en=:p3, post_content=:p4, post_content_en=:p5, post_excerpt=:p6, post_excerpt_en=:p7, post_image=:p8, post_status=:p9, cat_id=:p10 WHERE post_id=:id");
+            $stmt = $db_con->prepare("UPDATE posts SET post_date=:p1, post_title=:p2, post_title_en=:p3, post_content=:p4, post_content_en=:p5, post_excerpt=:p6, post_excerpt_en=:p7, post_image=:p8, post_status=:p9, cat_id=:p10, post_slider=:p11 WHERE post_id=:id");
             $stmt->bindParam(":p1", $date);
             $stmt->bindParam(":p2", $post_title);
             $stmt->bindParam(":p3", $post_title_en);
@@ -27,6 +28,7 @@ require_once '../../../../connect/dbconfig.php';
             $stmt->bindParam(":p8", $userpic);
             $stmt->bindParam(":p9", $post_status);
             $stmt->bindParam(":p10", $cat_id);
+            $stmt->bindParam(":p11", $post_slider);
             $stmt->bindParam(":id", $id);
             if ($stmt->execute()) {
                 echo "Successfully Added";

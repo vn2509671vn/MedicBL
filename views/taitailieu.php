@@ -7,6 +7,11 @@
 <!-- Add start services-->
 <?php require("../services.php");?>
 <!-- Add end services-->
+<!-- Add start models -->
+<?php require("../models/vanban.php");
+$listvb = getdocument($_SESSION['lang']);
+?>
+<!-- Add end models -->
 <div class="container text-center">    
   <div class="row">
     <br>
@@ -20,16 +25,55 @@
         </div>
         <br>
         <div class="row text-left">
-          <div class="col-md-12">
-              <div class="col-md-8 padding-left-0 margin-mid-5 col-xs-8">
-                <input type="text" class="form-control" id="document_name" placeholder="Input document name" size="30">
-              </div>
-              <button class="btn btn-default golden-background margin-mid-5" id="timkiemSubmit">Search</button>
+          <!-- Start Table -->
+          <div class="table-responsive">
+              <table id="example" class="table table-striped table-bordered table-full-width" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên văn bản</th>
+                        <th>Loại văn bản</th>
+                        <th>Thời gian</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <?php $iSTT = 1;?>
+                  <?php while($vanban = mysql_fetch_array($listvb)):?>
+                    <tr>
+                        <td class="text-center"><?php echo $iSTT;?></td>
+                        <td><a href="../admin/upload/vanban/tailieu/<?php echo $vanban['vanban_link'];?>"><?php echo $vanban['name'];?></a></td>
+                        <td class="text-center">
+                        <?php
+                            $path = "../admin/upload/vanban/icon/";
+                            switch ($vanban['vanban_type']) {
+                              case 'word':
+                                $path = "../admin/upload/vanban/icon/word.ico";
+                                break;
+                              case 'pdf':
+                                $path = "../admin/upload/vanban/icon/pdf.ico";
+                                break;
+                              case 'excel':
+                               $path = "../admin/upload/vanban/icon/excel.ico";
+                                break;
+                                case 'power':
+                               $path = "../admin/upload/vanban/icon/power.ico";
+                                break;
+                              case 'rar':
+                                $path = "../admin/upload/vanban/icon/rar.ico";
+                                break;
+                              default:
+                                $path = "#";
+                                break;
+                            }
+                        ?><image src="<?php echo $path;?>" class="max-height-20"></image></td>
+                        <td><?php echo $vanban['vanban_date'];?></td>
+                    </tr>
+                  <?php $iSTT++;?>
+                  <?php endwhile;?>
+                </tbody>
+            </table>
           </div>
-          <div class="col-md-12 margin-mid-5 padding-left-0" id="document-grid">
-            <div class="col-md-12 margin-mid-5 tex-center" id="document-grid-load">
-            </div>
-          </div>
+          <!-- End Table -->
         </div>
       </div>
     </div>
@@ -63,5 +107,8 @@
 <!-- Add start script active menu-->
 <script type="text/javascript">
     selectorMenu("id6");
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
 </script>
 <!-- Add end script active menu-->

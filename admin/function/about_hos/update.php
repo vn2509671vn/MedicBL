@@ -10,6 +10,7 @@ require_once '../../../connect/dbconfig.php';
 	    $infor_phone = $_POST['infor_phone'];
 	    $infor_email = $_POST['infor_email'];
 	    $infor_fax = $_POST['infor_fax'];
+	    $infor_content = $_POST['infor_content'];
 	    $logo = $_POST['logo_temp'];
 	    $advertise1 = $_POST['advertise1_temp'];
 	    $advertise2 = $_POST['advertise2_temp'];
@@ -27,7 +28,7 @@ require_once '../../../connect/dbconfig.php';
             , infor_advertise1 =:i9
             , infor_advertise2 =:i10
             , infor_advertise3 =:i11
-            
+            , infor_content =:i12
             WHERE infor_id=:id");
             $stmt->bindParam(":i1", $infor_name);
             $stmt->bindParam(":i2", $infor_name_en);
@@ -40,6 +41,7 @@ require_once '../../../connect/dbconfig.php';
             $stmt->bindParam(":i9", $advertise1);
             $stmt->bindParam(":i10", $advertise2);
             $stmt->bindParam(":i11", $advertise3);
+            $stmt->bindParam(":i12", $infor_content);
             $stmt->bindParam(":id", $id);
             if ($stmt->execute()) {
                 echo "Successfully Added";

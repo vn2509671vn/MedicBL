@@ -13,9 +13,9 @@
     <!-- here message will be displayed -->
 </div>
 
-
+<div id="loadding" style="display:none" ><img style="width:100px;" src="../../upload/image_doctor/loading.gif"></div>
 <form method='post' enctype="multipart/form-data"  id='emp-SaveForm' action="#">
-
+    
     <table class='table table-bordered'>
         <input id="vanban_temp" type="text" value="1" name="vanban_temp" style='display:none;'  readonly="readonly"/>
         <tr>
@@ -31,6 +31,7 @@
             </td>
             <td><input type='text' name='vanban_name_en' class='form-control'  required></td>
         </tr>
+        
         <tr class="form-group">
             <td>
                 <label class="control-label">Link</label>
@@ -50,7 +51,8 @@
                         <option value="word">Word</option>
                         <option value="rar">Rar</option>
                         <option value="excel">Excel</option>
-                        <option value="pdf">Pd</option>
+                        <option value="pdf">Pdf</option>
+                        <option value="power">Powerpoint</option>
                 </select>
 
             </td>

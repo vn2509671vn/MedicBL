@@ -69,7 +69,7 @@
 		$file = $_FILES['file']['tmp_name'];
 		$handle = fopen($file, "r");
 		$c = 0;
-		while(($filesop = fgetcsv($handle, 5000, ",")) !== false)
+		while(($filesop = fgetcsv($handle, 3000, ",")) !== false)
 		{
 			$sid = $filesop[0];
 			$maxetnghiem = $filesop[1];
@@ -83,7 +83,7 @@
 			$thutunhomxn = $filesop[9];
 			
 			$sql = mysql_query("INSERT INTO ketqua_xetnghiem(sid,maxetnghiem,sophieuyeucau,tenxetnghiem,ketqua,chisobinhthuong,donvi,batthuong,tennhomxn,thutunhomxn) 
-			VALUES ('$sid','$maxetnghiem','$sophieuyeucau','$tenxetnghiem','$ketqua','$chisobinhthuong','$donvi','$batthuong','$tennhomxn','$thutunhomxn')");
+			VALUES ($sid,$maxetnghiem,$sophieuyeucau,$tenxetnghiem,$ketqua,$chisobinhthuong,$donvi,$batthuong,$tennhomxn,$thutunhomxn)");
 			$c = $c + 1;
 		}
 		

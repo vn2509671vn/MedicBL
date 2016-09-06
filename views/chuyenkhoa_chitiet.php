@@ -46,9 +46,9 @@ $listChuyenkhoa = getchuyenkhoa_byID($infoDetail['services_id'], $_SESSION['lang
                         <?php while($doctor_list = mysql_fetch_array($listDoctors)):?>
                           <div class="col-md-4 col-xs-12">
                             <div class="thumbnail">
-                              <img src="../admin/upload/image_doctor/<?php echo $doctor_list['image']?>" alt="..." class="height-157">
+                              <a href="doctor_chitiet.php?id=<?php echo $doctor_list['doctor_id']?>"><img src="../admin/upload/image_doctor/<?php echo $doctor_list['image']?>" alt="..." class="height-157"></a>
                               <div class="caption">
-                                <h3><?php echo $doctor_list['name']?></h3>
+                                <h3 class="min-height-52"><?php echo $doctor_list['name']?></h3>
                                 <p><a href="doctor_chitiet.php?id=<?php echo $doctor_list['doctor_id']?>" class="btn btn-primary" role="button"><?php echo $main['chitiet'];?></a></p>
                               </div>
                             </div>

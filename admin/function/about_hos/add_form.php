@@ -95,6 +95,12 @@
             </td>
             <td><input type='text' name='infor_fax' class='form-control' required /></td>
         </tr>
+        <tr>
+            <td>
+                <label class="control-label">Slogan</label>
+            </td>
+            <td><input type='text' name='infor_content' class='form-control' required /></td>
+        </tr>
         
         <tr class="form-group">
             <td>

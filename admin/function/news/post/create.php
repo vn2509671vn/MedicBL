@@ -14,13 +14,14 @@ include("../../../../connect/dbconfig.php");
     $post_excerpt = $_POST['post_excerpt'];
     $post_excerpt_en = $_POST['post_excerpt_en'];
     $post_status = $_POST['post_status'];
+    $post_slider = $_POST['post_slider'];
     $cat_id = $_POST['cat_id'];
     $post_count=1;
 if($_POST)
 {
         try{
-            $stmt = $db_con->prepare("INSERT INTO `posts`(`post_date`, `post_title`, `post_title_en`, `post_content`, `post_content_en`, `post_excerpt`, `post_excerpt_en`, `post_image`, `post_status`, `cat_id`, `post_count`) 
-        VALUES(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11)");
+            $stmt = $db_con->prepare("INSERT INTO `posts`(`post_date`, `post_title`, `post_title_en`, `post_content`, `post_content_en`, `post_excerpt`, `post_excerpt_en`, `post_image`, `post_status`, `cat_id`, `post_count`, `post_slider`) 
+        VALUES(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12)");
 
             $stmt->bindParam(":p1", $date);
             $stmt->bindParam(":p2", $post_title);
@@ -33,6 +34,7 @@ if($_POST)
             $stmt->bindParam(":p9", $post_status);
             $stmt->bindParam(":p10", $cat_id);
             $stmt->bindParam(":p11", $post_count);
+            $stmt->bindParam(":p12", $post_slider);
             if ($stmt->execute()) {
                 echo "Successfully Added";
             } else {

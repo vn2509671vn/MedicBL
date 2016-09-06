@@ -8,4 +8,8 @@
         }
         return mysql_query($query);
     }
+    function getinfor_advertise(){
+        $query = "select infor_advertise1, infor_advertise2, infor_advertise3 from infor_hos";
+        return mysql_query($query);
+    }
 ?>

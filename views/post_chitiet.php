@@ -92,6 +92,12 @@ $listlienquan = getcactinlienquan($_SESSION['lang'], $detail['cat_id'], $id);
 
 <!-- Add start script active menu-->
 <script type="text/javascript">
-    selectorMenu("id5");
+    var menu = <?php echo $_GET['cat_id'];?>;
+    if(menu == "13"){
+      selectorMenu("id4");
+    }
+    else {
+      selectorMenu("id5");
+    }
 </script>
 <!-- Add end script active menu

@@ -12,8 +12,7 @@ if (!isset($_SESSION['ses_name'])) {
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="robots" content="index, follow"
-    /
+    <meta name="robots" content="index, follow"/>
     <meta name="keywords" content="Bệnh Viện Đa Khoa Thanh Vũ Medic"/>
     <meta name="description" content="Bệnh Viện Đa Khoa Thanh Vũ Medic"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -64,19 +63,16 @@ if (!isset($_SESSION['ses_name'])) {
 					}
 				});
             });
-//             $(".view").click(function()
-//         	{
-//         	    var id = $(this).attr("id");
-//         	    $.ajax({
-// 					url: 'view.php',
-// 					type: 'POST',
-// 					dataType: 'text',
-// 					data: "id=" + id,
-// 					success: function(data){
-// 						$result = data;
-// 						alert($result);
-// 					}
-// 				});
+            
+            var $modal = $('#load_popup_modal_show_id');
+            $('.click_to_load_modal_popup').on('click', function(){
+            var id = $(this).attr("id");
+            $modal.load('view.php',{'id': id},
+            function(){
+                $modal.modal('show');
+            });
+            
+            });
 // 			});
         });
     </script>
@@ -284,7 +280,7 @@ if (!isset($_SESSION['ses_name'])) {
                     <div class="container">
                         <h1 class="page-head-line">Contacts</h1>
                         <hr/>
-                        
+                        <div id="load_popup_modal_show_id" class="modal fade" tabindex="-1"></div>
                         <div class="content-loader">
                             <table cellspacing="0" width="100%" id="contact"
                                    class="table table-striped table-hover table-responsive">
@@ -315,7 +311,7 @@ if (!isset($_SESSION['ses_name'])) {
                                 $count =1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
-                                    <tr id='<?php echo $row['contact_id']; ?>' class='view'>
+                                    <tr id='<?php echo $row['contact_id']; ?>' class="click_to_load_modal_popup">
                                         <td><?php echo $count; ?></td>
                                         <td><?php echo $row['contact_user_title']; ?></td>
                                         <td><?php echo $row['contact_user_content']; ?></td>

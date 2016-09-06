@@ -65,7 +65,7 @@
                     mabenhnhan = '". $data['mabenhnhan'] ."',
                     mayte = '". $data['mayte'] ."',
                     tenbenhnhan = '". $data['tenbenhnhan'] ."',
-                     tenbenhnhan = '". $data['sdt'] ."',
+                    sdt = '". $data['sdt'] ."',
                     diachi = '". $data['diachi'] ."',
                     namsinh = '". $data['namsinh'] ."',
                     gioitinh = '". $data['gioitinh'] ."',
@@ -119,6 +119,33 @@
                     thutunhomxn = '". $data['thutunhomxn'] ."' 
                 Where sid = '". $data['sid'] ."' AND maxetnghiem = '". $data['maxetnghiem'] ."'";
         $result = mysql_query($sql);
+        return $result;
+    }
+    
+    function getPatien($mabenhnhan, $ngaychidinh){
+        $sql = "select * from patient_info where mabenhnhan = '$mabenhnhan' and ngaychidinh = '$ngaychidinh'";
+        $query = mysql_query($sql);
+        $result = mysql_fetch_array($query);
+        return $result;
+    }
+    
+    function getKetqua($sid){
+        $sql = "select * from ketqua_xetnghiem where sid = '$sid' ORDER BY tennhomxn ASC";
+        $result = mysql_query($sql);
+        return $result;
+    }
+    
+    function getTienSu($mayte, $maxetnghiem, $ngaychidinh){
+        $sql = "SELECT a.maxetnghiem, a.tenxetnghiem, a.ketqua, b.ngaychidinh 
+        FROM ketqua_xetnghiem a, patient_info b 
+        WHERE a.maxetnghiem = '$maxetnghiem' 
+        and b.mayte = '$mayte' 
+        and a.sid = b.sid 
+        and b.ngaychidinh < '$ngaychidinh' 
+        ORDER BY b.ngaychidinh DESC 
+        LIMIT 0,1";
+        $query = mysql_query($sql);
+        $result = mysql_fetch_array($query);
         return $result;
     }
 ?>

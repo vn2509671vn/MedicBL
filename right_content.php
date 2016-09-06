@@ -20,13 +20,16 @@ $chuyenkhoa_muinhon = getchuyenkhoa_muinhon($_SESSION['lang']);
       <br>
       <div class="row">
           <div class="col-md-12">
-            <a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>
+              <?php $advertise = getinfor_advertise(); $list_advertise = mysql_fetch_assoc($advertise); ?>
+            <!--<a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>-->
+            <a href="#"><img style="width:100%;" src="../admin/upload/infor_hos/<?php echo $list_advertise['infor_advertise1']; ?>" class="img-responsive"></a>
           </div>
       </div>
       <br>
       <div class="row">
           <div class="col-md-12">
-            <a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>
+            <!--<a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>-->
+            <a href="#"><img style="width:100%;" src="../admin/upload/infor_hos/<?php echo $list_advertise['infor_advertise2'];?>" class="img-responsive"></a>
           </div>
       </div>
       <br>
@@ -39,7 +42,7 @@ $chuyenkhoa_muinhon = getchuyenkhoa_muinhon($_SESSION['lang']);
           </div>
           <div class="panel panel-default text-left">
             <?php while($list_chuyenkhoa_muinhon = mysql_fetch_assoc($chuyenkhoa_muinhon)): ?>
-              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $list_chuyenkhoa_muinhon['name']; ?></a>
+              <a href="chuyenkhoa_chitiet.php?id=<?php echo $list_chuyenkhoa_muinhon['chuyenkhoa_id'];?>" class="list-group-item"><span class="glyphicon glyphicon-menu-right"></span> <?php echo $list_chuyenkhoa_muinhon['name']; ?></a>
             <?php endwhile;?>
             </div>
         </div>

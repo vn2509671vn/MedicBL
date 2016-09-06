@@ -7,11 +7,6 @@
 <!-- Add start services-->
 <?php require("../services.php");?>
 <!-- Add end services-->
-<!-- Add start model-->
-<?php
-$huongdan = mysql_fetch_array(gethuongdankhach($_SESSION['lang']));
-?>
-<!-- Add end model-->
 
 <div class="container text-center">
   <div class="row">
@@ -25,12 +20,7 @@ $huongdan = mysql_fetch_array(gethuongdankhach($_SESSION['lang']));
           </div>
         </div>
         <br>
-        <div class="row text-left">
-          <div class="col-md-12">
-            <h3 class="title color-golden"><?php echo $huongdan['title']; ?></h3>
-            <p class="text-muted"><span class="glyphicon glyphicon-calendar"></span> <?php echo date_format(date_create($huongdan['post_date']),"d/m/Y H:i:s"); ?></p>
-            <?php echo $huongdan['content']; ?>
-          </div>
+        <div id = "list_post" class="col-md-12">
         </div>
       </div>
     </div>
@@ -69,4 +59,24 @@ $huongdan = mysql_fetch_array(gethuongdankhach($_SESSION['lang']));
 <script type="text/javascript">
     selectorMenu("id4");
 </script>
+<script type="text/javascript">
+function pagination(page){
+    $.ajax ({
+        type: "POST",
+        url: "../models/ajax_huongdankhachhang.php",
+        data: "page="+page,
+        success: function(data_page) { 
+            $("#list_post").html(data_page);
+        }
+    });
+}
+
+$(document).ready(function(){
+  pagination(1);  
+  $("nav[role='page'] > ul li").click(function(){
+    var page = $(this).attr('page');
+    pagination(page);
+  });
+});  
+</script> 
 <!-- Add end script active menu-->

@@ -360,6 +360,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     <th>Phone</th>
                                     <th>Email</th>
                                     <th>Fax</th>
+                                    <th>Slogan</th>
                                     <th>Logo</th>
                                     <th>Advertise 1</th>
                                     <th>Advertise 2</th>
@@ -377,19 +378,21 @@ if (!isset($_SESSION['ses_name'])) {
                                 $count = 1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $infor_name = $row['infor_name'];
-                                    $infor_name = substr($infor_name, 0, 80) . '...';
+                                    $infor_name = substr($infor_name, 0, 10) . '...';
                                     $infor_address = $row['infor_address'];
-                                    $infor_address = substr($infor_address, 0, 20) . '...';
+                                    $infor_address = substr($infor_address, 0, 10) . '...';
                                     $infor_name_en = $row['infor_name_en'];
-                                    $infor_name_en = substr($infor_name_en, 0, 20) . '...';
+                                    $infor_name_en = substr($infor_name_en, 0, 10) . '...';
                                     $infor_address_en = $row['infor_address_en'];
-                                    $infor_address_en = substr($infor_address_en, 0, 20) . '...';
+                                    $infor_address_en = substr($infor_address_en, 0, 10) . '...';
                                     $infor_phone = $row['infor_phone'];
                                     $infor_phone = substr($infor_phone, 0, 50) . '...';
                                     $infor_email = $row['infor_email'];
                                     $infor_email = substr($infor_email, 0, 50) . '...';
                                     $infor_fax = $row['infor_fax'];
                                     $infor_fax = substr($infor_fax, 0, 80) . '...';
+                                    $infor_content = $row['infor_content'];
+                                    $infor_content = substr($infor_content, 0, 80) . '...';
                                     $infor_image = $row['infor_image'];
                                     $infor_image = substr($infor_image, 0, 50) . '...';
                                     $infor_advertise1 = $row['infor_advertise1'];
@@ -409,6 +412,7 @@ if (!isset($_SESSION['ses_name'])) {
                                         <td><?php echo $infor_phone; ?></td>
                                         <td><?php echo $infor_email; ?></td>
                                         <td><?php echo $infor_fax; ?></td>
+                                        <td><?php echo $infor_content; ?></td>
                                         <td><?php echo $infor_image; ?></td>
                                         <td><?php echo $infor_advertise1; ?></td>
                                         <td><?php echo $infor_advertise2; ?></td>

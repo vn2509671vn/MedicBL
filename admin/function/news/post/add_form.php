@@ -13,7 +13,7 @@
     <!-- here message will be displayed -->
 </div>
 
-
+<div id="loadding" style="display:none" ><img style="width:100px;" src="../../../upload/image_doctor/loading.gif"></div>
 <form method='post' enctype="multipart/form-data"  id='emp-SaveForm' action="#">
 
     <table class='table table-bordered'>
@@ -30,6 +30,70 @@
                 <label class="control-label">Post Title EN</label>
             </td>
             <td><input type='text' name='post_title_en' class='form-control'  required></td>
+        </tr>
+        <div class="form-group">
+            <td>
+                <label class="control-label">Post Image</label>
+            </td>
+            <td>
+                <div class="">
+                             <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="post_image" type="file" accept='image/*'></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                             <input type="button" class="btn btn-info" value="Upload" onclick = "return addPost()"/>
+                </div>
+            </td>    
+                        
+         </div>
+        <tr>
+            <td>
+                <label class="control-label">Post Status</label>
+            </td>
+            <td>
+                <label>
+                    <input type="radio" name="post_status" value="1"> OK
+                </label>
+                <label>
+                    <input type="radio" name="post_status" value="0" checked> NOT OK
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label">Post Slider</label>
+            </td>
+            <td>
+                <label>
+                    <input type="radio" name="post_slider" value="1"> OK
+                </label>
+                <label>
+                    <input type="radio" name="post_slider" value="0" checked> NOT OK
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label">Into Categogy </label>
+            </td>
+            <td>
+                <select name="cat_id" class="form-control">
+                    <?php
+                    require_once '../../../../connect/dbconfig.php';
+                    $stmt = $db_con->prepare("SELECT * FROM category");
+                    $stmt->execute();
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
+                        <option value="<?php echo $row['cat_id']; ?>"><?php echo $row['cat_title_vn']; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+
+            </td>
         </tr>
         <tr>
             <td>
@@ -103,57 +167,7 @@
                 </script>
             </td>
         </tr>
-        <div class="form-group">
-            <td>
-                <label class="control-label">Post Image</label>
-            </td>
-            <td>
-                <div class="">
-                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
-                                <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="post_image" type="file"></span>
-                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                </div>
-                            </div>
-                             <input type="button" class="btn btn-info" value="Upload" onclick = "return addPost()"/>
-                </div>
-            </td>    
-                        
-         </div>
-        <tr>
-            <td>
-                <label class="control-label">Post Status</label>
-            </td>
-            <td>
-                <label>
-                    <input type="radio" name="post_status" value="1"> OK
-                </label>
-                <label>
-                    <input type="radio" name="post_status" value="0" checked> NOT OK
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label class="control-label">Into Categogy </label>
-            </td>
-            <td>
-                <select name="cat_id" class="form-control">
-                    <?php
-                    require_once '../../../../connect/dbconfig.php';
-                    $stmt = $db_con->prepare("SELECT * FROM category");
-                    $stmt->execute();
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        ?>
-                        <option value="<?php echo $row['cat_id']; ?>"><?php echo $row['cat_title_vn']; ?></option>
-                        <?php
-                    }
-                    ?>
-                </select>
-
-            </td>
-        </tr>
+        
         <tr>
             <td colspan="2">
                 <button type="submit" class="btn btn-primary" name="btn-save" id="btn-save">

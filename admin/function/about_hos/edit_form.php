@@ -42,6 +42,12 @@ if($_GET['edit_id'])
             </td>
             <td><input type='text' name='infor_name_en' class='form-control' value="<?php echo $row['infor_name_en'];  ?>"  required></td>
         </tr>
+        <tr>
+            <td>
+                <label class="control-label">Slogan</label>
+            </td>
+            <td><input type='text' name='infor_content' class='form-control' value="<?php echo $row['infor_content'];  ?>" required /></td>
+        </tr>
         <tr class="form-group">
             <td>
                 <label class="control-label">Logo</label>

@@ -116,4 +116,13 @@
         }
         return mysql_query($query);
     }
+    function getSlogan(){
+        $query = "select infor_content from infor_hos";
+        return mysql_query($query);
+    }
+    
+    function getSliderimg(){
+        $query = "select post_image from posts where post_slider = 1";
+        return mysql_query($query);
+    }
 ?>

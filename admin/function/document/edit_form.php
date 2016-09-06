@@ -18,7 +18,7 @@ if($_GET['edit_id'])
     <div id="dis">
     
 	</div>
-        
+<div id="loadding" style="display:none" ><img style="width: 100px;" src="../../upload/image_doctor/loading.gif"></div>
 <form method='post' id='emp-UpdateForm' action='#'>
 <table class='table table-bordered'>
     <input id="vanban_update_temp" type="text" value="<?php echo $row[$vanban_link]; ?>" name="vanban_update_temp" style='display:none;'  readonly="readonly"/>
@@ -68,6 +68,10 @@ if($_GET['edit_id'])
                                 {
                                     echo " selected='selected'";
                                 }?>  value="pdf">Pd</option>
+                        <option <?php if($row['vanban_type'] == power)
+                                {
+                                    echo " selected='selected'";
+                                }?>  value="power">Powerpoint</option>
                 </select>
 
             </td>

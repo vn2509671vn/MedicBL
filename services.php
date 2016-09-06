@@ -11,7 +11,7 @@
 				<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
 					<div class="col-md-3 col-sm-3 col-xs-6"><a href="timbacsi.php" class="color-golden non-underline"><span class="hi-icon hi-icon-eye-open"></span> <p><?php echo $main['timbacsi'];?></p></a></div>
 					<div class="col-md-3 col-sm-3 col-xs-6"><a href="datlichhen.php" class="color-golden non-underline"><span class="hi-icon hi-icon-calendar"></span> <p><?php echo $main['datlichhen']; ?></p></a></div>
-					<div class="col-md-3 col-sm-3 col-xs-6"><a href="#" class="color-golden non-underline"><span class="hi-icon hi-icon-list-alt"></span> <p><?php echo $main['benhandientu'];?></p></a></div>
+					<div class="col-md-3 col-sm-3 col-xs-6"><a href="benhandientu.php" class="color-golden non-underline"><span class="hi-icon hi-icon-list-alt"></span> <p><?php echo $main['benhandientu'];?></p></a></div>
 					<div class="col-md-3 col-sm-3 col-xs-6"><a href="360site.php" class="color-golden non-underline"><span class="hi-icon hi-icon-search"></span>   <p><?php echo $main['timphong'];?></p></a></div>
 				</div>
 			</section>
