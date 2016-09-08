@@ -6592,8 +6592,8 @@ button.close {
     margin-right: -10px;
   }
   .carousel-caption {
-    right: 50%;
-    left: 15%;
+    right: 52%;
+    left: 13%;
     padding-bottom: 30px;
   }
   .carousel-caption-left {
@@ -7283,7 +7283,9 @@ table {
 .max-height-20{
   max-height: 20px !important;
 }
-
+.max-height-30{
+  max-height: 30px !important;
+}
 .min-height-52{
   min-height: 52px !important;
 }

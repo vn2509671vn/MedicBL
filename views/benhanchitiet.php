@@ -39,10 +39,10 @@ $lstKetQua = getKetqua($patient['sid']);
           </div>
           <div class="form-group">
             <label class="col-md-6 control-label">Bác sĩ chỉ định: <?php echo $patient['tenbacsi'];?></label>
-            <label class="col-md-6 control-label">Chuẩn đoán: <?php echo $patient['chandoan'];?></label>
+            <label class="col-md-6 control-label">Chẩn đoán: <?php echo $patient['chandoan'];?></label>
           </div>
           <div class="form-group">
-            <label class="col-md-12 control-label">Ngày chỉnh định: <?php echo date_format(date_create($patient['ngaychidinh']),"d/m/Y H:i:s");?></label>
+            <label class="col-md-12 control-label">Ngày chỉ định: <?php echo date_format(date_create($patient['ngaychidinh']),"d/m/Y H:i:s");?></label>
           </div>
         </div>
         <div class="col-md-12 table-responsive margin-top-10px padding-left-0 padding-right-0">

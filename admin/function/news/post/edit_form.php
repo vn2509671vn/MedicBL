@@ -28,6 +28,7 @@ if($_GET['edit_id'])
     <table class='table table-bordered'>
         <input type='hidden' name='id' value='<?php echo $row['post_id']; ?>' />
  		<input id="post_temp" type="text" value="<?php echo $row['post_image']; ?>" name="post_temp" style='display:none;'  readonly="readonly"/>
+ 		<input id="post_slider_temp" type="text" value="<?php echo $row['post_slider_image']; ?>" name="post_slider_temp" style='display:none;'  readonly="readonly"/>
         <tr>
             <td>Post Title VN</td>
             <td><input type='text' name='post_title' class='form-control' value='<?php echo $row['post_title']; ?>' required /></td>
@@ -79,6 +80,26 @@ if($_GET['edit_id'])
                 </label>
             </td>
         </tr>
+        <div class="form-group">
+            <td>
+                <label class="control-label">Post Image</label>
+            </td>
+            <td>
+                <div class="">
+                             <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
+                                    <img src="../../../upload/tintuc/<?php echo $row['post_image']; ?>"> </img>
+                                </div>
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span>
+                                    <span class="fileupload-exists">Change</span><input name="post_image" id="post_image" type="file" accept='image/*'></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                             <input type="button" class="btn btn-info" value="Upload" onclick = "return changePost()"/>
+                </div>
+            </td>
+         </div>
         <tr>
             <td>
                 <label class="control-label">Post Slider</label>
@@ -94,20 +115,21 @@ if($_GET['edit_id'])
         </tr>
         <div class="form-group">
             <td>
-                <label class="control-label">Post Image</label>
+                <label class="control-label">Post Slider Image</label>
             </td>
             <td>
                 <div class="">
                              <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
-                                    <img src="../../../upload/tintuc/<?php echo $row['post_image']; ?>"> </img>
+                                    <img src="../../../upload/tintuc/<?php echo $row['post_slider_image']; ?>"> </img>
                                 </div>
                                 <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="post_image" type="file" accept='image/*'></span>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span>
+                                    <span class="fileupload-exists">Change</span><input name="post_image_slider" id="post_image_slider" type="file" accept='image/*'></span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
-                             <input type="button" class="btn btn-info" value="Upload" onclick = "return changePost()"/>
+                             <input type="button" class="btn btn-info" value="Upload" onclick = "return changeSlider()"/>
                 </div>
             </td>
          </div>

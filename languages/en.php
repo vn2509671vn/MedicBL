@@ -59,6 +59,5 @@ $main['huongdankhambenh'] = 'CUSTOMER GUIDE';
 $main['lichtrucbacsi'] = 'DOCTOR\'S SCHEDULE';
 $main['hoten'] = 'FULL NAME';
 $main['taitailieu'] = 'DOWNLOAD DOCUMENTS';
-$main['benhandientu'] = 'BỆNH ÁN ĐIỆN TỬ';
 $main['ketquaxetnghiem'] = 'KẾT QUẢ XÉT NGHIỆM';
 ?>

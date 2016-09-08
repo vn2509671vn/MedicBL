@@ -8,6 +8,7 @@ include("../../../../connect/dbconfig.php");
     $date  = date('Y-m-d H:i:s');
     $post_title = $_POST['post_title'];
     $userpic = $_POST['post_temp'];
+    $post_slider_image = $_POST['post_slider_temp'];
     $post_title_en = $_POST['post_title_en'];
     $post_content = $_POST['post_content'];
     $post_content_en = $_POST['post_content_en'];
@@ -20,8 +21,8 @@ include("../../../../connect/dbconfig.php");
 if($_POST)
 {
         try{
-            $stmt = $db_con->prepare("INSERT INTO `posts`(`post_date`, `post_title`, `post_title_en`, `post_content`, `post_content_en`, `post_excerpt`, `post_excerpt_en`, `post_image`, `post_status`, `cat_id`, `post_count`, `post_slider`) 
-        VALUES(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12)");
+            $stmt = $db_con->prepare("INSERT INTO `posts`(`post_date`, `post_title`, `post_title_en`, `post_content`, `post_content_en`, `post_excerpt`, `post_excerpt_en`, `post_image`, `post_status`, `cat_id`, `post_count`, `post_slider`,`post_slider_image`) 
+        VALUES(:p1,:p2,:p3,:p4,:p5,:p6,:p7,:p8,:p9,:p10,:p11,:p12,:p13)");
 
             $stmt->bindParam(":p1", $date);
             $stmt->bindParam(":p2", $post_title);
@@ -35,6 +36,7 @@ if($_POST)
             $stmt->bindParam(":p10", $cat_id);
             $stmt->bindParam(":p11", $post_count);
             $stmt->bindParam(":p12", $post_slider);
+            $stmt->bindParam(":p13", $post_slider_image);
             if ($stmt->execute()) {
                 echo "Successfully Added";
             } else {

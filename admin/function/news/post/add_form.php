@@ -18,6 +18,7 @@
 
     <table class='table table-bordered'>
         <input id="post_temp" type="text" value="1" name="post_temp" style='display:none;'  readonly="readonly"/>
+        <input id="post_slider_temp" type="text" value="1" name="post_slider_temp" style='display:none;'  readonly="readonly"/>
         <tr>
             <td>
                 <label class="control-label">Post Title VN</label>
@@ -40,7 +41,8 @@
                              <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
                                 <div>
-                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="post_image" type="file" accept='image/*'></span>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span>
+                                    <span class="fileupload-exists">Change</span><input name="post_image" id="post_image" type="file" accept='image/*'></span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
@@ -62,6 +64,25 @@
                 </label>
             </td>
         </tr>
+         <div class="form-group">
+            <td>
+                <label class="control-label">Slider Image</label>
+            </td>
+            <td>
+                <div class="">
+                             <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+                                <div>
+                                    <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span>
+                                    <span class="fileupload-exists">Change</span><input name="post_image_slider" id="post_image_slider" type="file" accept='image/*'></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                             <input type="button" class="btn btn-info" value="Upload" onclick = "return addSlider()"/>
+                </div>
+            </td>    
+                        
+         </div>
         <tr>
             <td>
                 <label class="control-label">Post Slider</label>

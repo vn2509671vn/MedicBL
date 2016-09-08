@@ -4376,7 +4376,10 @@ A jQuery plugin to enhance image maps.
     {
         var tooltipCss = { 
                 "left":  options.left + "px",
+                // Mod start by ThangTGM
+                //"top": options.top + "px"
                 "top": options.top + "px"
+                // Mod end ThangTGM
             }, 
             actalOpacity=tooltip.attr("data-opacity") || 0,
             zindex = tooltip.css("z-index");

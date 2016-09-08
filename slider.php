@@ -1,5 +1,5 @@
 <?php 
-  $arrImg = getSliderimg();
+  $arrImg = getSliderimg($_SESSION['lang']);
   $countImg = mysql_num_rows($arrImg);
 ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -22,10 +22,13 @@
         <?php $tmpIndex = 0;?>
         <?php while($slideImage = mysql_fetch_array($arrImg)):?>
           <div class="item <?php if($tmpIndex == 0) echo 'active';?>">
-            <img src="../images/slider/<?php echo $slideImage['post_image'];?>" alt="Image">
+            <img src="../images/slider/<?php echo $slideImage['post_slider_image'];?>" alt="Image">
             <div class="carousel-caption">
-              <h3>Header</h3>
-              <p>Container</p>
+              <a href="post_chitiet.php?cat_id=<?php echo $slideImage['cat_id']?>&id=<?php echo $slideImage['id'];?>">
+                <h3>"<?php echo $slideImage['title'];?>"</h3>
+              </a>
+              <p> <?php echo $slideImage['excerpt'];?></p>
+              
             </div>
             <div class="carousel-caption-left scroll-right">
               <p>Nơi chia sẻ yêu thương, nơi trao niềm tin chất lượng.</p>

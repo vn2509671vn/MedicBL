@@ -39,7 +39,9 @@ if (!isset($_SESSION['ses_name'])) {
             $("#dis").html('');
             $("#emp-SaveForm").slideUp();
             $('#loadding').show();
-            var data = new FormData($('#emp-SaveForm')[0]);
+            var file = document.getElementById("post_image").files[0]; //fetch file
+            var data = new FormData($('#emp-SaveForm'));
+            data.append('post_image', file); //append file to formData object
             $.ajax({
                 type: "POST",
                 url: "insert.php",
@@ -67,7 +69,7 @@ if (!isset($_SESSION['ses_name'])) {
             });
 
         }
-        function changePost() {
+        function addSlider() {
             var ajax_sendding = false;
             if (ajax_sendding == true){
                     alert('Dang Load Ajax');
@@ -75,9 +77,11 @@ if (!isset($_SESSION['ses_name'])) {
                 }
             ajax_sendding = true;
             $("#dis").html('');
-            $("#emp-UpdateForm").slideUp();
+            $("#emp-SaveForm").slideUp();
             $('#loadding').show();
-            var data = new FormData($('#emp-UpdateForm')[0]);
+            var file = document.getElementById("post_image_slider").files[0]; //fetch file
+            var data = new FormData($('#emp-SaveForm'));
+            data.append('post_image_slider', file); //append file to formData object
             $.ajax({
                 type: "POST",
                 url: "insert.php",
@@ -89,11 +93,11 @@ if (!isset($_SESSION['ses_name'])) {
                 success: function (data) {
                     var image = data;
                     if(image == "error"){
-                        alert(" File Only 2Mb Size!!!! Please Upload orther file it'size < 2Mb");
-                        $("#emp-UpdateForm").slideDown();
+                        alert(" File Only 22Mb Size!!!! Please Upload orther file it'size < 2Mb");
+                        $("#emp-SaveForm").slideDown();
                     }else{
-                        document.getElementById('post_temp').value = image;
-                        $("#emp-UpdateForm").slideDown();
+                        document.getElementById('post_slider_temp').value = image;
+                        $("#emp-SaveForm").slideDown();
                         $("#dis").show();
                         $("#dis").html('<div class="alert alert-info">Uploaded</div>');
                     }
@@ -101,6 +105,87 @@ if (!isset($_SESSION['ses_name'])) {
             }).always(function(){
                 ajax_sendding = false;
                 $('#loadding').hide();
+                //$("#dis").html('');
+            });
+
+        }
+        function changePost() {
+            var ajax_sendding = false;
+            if (ajax_sendding == true){
+                    alert('Dang Load Ajax');
+                    return false;
+                }
+            ajax_sendding = true;
+            $("#dis").html('');
+            $("#emp-SaveForm").slideUp();
+            $('#loadding').show();
+            var file = document.getElementById("post_image").files[0]; //fetch file
+            var data = new FormData($('#emp-UpdateForm'));
+            data.append('post_image', file); //append file to formData object
+            $.ajax({
+                type: "POST",
+                url: "insert.php",
+                data: data,
+                mimeType: "multipart/form-data",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    var image = data;
+                    if(image == "error"){
+                        alert(" File Only 22Mb Size!!!! Please Upload orther file it'size < 2Mb");
+                        $("#emp-SaveForm").slideDown();
+                    }else{
+                        document.getElementById('post_temp').value = image;
+                        $("#emp-SaveForm").slideDown();
+                        $("#dis").show();
+                        $("#dis").html('<div class="alert alert-info">Uploaded</div>');
+                    }
+                }
+            }).always(function(){
+                ajax_sendding = false;
+                $('#loadding').hide();
+                //$("#dis").html('');
+            });
+
+        }
+        function changeSlider() {
+            var ajax_sendding = false;
+            if (ajax_sendding == true){
+                    alert('Dang Load Ajax');
+                    return false;
+                }
+            ajax_sendding = true;
+            $("#dis").html('');
+            $("#emp-SaveForm").slideUp();
+            $('#loadding').show();
+            var file = document.getElementById("post_image_slider").files[0]; //fetch file
+            var data = new FormData($('#emp-UpdateForm'));
+            data.append('post_image_slider', file); //append file to formData object
+            $.ajax({
+                type: "POST",
+                url: "insert.php",
+                data: data,
+                mimeType: "multipart/form-data",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+                    var image = data;
+                    if(image == "error"){
+                        alert(" File Only 22Mb Size!!!! Please Upload orther file it'size < 2Mb");
+                        $("#emp-SaveForm").slideDown();
+                    }else{
+                        document.getElementById('post_slider_temp').value = image;
+                        $("#emp-SaveForm").slideDown();
+                        $("#dis").show();
+                        $("#dis").html('<div class="alert alert-info">Uploaded</div>');
+                    }
+                }
+            }).always(function(){
+                ajax_sendding = false;
+                $('#loadding').hide();
+                //$("#dis").html('');
             });
 
         }
@@ -355,6 +440,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     <th>Post Content VN</th>
                                     <th>Post Content EN</th>
                                     <th>Post Image</th>
+                                    <th>Post Slider Image</th>
                                     <th>Post Type</th>
                                     <th>Post View</th>
                                     <th>Post Date</th>
@@ -395,6 +481,7 @@ if (!isset($_SESSION['ses_name'])) {
                                         <td><?php echo $post_content; ?></td>
                                         <td><?php echo $post_content_en; ?></td>
                                         <td><?php echo $row['post_image']; ?></td>
+                                        <td><?php echo $row['post_slider_image']; ?></td>
                                         <td><?php echo $row['cat_title_vn']; ?></td>
                                         <td><?php echo $row['post_count']; ?></td>
                                         <td><?php echo $row['post_date']; ?></td>

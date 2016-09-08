@@ -70,7 +70,7 @@ require("../models/posts.php");
           <h3><?php echo $list_slogan['infor_content']; ?></h3>
         </div>
         <div class="col-md-4 col-xs-12 padding-left-0 padding-right-0">
-          <p class="text-right">Hotline: <a class="text-error non-underline">1800969698</a></p>
+          <p class="text-right"><image src="../images/footer/hotline.png" class="max-height-30"></image> <a class="text-error non-underline">1800969698</a></p>
           <h5 class="text-right non-marginTop"><?php echo $main['language']; ?>: <a href="#" id="Vi-lang"><image src="../images/flag/vietnam_flag.png" class="max-height-20"></image></a> | <a href="#" id="En-lang"><image src="../images/flag/United-Kingdom-flag.png" class="max-height-20"></image></a></h5>
           <form class="navbar-form navbar-right" role="search" action="search.php">
                 <div class="input-group">

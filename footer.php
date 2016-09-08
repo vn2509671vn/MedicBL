@@ -14,13 +14,15 @@ $getHosInfo = mysql_fetch_array(getHosInfo($_SESSION['lang']));
                </ul>
            </div>
            <div class="col-md-12">
-               <h4><?php echo $getHosInfo['title']; ?></h4>
+               <h4><?php echo $getHosInfo['name']; ?></h4>
                  <?php echo $getHosInfo['address']; ?>
-                 Phone: <?php echo $getHosInfo['infor_phone']; ?>
+                 <image src="../images/footer/website.png" class="max-height-30"></image> <a target='_BLANK' href="http://medicbaclieu.vn"><?php echo $getHosInfo['link']; ?></a>
                  <br>
-                 FAX: <?php echo $getHosInfo['infor_fax']; ?>
+                 <image src="../images/footer/phone.png" class="max-height-30"></image> <?php echo $getHosInfo['infor_phone']; ?>
                  <br>
-                 Email: <?php echo $getHosInfo['infor_email']; ?>
+                 <image src="../images/footer/fax.jpg" class="max-height-30"></image> <?php echo $getHosInfo['infor_fax']; ?>
+                 <br>
+                 <image src="../images/footer/email.jpg" class="max-height-30"></image> <?php echo $getHosInfo['infor_email']; ?>
                
            </div>
        </div>

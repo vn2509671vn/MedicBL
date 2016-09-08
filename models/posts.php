@@ -109,10 +109,10 @@
     
     function getHosInfo($lang){
         if($lang == 'en'){
-            $query = "select infor_id, infor_name_en as name, infor_address_en as address, infor_phone, infor_fax, infor_email, infor_hos_title as title from infor_hos";
+            $query = "select infor_id, infor_name_en as name, infor_address_en as address, infor_phone, infor_fax, infor_email, infor_hos_title as title, infor_hos_link as link from infor_hos";
         }
         else {
-            $query = "select infor_id, infor_name as name, infor_address as address, infor_phone, infor_fax, infor_email, infor_hos_title as title from infor_hos";
+            $query = "select infor_id, infor_name as name, infor_address as address, infor_phone, infor_fax, infor_email, infor_hos_title as title, infor_hos_link as link from infor_hos";
         }
         return mysql_query($query);
     }
@@ -121,8 +121,14 @@
         return mysql_query($query);
     }
     
-    function getSliderimg(){
-        $query = "select post_image from posts where post_slider = 1";
+    function getSliderimg($lang){
+        if($lang == 'en'){
+            $query = "select post_id as id, post_title_en as title, post_excerpt_en as excerpt, post_slider_image, cat_id from posts where post_slider = 1";
+        }
+        else {
+            $query = "select post_id as id, post_title as title, post_excerpt as excerpt, post_slider_image, cat_id from posts where post_slider = 1";
+        }
         return mysql_query($query);
     }
+    
 ?>

@@ -40,10 +40,12 @@
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
                                             <input name="user_name" type="text" class="form-control" placeholder="Your Username " />
+                                            <input id="check_user" type="text" value="1" name="check_user" style='display:none;'  readonly="readonly"/>
                                         </div>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
                                             <input type="password" name="user_pass" class="form-control"  placeholder="Your Password" />
+                                            <input id="check_pass" type="text" value="1" name="check_pass" style='display:none;'  readonly="readonly"/>
                                         </div>  
                                      <input class="btn btn-primary " type="submit" name="ok" value="Đăng nhập" />
                                     <hr />
