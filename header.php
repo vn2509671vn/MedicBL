@@ -32,8 +32,8 @@
   
   <!-- Plugin for datatable-->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-  <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="../bootstrap/js/dataTables.bootstrap.js"></script>
 </head>
 <?php
 session_start();
@@ -62,14 +62,10 @@ require("../models/posts.php");
         <!--<div class="col-md-12 text-right">-->
           
         <!--</div>-->
-        <div class="col-md-4 col-xs-4 padding-left-0 padding-right-0">
-          <img class="img-responsive" src="../images/logo/logo.png" width="auto" height="80">
+        <div class="col-md-9 col-xs-12 padding-left-0 padding-right-0">
+          <img class="img-responsive" src="../images/logo/logo.jpg" width="auto" height="80">
         </div>
-        <div class="col-md-4 col-xs-8 padding-left-0 padding-right-0 text-center">
-          <?php $slogan = getSlogan(); $list_slogan = mysql_fetch_assoc($slogan); ?>
-          <h3><?php echo $list_slogan['infor_content']; ?></h3>
-        </div>
-        <div class="col-md-4 col-xs-12 padding-left-0 padding-right-0">
+        <div class="col-md-3 col-xs-12 padding-left-0 padding-right-0">
           <p class="text-right"><image src="../images/footer/hotline.png" class="max-height-30"></image> <a class="text-error non-underline">1800969698</a></p>
           <h5 class="text-right non-marginTop"><?php echo $main['language']; ?>: <a href="#" id="Vi-lang"><image src="../images/flag/vietnam_flag.png" class="max-height-20"></image></a> | <a href="#" id="En-lang"><image src="../images/flag/United-Kingdom-flag.png" class="max-height-20"></image></a></h5>
           <form class="navbar-form navbar-right" role="search" action="search.php">

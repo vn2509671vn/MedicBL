@@ -1,11 +1,10 @@
 <?php
-session_start();
-include("../../../connect/config.php");
-if (!isset($_SESSION['ses_name'])) {
-    header("location:../../../login.php");
-}
+    session_start();
+    include("../../../connect/config.php");
+    if (!isset($_SESSION['ses_name'])) {
+        header("location:../../../login.php");
+    }
 ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -57,7 +56,6 @@ if (!isset($_SESSION['ses_name'])) {
 					dataType: 'text',
 					data: "id=" + id,
 					success: function(data){
-						$result = data;
 						document.getElementById(temp_app).value = data;
 					}
 				});
@@ -68,31 +66,144 @@ if (!isset($_SESSION['ses_name'])) {
         	    var temp_app = 'status_doctor_temp' + idsms;
         	    var temp = document.getElementById(temp_app).value;
         	    var cl = ".sms-doctor-link .img_accept" + idsms;
+        	    
+        	    //Khai bao cac bien day du lieu cho VNPT
+        	    
+        	    
+        	    var strREQID = "";        	        var strLABELID = "";        	    var strTEMPLATEID = "";        	    var strNUM = "";
+        	    var strCONTENT = "Thông báo: ";     var strCONTRACTID = "";             var strCONTRACTTYPEID = "";        	var strSCHEDULETIME = "";
+        	    var strISTELCOSUB = "";        	    var strAGENTID = "";        	    var strAPIUSER = "";        	    var strAPIPASS = "";
+        	    var strUSERNAME = "";        	    var strURL = "";        	        var strMOBLELIST = "";
+        	    
+        	    
+        	    //Thong bao goi cho bac si
+        	    
+        	    
+        	    var status_doctor_sms = "";        	var doctor_name = "";        	    var customer_phone = "";
+        	    var chuyenkhoa = "";        	    var customer_name = "";        	    var booking_date = "";
+        	    var code = "";                      var code_desc = "";
+        	    var result_code= "";
         	    if(temp==0){
                     $.ajax({
-					url: 'sms_process.php',
-					type: 'POST',
-					dataType: 'text',
-					data: "idsms=" + idsms,
-					success: function(data){
-						$result_receive = data;
-						document.getElementById(temp_app).value = data;
-						alert($result_receive);
-						if($result_receive == 1){
-    						$(cl).attr("src", "../../assets/img/accept.png");
-    						alert($result_receive);
-						}
-						else{
-						    alert('Not update ' . $result_receive);
-						}
-					}
-				});
-                    
+    					url : 'sms_process.php',
+                        type : 'get',
+                        dataType : 'json',
+    					data: "idsms=" + idsms,
+                        success : function (result){
+    						$.each (result, function (key, item){
+                                    strREQID +=  item['strMOBLELIST'];                                    strLABELID +=  item['strLABELID'];
+                                    strTEMPLATEID +=  item['strTEMPLATEID'];                              strCONTRACTID +=  item['strCONTRACTID'];
+                                    strCONTENT +=  item['strCONTENT'];                                    strREQID +=  item['strREQID'];
+                                    strCONTRACTTYPEID +=  item['strCONTRACTTYPEID'];                      strSCHEDULETIME +=  item['strSCHEDULETIME'];
+                                    strISTELCOSUB +=  item['strISTELCOSUB'];                              strAGENTID +=  item['strAGENTID'];
+                                    strAPIUSER +=  item['strAPIUSER'];                                    strAPIPASS +=  item['strAPIPASS'];
+                                    strUSERNAME +=  item['strUSERNAME'];                                  strMOBLELIST +=  item['strMOBLELIST'];
+                                    
+                                    status_doctor_sms +=  item['status_doctor_sms'];                      doctor_name +=  item['doctor_name'];
+                                    customer_phone +=  item['customer_phone'];                            chuyenkhoa +=  item['chuyenkhoa'];
+                                    customer_name +=  item['customer_name'];                              booking_date +=  item['booking_date'];
+                            });
+    					},
+    					complete:function()
+    					{
+                            strCONTENT+=""; 
+                            $.ajax({
+                                type: "post",
+                                url: 'sms.php',
+                                dataType:'json',
+                                data: {
+                                    "RQST":[{
+                                        "name": "SEND_SMS_LIST",
+                                    }]
+                        //             "RQST":[{
+                        // 				"name": "SEND_SMS_LIST",
+                        // 				"REQID": strREQID,
+                        // 				"LABELID": strLABELID,
+                        // 				"TEMPLATEID": strTEMPLATEID,
+                        // 				"PARAMS":[{
+                        // 					"NUM": strNUM,
+                        // 					"CONTENT": strCONTENT,
+                        // 				}],
+                        // 				"CONTRACTID": strCONTRACTID,
+                        // 				"CONTRACTTYPEID": strCONTRACTTYPEID,
+                        // 				"SCHEDULETIME": strSCHEDULETIME,
+                        // 				"MOBILELIST": strMOBLELIST,
+                        // 				"ISTELCOSUB": strISTELCOSUB,
+                        // 				"AGENTID": strAGENTID,
+                        // 				"APIUSER": strAPIUSER,
+                        // 				"APIPASS": strAPIPASS,
+                        // 				"USERNAME": strUSERNAME,
+                    			 //   }]
+                    			},
+                                success: function(data)
+                                {
+                                    $.each (data, function (key, item){
+                                        code +=  item['ERROR_CODE'];
+                                        code_desc +=  item['ERROR_DESC'];
+                                    });
+                                },
+                                complete: function()
+                                {
+                                    if(code==1){
+                                        $.ajax({
+                                            url : 'sms_process.php',
+                                            type : 'get',
+                                            dataType : 'text',
+                        					data: "id=" + idsms,
+                                            success: function(data){
+                                                if(data = 1){
+                                                    document.getElementById(temp_app).value=1;
+                                                    alert("Da goi sms thanh cong");
+                                                    $(cl).attr("src", "../../assets/img/accept.png");
+                                                }
+                                                else{
+                                                    alert("Hien tai chua the doi duoc SMS cho Bac Si");
+                                                }
+                                            },
+                                        });
+                                    }
+                                    else{
+                                        alert(code_desc);
+                                    }
+                                }, // kết thúc complete của cập nhật trạng thái gởi sms doctor
+                            });
+                        },
+                    });
         	    }
         	    else{
         	        alert("Id is sended!!! Not sent continue");
         	    }
-                 
+            });
+            
+            
+            
+            
+            $(".sms-customer-link").click(function()
+        	{
+        	    var idsms_cus = $(this).attr("id");
+        	    var temp_app_cus = 'status_customer_temp' + idsms_cus;
+        	    var temp_cus = document.getElementById(temp_app_cus).value;
+        	    var cl_cus = ".sms-customer-link .img_accept" + idsms_cus;
+        	    
+        	    if(temp_cus==0){
+                    $.ajax({
+    					url : 'sms_process.php',
+                        type : 'get',
+                        dataType : 'xml',
+    					data: "idsms_cus=" + idsms_cus,
+                        success : function (result){
+    						alert(result);
+    						$(result).find('RPLY').each (function (key, val){
+                                code +=  $(val).find('ERROR_CODE').text();
+                                code_desc +=  $(val).find('ERROR_DESC').text();
+                            });
+                            alert(code);
+    					},
+                    });
+        	    }
+        	    else{
+        	        alert("Id is sended!!! Not sent continue");
+        	    }
             });
         });
     </script>
@@ -299,7 +410,6 @@ if (!isset($_SESSION['ses_name'])) {
                     <div class="container">
                         <h1 class="page-head-line">Booking</h1>
                         <hr/>
-
                         <div class="content-loader">
                             <table cellspacing="0" width="100%" id="booking"
                                    class="table table-striped table-hover table-responsive">
@@ -380,22 +490,22 @@ if (!isset($_SESSION['ses_name'])) {
                                         -->
                                         <td align="center">
                                             <?php
-                                                if($row['booking_status_customer'] == 0){
+                                                    if($row['booking_status_customer'] == 0){
                                             ?> 
-                                                <a id="<?php echo $row['booking_id']; ?>" class="sms-customer-link" href="#" title="Click to Send SMS Customer">
-                                                    <img src="../../assets/img/sms.png" width="40px"/>
-                                                </a>
-                                                <input id="status_customer_temp<?php echo $row['booking_id']; ?>" type="text" value="<?php echo $row['booking_status_customer']; ?>" name="status_customer_temp" style='display:none;'  readonly="readonly"/>
-                                            <?php    
-                                                }
-                                                else {
-                                            ?>
-                                                <a id="<?php echo $row['booking_id']; ?>" title="Sended">
-                                                    <img src="../../assets/img/accept.png" width="40px"/>
-                                                </a>
-                                            <?php
-                                                }
-                                            ?>
+                                                    <a id="<?php echo $row['booking_id']; ?>" class="sms-customer-link" href="#" title="Click to Send SMS Doctor">
+                                                        <img class='img_accept<?php echo $row['booking_id']; ?>' src="../../assets/img/sms.png" width="40px"/>
+                                                    </a>
+                                                    <input id="status_customer_temp<?php echo $row['booking_id']; ?>" type="text" value="<?php echo $row['booking_status_customer']; ?>" name="status_customer_temp" style='display:none;'  readonly="readonly"/>
+                                                    <?php    
+                                                        }
+                                                        else if($row['booking_status_customer'] == 1){
+                                                    ?>
+                                                    <a id="<?php echo $row['booking_id']; ?>" title="Sended">
+                                                       <img src="../../assets/img/accept.png" width="40px"/>
+                                                    </a>
+                                                    <?php
+                                                        }
+                                                    ?>
                                         </td>
                                         <!--  END
                                             CHECKING SMS CUSTOMER
@@ -452,6 +562,8 @@ if (!isset($_SESSION['ses_name'])) {
 <!-- METISMENU SCRIPTS -->
 <script src="../../assets/js/jquery.metisMenu.js"></script>
 <!-- CUSTOM SCRIPTS -->
+
+<script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script> <!-- Them vao ngay 0809 -->
 <script src="../../assets/js/custom.js"></script>
 <script src="../../assets/js/jquery-1.12.3.min.js"></script>
 <script src="../../assets/js/crud.js" type="text/javascript"></script>
@@ -459,8 +571,8 @@ if (!isset($_SESSION['ses_name'])) {
 <script type="text/javascript" src="../../assets/js/dataTables.buttons.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="../../assets/js/pdfmake.min.js"></script>
+<script src="../../assets/js/vfs_fonts.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 

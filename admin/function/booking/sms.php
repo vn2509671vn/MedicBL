@@ -1,22 +1,33 @@
 <?php
-$url = "http://blogit.vn/web-development/php/kiem-tra-link-co-ton-tai-hay-khong.html";
-$curl = curl_init($url);
-curl_setopt($curl, CURLOPT_NOBODY, true);
-$result = curl_exec($curl);
-if ($result !== false)
-{
-  $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-  if ($statusCode == 404)
-  {
-    echo "URL Not Exists";
+$result = array();
+$data = array();
+  if($_POST['RQST']){
+    $result[] = array(
+      'RPLY' => array(
+		        'ERROR_CODE' => 1,
+		        'ERROR_DESC' => "ok",
+		        ),
+  );
+  die (json_encode($result));
   }
-  else
-  {
-     echo "URL Exists";
-  }
-}
-else
-{
-  echo "URL not Exists";
-}
 ?>
+
+<!--{-->
+<!--  "items": [-->
+<!--    {-->
+<!--      "key": "First",-->
+<!--      "value": 100-->
+<!--    },{-->
+<!--      "key": "Second",-->
+<!--      "value": false-->
+<!--    },{-->
+<!--      "key": "Last",-->
+<!--      "value": "Mixed"-->
+<!--    }-->
+<!--  ],-->
+<!--  "obj": {-->
+<!--    "number": 1.2345e-6,-->
+<!--    "enabled": true-->
+<!--  },-->
+<!--  "message": "Strings have to be in double-quotes."-->
+<!--}-->

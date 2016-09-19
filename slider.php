@@ -22,10 +22,10 @@
         <?php $tmpIndex = 0;?>
         <?php while($slideImage = mysql_fetch_array($arrImg)):?>
           <div class="item <?php if($tmpIndex == 0) echo 'active';?>">
-            <img src="../images/slider/<?php echo $slideImage['post_slider_image'];?>" alt="Image">
+            <img src="../images/slider/<?php echo $slideImage['post_slider_image'];?>" alt="Image" class="img-responsive">
             <div class="carousel-caption">
               <a href="post_chitiet.php?cat_id=<?php echo $slideImage['cat_id']?>&id=<?php echo $slideImage['id'];?>">
-                <h3>"<?php echo $slideImage['title'];?>"</h3>
+                <h4>"<?php echo $slideImage['title'];?>"</h4>
               </a>
               <p> <?php echo $slideImage['excerpt'];?></p>
               

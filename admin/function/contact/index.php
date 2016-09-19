@@ -384,8 +384,8 @@ if (!isset($_SESSION['ses_name'])) {
 <script type="text/javascript" src="../../assets/js/dataTables.buttons.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="../../assets/js/pdfmake.min.js"></script>
+<script src="../../assets/js/vfs_fonts.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 

@@ -30,7 +30,6 @@ if (!isset($_SESSION['ses_name'])) {
     <script type="text/javascript" src="../../assets/js/jquery-1.11.3-jquery.min.js"></script>
     <script type="text/javascript">
         function addFile() {
-            
             var ajax_sendding = false;
             if (ajax_sendding == true){
                     alert('Dang Load Ajax');
@@ -53,9 +52,8 @@ if (!isset($_SESSION['ses_name'])) {
                 success: function (data) {
                     var vanban_temp = data;
                     if(vanban_temp == "error"){
-                        alert(" File Only 10Mb Size!!!! Please Upload orther file it'size < 10Mb");
+                        alert("File Only 10Mb Size!!!! Please Upload orther file it'size < 10Mb");
                         $("#emp-SaveForm").slideDown();
-                        //$("#emp-SaveForm").slideUp().delay(1000).slideDown();
                     }else{
                         document.getElementById('vanban_temp').value = vanban_temp;
                         $("#emp-SaveForm").slideDown();
@@ -66,7 +64,7 @@ if (!isset($_SESSION['ses_name'])) {
             }).always(function(){
                 ajax_sendding = false;
                 $('#loadding').hide();
-                $("#dis").html('');
+                <!--$("#dis").html('');-->
             });
         }
         function updateFile() {
@@ -75,13 +73,12 @@ if (!isset($_SESSION['ses_name'])) {
                     alert('Dang Load Ajax');
                     return false;
                 }
-            ajax_sendding = true;  
-            // Bật span loaddding lên
+            ajax_sendding = true;
             $("#emp-UpdateForm").slideUp();
             $('#loadding').show();
-            var file = document.getElementById("vanban_file").files[0]; //fetch file
-            var data = new FormData($('#emp-UpdateForm'));    
-            data.append('vanban_file', file); //append file to formData object
+            var file = document.getElementById("vanban_update_file").files[0];
+            var data = new FormData($('#emp-UpdateForm'));                    
+            data.append('vanban_update_file', file);
             $.ajax({
                 type: "POST",
                 url: "insert.php",
@@ -92,8 +89,9 @@ if (!isset($_SESSION['ses_name'])) {
                 processData: false,
                 success: function (data) {
                     var vanban_update_temp = data;
-                    if(vanban_temp == "error"){
-                        alert(" File Only 10Mb Size!!!! Please Upload orther file it'size < 10Mb");
+                    if(vanban_update_temp == "error"){
+                        alert("File Only 10Mb Size!!!! Please Upload orther file it'size < 10Mb");
+                        $("#emp-SaveForm").slideDown();
                     }else{
                         document.getElementById('vanban_update_temp').value = vanban_update_temp;
                         $("#emp-UpdateForm").slideDown();
@@ -103,10 +101,9 @@ if (!isset($_SESSION['ses_name'])) {
                 }
             }).always(function(){
                 ajax_sendding = false;
-                    $('#loadding').hide();
-                    // $("#dis").hide();
+                $('#loadding').hide();
+                <!--$("#dis").html('');-->
             });
-
         }
     </script>
     <script type="text/javascript">

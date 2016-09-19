@@ -33,8 +33,10 @@
                 tabDisabled: !1,
                 dataType: "text",
                 lookupFilter: function(a, b, c) {
+                    var tmpSuggest = bodauTiengViet(a.value);
+                    c = bodauTiengViet(c);
                     return -1 !==
-                        a.value.toLowerCase().indexOf(c)
+                        tmpSuggest.toLowerCase().indexOf(c)
                 },
                 paramName: "query",
                 transformResult: function(a) {

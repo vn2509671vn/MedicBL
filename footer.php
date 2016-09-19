@@ -14,16 +14,12 @@ $getHosInfo = mysql_fetch_array(getHosInfo($_SESSION['lang']));
                </ul>
            </div>
            <div class="col-md-12">
-               <h4><?php echo $getHosInfo['name']; ?></h4>
-                 <?php echo $getHosInfo['address']; ?>
-                 <image src="../images/footer/website.png" class="max-height-30"></image> <a target='_BLANK' href="http://medicbaclieu.vn"><?php echo $getHosInfo['link']; ?></a>
-                 <br>
-                 <image src="../images/footer/phone.png" class="max-height-30"></image> <?php echo $getHosInfo['infor_phone']; ?>
-                 <br>
-                 <image src="../images/footer/fax.jpg" class="max-height-30"></image> <?php echo $getHosInfo['infor_fax']; ?>
-                 <br>
-                 <image src="../images/footer/email.jpg" class="max-height-30"></image> <?php echo $getHosInfo['infor_email']; ?>
-               
+                <div class="col-md-12"><h4><?php echo $getHosInfo['name']; ?></h4></div>
+                <div class="col-md-12"><?php echo $getHosInfo['address']; ?></div>
+                <div class="col-md-4"><image src="../images/footer/phone.png" class="max-height-30"></image><?php echo $getHosInfo['infor_phone']; ?></div>
+                <div class="col-md-8"><image src="../images/footer/email.ico" class="max-height-30"></image><?php echo $getHosInfo['infor_email']; ?></div>
+                <div class="col-md-4"><image src="../images/footer/fax.png" class="max-height-30"></image><?php echo $getHosInfo['infor_fax']; ?></div>
+                <div class="col-md-8"><image src="../images/footer/website.png" class="max-height-30"></image><a target='_BLANK' href="http://medicbaclieu.vn"><?php echo $getHosInfo['link']; ?></a></div>
            </div>
        </div>
        <div class="col-md-3">

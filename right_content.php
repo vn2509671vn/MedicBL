@@ -22,7 +22,7 @@ $chuyenkhoa_muinhon = getchuyenkhoa_muinhon($_SESSION['lang']);
           <div class="col-md-12">
               <?php $advertise = getinfor_advertise(); $list_advertise = mysql_fetch_assoc($advertise); ?>
             <!--<a href="#"><img src="http://placehold.it/1280X720" class="img-responsive"></a>-->
-            <a href="#"><img style="width:100%;" src="../admin/upload/infor_hos/<?php echo $list_advertise['infor_advertise1']; ?>" class="img-responsive"></a>
+            <a href="../views/phanhoi_kh.php"><img style="width:100%;" src="../admin/upload/infor_hos/<?php echo $list_advertise['infor_advertise1']; ?>" class="img-responsive"></a>
           </div>
       </div>
       <br>

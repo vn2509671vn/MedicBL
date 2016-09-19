@@ -108,7 +108,27 @@ $listvb = getdocument($_SESSION['lang']);
 <script type="text/javascript">
     selectorMenu("id6");
     $(document).ready(function() {
-    $('#example').DataTable();
-} );
+      $('#example').DataTable({
+        "searching": false,
+        "info": false
+      });
+      
+      // Add Form seach
+      var txtHTML = '<div class="dataTables_filter"><label>Search:<input type="search" id="tblSearch" class="form-control input-sm" placeholder="" aria-controls="example"></label></div>'
+      $('#example_wrapper div:first div:nth-child(2)').append(txtHTML);
+      
+      // Search processed
+      var $rows = $('#example tbody tr');
+      $('#tblSearch').keyup(function() {
+          var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+          val = bodauTiengViet(val);
+          
+          $rows.show().filter(function() {
+              var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+              text = bodauTiengViet(text);
+              return !~text.indexOf(val);
+          }).hide();
+      });
+    });
 </script>
 <!-- Add end script active menu-->

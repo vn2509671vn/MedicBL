@@ -21,27 +21,27 @@ if($_GET['edit_id'])
 <div id="loadding" style="display:none" ><img style="width: 100px;" src="../../upload/image_doctor/loading.gif"></div>
 <form method='post' id='emp-UpdateForm' action='#'>
 <table class='table table-bordered'>
-    <input id="vanban_update_temp" type="text" value="<?php echo $row[$vanban_link]; ?>" name="vanban_update_temp" style='display:none;'  readonly="readonly"/>
-    <input name="id" type="text" value="<?php echo $row[vanban_id]; ?>" style='display:none;'  readonly="readonly"/>
+    <input id="vanban_update_temp" type="text" value="<?php echo $row['vanban_link']; ?>" name="vanban_update_temp" style='display:none;'  readonly="readonly"/>
+    <input name="id" type="text" value="<?php echo $row['vanban_id']; ?>" style='display:none;'  readonly="readonly"/>
         <tr>
             <td>
                 <label class="control-label">Name VN</label>
             </td>
-            <td><input type='text' name='vanban_name_vn' value="<?php echo $row[vanban_name_vn]; ?>" class='form-control' required /></td>
+            <td><input type='text' name='vanban_name_vn' value="<?php echo $row['vanban_name_vn']; ?>" class='form-control' required /></td>
         </tr>
 
         <tr>
             <td>
                 <label class="control-label">Name VN EN</label>
             </td>
-            <td><input type='text' name='vanban_name_en' value="<?php echo $row[vanban_name_en]; ?>" class='form-control'  required></td>
+            <td><input type='text' name='vanban_name_en' value="<?php echo $row['vanban_name_en']; ?>" class='form-control'  required></td>
         </tr>
         <tr class="form-group">
             <td>
                 <label class="control-label">Link</label>
             </td>
             <td>
-                 <input id="vanban_file" value="<?php echo $row[vanban_link]; ?>" type="file" class="filestyle" data-icon="false">
+                 <input id="vanban_update_file" type="file" class="filestyle" data-icon="false">
                  <input type="button" class="btn btn-info" value="Upload" onclick = "return updateFile()"/>
             </td>    
                         
