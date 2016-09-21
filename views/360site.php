@@ -19,7 +19,6 @@
                   </div>
                 </div>
                 <br>
-                <div id="xxxdialog" class="white-popup mfp-hide"><h1>Dialog example</h1></div>
                 <div class="col-md-12" id="map_content">
                     <input type="text" name="currency" class="form-control" id="autocomplete" placeholder="Nhập tên phòng">
                     <div style="clear:both;"></div>
@@ -332,11 +331,28 @@ function loadJsForMap(id){
             var leftTooltip = maxLValue;
             $('div.mapTooltip').remove();
             $('.mapster_tooltip').remove();
-            $('<div class="mapTooltip"><img src="../images/floor/SelectedPoint.png" width="50" class="pull-left"><a class="open-popup-link" href="#xxxdialog">'+titleArea+'</a></div>').appendTo('#map_content');
+            $('<div class="mapTooltip"><img src="../images/floor/SelectedPoint.png" width="50" class="pull-left"><a class="txtTooltip popup-with-zoom-anim" href="#small-dialog">'+titleArea+'</a></div><div id="small-dialog" class="zoom-anim-dialog mfp-hide"><iframe width="100%" height="auto" src="../_html5/Project1.html"></iframe></div>').appendTo('#map_content');
             $('div.mapTooltip').css({
                 top: topTooltip + 34 - 80 +"px",
                 left: leftTooltip + 15 - 25 + "px"
             });
+            
+            $('.popup-with-zoom-anim').magnificPopup({
+                  type: 'inline',
+        
+                  fixedContentPos: false,
+                  fixedBgPos: true,
+        
+                  overflowY: 'auto',
+        
+                  closeBtnInside: true,
+                  preloader: false,
+                  
+                  midClick: true,
+                  removalDelay: 300,
+                  mainClass: 'my-mfp-zoom-in'
+            });
+    
         },
         listKey: 'data',
         listSelectedClass: 'selected',
@@ -352,9 +368,10 @@ $(document).ready(function () {
     //     idMap++;
     // }
     loadJsForMap(0);
-    $('.open-popup-link').magnificPopup({
-		  type:'inline',
-		  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-		});
+    
+        
+    $('.popup-with-zoom-anim').click(function(){
+       console.log("Click"); 
+    });
 });
 </script>
