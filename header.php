@@ -34,6 +34,11 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
   <script type="text/javascript" src="../bootstrap/js/jquery.dataTables.js"></script>
   <script type="text/javascript" src="../bootstrap/js/dataTables.bootstrap.js"></script>
+  
+  <!-- Plugin for popup-->
+  <link rel="stylesheet" type="text/css" href="../jqueryPopup/css/magnific-popup.css" />
+  <script type="text/javascript" src="../jqueryPopup/js/magnific-popup.js"></script>
+  
 </head>
 <?php
 session_start();

@@ -24,7 +24,9 @@ var changeTooltipPosition = function(e) {
     
 var showTooltip = function(e) {
     $('div.mapTooltip').remove();
-    $('<div class="mapTooltip"><img src="../images/floor/SelectedPoint.png" width="50"></div>').appendTo('body');
+    var titleArea = $('area[data="'+e.key+'"]').attr('full');
+    //$('<div class="mapTooltip"><img src="../images/floor/SelectedPoint.png" width="50"></div>').appendTo('body');
+    $('<div class="mapTooltip"><img src="../images/floor/SelectedPoint.png" width="50" class="pull-left"><a class="txtTooltip popup-with-zoom-anim" href="#small-dialog">'+titleArea+'</a></div>').appendTo('body');
     changeTooltipPosition(e);
 };
 

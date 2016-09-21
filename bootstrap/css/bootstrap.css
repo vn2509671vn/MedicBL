@@ -7314,4 +7314,9 @@ table {
 		position: absolute;
 		z-index: 2;
 	}
+	
+.txtTooltip{
+  float: left !important;
+  border: 2px solid #ff0000;
+}
 /*Add end ThangTGM*/
