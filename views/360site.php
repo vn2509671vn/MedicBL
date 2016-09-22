@@ -331,27 +331,27 @@ function loadJsForMap(id){
             var leftTooltip = maxLValue;
             $('div.mapTooltip').remove();
             $('.mapster_tooltip').remove();
-            $('<div class="mapTooltip"><img src="../images/floor/SelectedPoint.png" width="50" class="pull-left"><a class="txtTooltip popup-with-zoom-anim" href="#small-dialog">'+titleArea+'</a></div><div id="small-dialog" class="zoom-anim-dialog mfp-hide"><iframe width="100%" height="auto" src="../_html5/Project1.html"></iframe></div>').appendTo('#map_content');
+            $('<div class="mapTooltip"><img src="../images/floor/SelectedPoint.png" width="50" class="pull-left"><a class="txtTooltip" href="../_html5/Project1.html" target="_blank">'+titleArea+'</a></div>').appendTo('#map_content');
             $('div.mapTooltip').css({
                 top: topTooltip + 34 - 80 +"px",
                 left: leftTooltip + 15 - 25 + "px"
             });
             
-            $('.popup-with-zoom-anim').magnificPopup({
-                  type: 'inline',
+            // $('.popup-with-zoom-anim').magnificPopup({
+            //       type: 'inline',
         
-                  fixedContentPos: false,
-                  fixedBgPos: true,
+            //       fixedContentPos: false,
+            //       fixedBgPos: true,
         
-                  overflowY: 'auto',
+            //       overflowY: 'auto',
         
-                  closeBtnInside: true,
-                  preloader: false,
+            //       closeBtnInside: true,
+            //       preloader: false,
                   
-                  midClick: true,
-                  removalDelay: 300,
-                  mainClass: 'my-mfp-zoom-in'
-            });
+            //       midClick: true,
+            //       removalDelay: 300,
+            //       mainClass: 'my-mfp-zoom-in'
+            // });
     
         },
         listKey: 'data',
