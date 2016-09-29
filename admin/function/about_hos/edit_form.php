@@ -56,7 +56,7 @@ if($_GET['edit_id'])
                 <div class="addLogo">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                         <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
-                            <img src="../../upload/infor_hos/<?php echo $row['infor_image']; ?>"> </img>
+                            <img src="../../../images/logo/<?php echo $row['infor_image']; ?>"> </img>
                         </div>
                         <div>
                             <span class="btn btn-file btn-success"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input id="infor_logo" name="infor_logo" type="file"></span>

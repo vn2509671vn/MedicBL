@@ -1,17 +1,21 @@
 <?php
-    session_start();
-    include("../../../connect/config.php");
-    if (!isset($_SESSION['ses_name'])) {
-        header("location:../../../login.php");
-    }
+  error_reporting( error_reporting() & ~E_NOTICE )
 ?>
+<?php
+session_start();
+include("../../../connect/config.php");
+include("process.php");
+if (!isset($_SESSION['ses_name'])) {
+    header("location:../../../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="robots" content="index, follow"
-    /
+    <meta name="robots" content="index, follow"/>
     <meta name="keywords" content="Bệnh Viện Đa Khoa Thanh Vũ Medic"/>
     <meta name="description" content="Bệnh Viện Đa Khoa Thanh Vũ Medic"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,6 +25,7 @@
     <link href="../../assets/css/bootstrap.css" rel="stylesheet"/>
     <!-- FONTAWESOME STYLES-->
     <link href="../../assets/css/font-awesome.css" rel="stylesheet"/>
+    
     <link href="../../assets/css/buttons.dataTables.min.css" rel="stylesheet"/>
     <!--CUSTOM BASIC STYLES-->
     <link href="../../assets/css/basic.css" rel="stylesheet"/>
@@ -65,16 +70,7 @@
         	    var idsms = $(this).attr("id");
         	    var temp_app = 'status_doctor_temp' + idsms;
         	    var temp = document.getElementById(temp_app).value;
-        	    var cl = ".sms-doctor-link .img_accept" + idsms;
-        	    
-        	    //Khai bao cac bien day du lieu cho VNPT
-        	    
-        	    
-        	    var strREQID = "";        	        var strLABELID = "";        	    var strTEMPLATEID = "";        	    var strNUM = "";
-        	    var strCONTENT = "Thông báo: ";     var strCONTRACTID = "";             var strCONTRACTTYPEID = "";        	var strSCHEDULETIME = "";
-        	    var strISTELCOSUB = "";        	    var strAGENTID = "";        	    var strAPIUSER = "";        	    var strAPIPASS = "";
-        	    var strUSERNAME = "";        	    var strURL = "";        	        var strMOBLELIST = "";
-        	    
+        	    var cl = ".sms-doctor-link .img_accept" + idsms;        	    
         	    
         	    //Thong bao goi cho bac si
         	    
@@ -91,83 +87,9 @@
     					data: "idsms=" + idsms,
                         success : function (result){
     						$.each (result, function (key, item){
-                                    strREQID +=  item['strMOBLELIST'];                                    strLABELID +=  item['strLABELID'];
-                                    strTEMPLATEID +=  item['strTEMPLATEID'];                              strCONTRACTID +=  item['strCONTRACTID'];
-                                    strCONTENT +=  item['strCONTENT'];                                    strREQID +=  item['strREQID'];
-                                    strCONTRACTTYPEID +=  item['strCONTRACTTYPEID'];                      strSCHEDULETIME +=  item['strSCHEDULETIME'];
-                                    strISTELCOSUB +=  item['strISTELCOSUB'];                              strAGENTID +=  item['strAGENTID'];
-                                    strAPIUSER +=  item['strAPIUSER'];                                    strAPIPASS +=  item['strAPIPASS'];
-                                    strUSERNAME +=  item['strUSERNAME'];                                  strMOBLELIST +=  item['strMOBLELIST'];
-                                    
-                                    status_doctor_sms +=  item['status_doctor_sms'];                      doctor_name +=  item['doctor_name'];
-                                    customer_phone +=  item['customer_phone'];                            chuyenkhoa +=  item['chuyenkhoa'];
-                                    customer_name +=  item['customer_name'];                              booking_date +=  item['booking_date'];
+                                   
                             });
     					},
-    					complete:function()
-    					{
-                            strCONTENT+=""; 
-                            $.ajax({
-                                type: "post",
-                                url: 'sms.php',
-                                dataType:'json',
-                                data: {
-                                    "RQST":[{
-                                        "name": "SEND_SMS_LIST",
-                                    }]
-                        //             "RQST":[{
-                        // 				"name": "SEND_SMS_LIST",
-                        // 				"REQID": strREQID,
-                        // 				"LABELID": strLABELID,
-                        // 				"TEMPLATEID": strTEMPLATEID,
-                        // 				"PARAMS":[{
-                        // 					"NUM": strNUM,
-                        // 					"CONTENT": strCONTENT,
-                        // 				}],
-                        // 				"CONTRACTID": strCONTRACTID,
-                        // 				"CONTRACTTYPEID": strCONTRACTTYPEID,
-                        // 				"SCHEDULETIME": strSCHEDULETIME,
-                        // 				"MOBILELIST": strMOBLELIST,
-                        // 				"ISTELCOSUB": strISTELCOSUB,
-                        // 				"AGENTID": strAGENTID,
-                        // 				"APIUSER": strAPIUSER,
-                        // 				"APIPASS": strAPIPASS,
-                        // 				"USERNAME": strUSERNAME,
-                    			 //   }]
-                    			},
-                                success: function(data)
-                                {
-                                    $.each (data, function (key, item){
-                                        code +=  item['ERROR_CODE'];
-                                        code_desc +=  item['ERROR_DESC'];
-                                    });
-                                },
-                                complete: function()
-                                {
-                                    if(code==1){
-                                        $.ajax({
-                                            url : 'sms_process.php',
-                                            type : 'get',
-                                            dataType : 'text',
-                        					data: "id=" + idsms,
-                                            success: function(data){
-                                                if(data = 1){
-                                                    document.getElementById(temp_app).value=1;
-                                                    alert("Da goi sms thanh cong");
-                                                    $(cl).attr("src", "../../assets/img/accept.png");
-                                                }
-                                                else{
-                                                    alert("Hien tai chua the doi duoc SMS cho Bac Si");
-                                                }
-                                            },
-                                        });
-                                    }
-                                    else{
-                                        alert(code_desc);
-                                    }
-                                }, // kết thúc complete của cập nhật trạng thái gởi sms doctor
-                            });
-                        },
                     });
         	    }
         	    else{
@@ -189,15 +111,14 @@
                     $.ajax({
     					url : 'sms_process.php',
                         type : 'get',
-                        dataType : 'xml',
+                        dataType : 'text',
     					data: "idsms_cus=" + idsms_cus,
                         success : function (result){
-    						alert(result);
-    						$(result).find('RPLY').each (function (key, val){
-                                code +=  $(val).find('ERROR_CODE').text();
-                                code_desc +=  $(val).find('ERROR_DESC').text();
-                            });
-                            alert(code);
+    						console.log(result);
+                            alert(result);
+    						// $(result).find('RPLY').each (function (key, val){
+          //                       html +=  $(val).find('ERROR_CODE').text();
+          //                   });
     					},
                     });
         	    }
@@ -562,8 +483,6 @@
 <!-- METISMENU SCRIPTS -->
 <script src="../../assets/js/jquery.metisMenu.js"></script>
 <!-- CUSTOM SCRIPTS -->
-
-<script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script> <!-- Them vao ngay 0809 -->
 <script src="../../assets/js/custom.js"></script>
 <script src="../../assets/js/jquery-1.12.3.min.js"></script>
 <script src="../../assets/js/crud.js" type="text/javascript"></script>
@@ -574,6 +493,7 @@
 <script src="../../assets/js/pdfmake.min.js"></script>
 <script src="../../assets/js/vfs_fonts.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 
 

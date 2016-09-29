@@ -25,7 +25,7 @@
                     <div id="grid-load">
                     </div>
                     <div id="floor">
-                        <img src="../images/floor/tang1.jpg" usemap="#map1" width="100%" data-id="1" id="imageMap0">
+                        <img src="../images/floor/tang1.jpg" usemap="#map1" width="100%" data-id="1" id="imageMap">
                     </div>
                     <!--<div id="floor1">-->
                     <!--    <img src="../images/floor/tang1.jpg" usemap="#mapOne" width="100%" data-id="1" id="imageMap1">-->
@@ -51,11 +51,11 @@
                         <area data="1-KCC" full="Tang 1 - Khoa Cap Cuu" href="#" coords="795,581,707,891,888,899,885,951,587,956,607,886,419,889,460,796,485,791,497,766,485,748,465,746,387,746,414,706,677,708,718,583" shape="poly">
                         <area data="1-WC" full="Tang 1 - WC" href="#" coords="367,789,287,949,106,946,199,784" shape="poly">
                         <area data="1-WC" full="Tang 1 - WC" href="#" coords="1614,230,1622,265,1860,268,1842,230" shape="poly">
-                    	<area data="1-DT" full="Tang 1 - Dien Tim" href="#" coords="592,576,575,623,702,621,715,581" shape="poly">
+                    	<area data="1-DT" data-path="demo/_html5/Project1.html" full="Tang 1 - Dien Tim" href="#" coords="592,576,575,623,702,621,715,581" shape="poly">
                         <area data="1-SA" full="Tang 1 - Sieu Am" href="#" coords="570,623,550,661,685,663,700,626" shape="poly">
                         <area data="1-TN" full="Tang 1 - Thu ngan" href="#" coords="555,661,537,701,675,701,685,666" shape="poly">
                         <area data="1-TN" full="Tang 1 - Thu Ngan" href="#" coords="1534,711,1559,881,1772,884,1727,706" shape="poly">
-                    	<area data="1-NT" full="Tang 1 - Nha thuoc" href="#" coords="427,663,414,701,532,706,550,663" shape="poly">
+                    	<area data="1-NT" data-path="nhathuoc/_html5/Project10.html" full="Tang 1 - Nha thuoc" href="#" coords="427,663,414,701,532,706,550,663" shape="poly">
                         <area data="1-TTBB" full="Tang 1 - Thu Thuat Bo Bot" href="#" coords="808,548,755,721,925,723,965,546" shape="poly">
                         <area data="1-XQ" full="Tang 1 - X-Quang" href="#" coords="758,721,740,786,915,786,928,728" shape="poly">
                         <area data="1-XQ" full="Tang 1 - X-Quang" href="#" coords="1091,173,1081,230,1216,235,1218,175" shape="poly">
@@ -64,11 +64,11 @@
                         <area data="1-DSA" full="Tang 1 - DSA" href="#" coords="918,781,890,951,1163,949,1173,784" shape="poly">
                         <area data="1-MRI" full="Tang 1 - MRI" href="#" coords="1268,170,1271,295,1562,295,1536,168" shape="poly">
                         <area data="1-NTBHYT" full="Tang 1 - Nha Thuoc BHYT" href="#" coords="1511,581,1529,708,1722,706,1694,583" shape="poly">
-                        <area data="1-CTB" full="Tang 1 - Cau Thang Bo" href="#" coords="242,516,162,643,282,643,352,518" shape="poly">
-                        <area data="1-CTB" full="Tang 1 - Cau Thang Bo" href="#" coords="572,145,552,183,735,183,755,150" shape="poly">
-                        <area data="1-CTB" full="Tang 1 - Cau Thang Bo" href="#" coords="1078,461,1201,463,1196,541,1073,546" shape="poly">
-                        <area data="1-CTB" full="Tang 1 - Cau Thang Bo" href="#" coords="1824,463,1850,541,1987,546,1952,461" shape="poly">
-                        <area data="1-CTB" full="Tang 1 - Cau Thang Bo" href="#" coords="1624,268,1629,303,1877,310,1865,268" shape="poly">
+                        <area data="1-CTB" data-path="cauthangbo/_html5/Project9.html" full="Tang 1 - Cau Thang Bo" href="#" coords="242,516,162,643,282,643,352,518" shape="poly">
+                        <area data="1-CTB" data-path="cauthangbo/_html5/Project9.html" full="Tang 1 - Cau Thang Bo" href="#" coords="572,145,552,183,735,183,755,150" shape="poly">
+                        <area data="1-CTB" data-path="cauthangbo/_html5/Project9.html" full="Tang 1 - Cau Thang Bo" href="#" coords="1078,461,1201,463,1196,541,1073,546" shape="poly">
+                        <area data="1-CTB" data-path="cauthangbo/_html5/Project9.html" full="Tang 1 - Cau Thang Bo" href="#" coords="1824,463,1850,541,1987,546,1952,461" shape="poly">
+                        <area data="1-CTB" data-path="cauthangbo/_html5/Project9.html" full="Tang 1 - Cau Thang Bo" href="#" coords="1624,268,1629,303,1877,310,1865,268" shape="poly">
                         <area data="1-TC" full="Tang 1 - Thang Cuon" href="#" coords="1997,375,2060,501,2310,501,2228,373" shape="poly">
                         <area data="1-TM" full="Tang 1 - Thang May" href="#" coords="1637,308,1637,333,1834,330,1827,305" shape="poly">
                     </map>
@@ -118,11 +118,11 @@
                         <area data="2-NoiSoi"       full="Noi soi 1" href="#" coords="6046,1387,6485,1408,6547,1856,6078,1856" shape="poly">
                         <area data="2-NoiSoi"       full="Noi soi 2" href="#" coords="6714,1502,7038,1512,7131,1846,6756,1867" shape="poly">
                         <area data="2-ThangCuon"       full="Thang cuon" href="#" coords="8676,2326,9500,2326,9834,2993,8978,3014" shape="poly">
-                        <area data="2-ThangBo"       full="Cau thang bo 1" href="#" coords="2520,3139,2968,3129,2770,3817,2301,3807" shape="poly">
-                        <area data="2-ThangBo"       full="Cau thang bo 2" href="#" coords="3501,1064,4179,1064,4168,1262,3469,1252" shape="poly">
-                        <area data="2-ThangBo"       full="Cau thang bo 3" href="#" coords="5504,2785,5932,2795,5963,3233,5514,3233" shape="poly">
-                        <area data="2-ThangBo"       full="Cau thang bo 4" href="#" coords="7319,1752,8154,1721,8248,1961,7382,1982" shape="poly">
-                        <area data="2-ThangBo"       full="Cau thang bo 5" href="#" coords="8133,2785,8550,2795,8707,3244,8279,3223" shape="poly">
+                        <area data="2-ThangBo"       data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 1" href="#" coords="2520,3139,2968,3129,2770,3817,2301,3807" shape="poly">
+                        <area data="2-ThangBo"       data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 2" href="#" coords="3501,1064,4179,1064,4168,1262,3469,1252" shape="poly">
+                        <area data="2-ThangBo"       data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 3" href="#" coords="5504,2785,5932,2795,5963,3233,5514,3233" shape="poly">
+                        <area data="2-ThangBo"       data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 4" href="#" coords="7319,1752,8154,1721,8248,1961,7382,1982" shape="poly">
+                        <area data="2-ThangBo"       data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 5" href="#" coords="8133,2785,8550,2795,8707,3244,8279,3223" shape="poly">
                         <area data="2-NVS"       full="Nha ve sinh 1" href="#" coords="2791,3807,3626,3828,3553,4203,2666,4224" shape="poly">
                         <area data="2-NVS"       full="Nha ve sinh 2" href="#" coords="4763,1856,5003,1846,5003,1919,4742,1940" shape="poly">
                         <area data="2-NVS"       full="Nha ve sinh 3" href="#" coords="6693,1377,7006,1387,7038,1502,6714,1512" shape="poly">
@@ -151,11 +151,11 @@
                         <area data="3-PM" full="Phong mo 3" href="#" coords="3980,4818,6046,4829,6078,5611,3907,5590" shape="poly">
                         <area data="3-HSN" full="Hoi suc noi" href="#" coords="5369,1065,6850,1063,6996,2002,5608,2012,5567,1743,5358,1731" shape="poly">
                         <area data="3-HSNg" full="Hoi suc ngoai" href="#" coords="2958,2242,4367,2232,4200,3317,2644,3313" shape="poly">
-                        <area data="3-CTB" full="Cau thang bo" href="#" coords="1904,3306,2374,3327,2123,4078,1612,4088" shape="poly">
-                        <area data="3-CTB" full="Cau thang bo 2" href="#" coords="3135,897,3866,897,3834,1095,3083,1116" shape="poly">
-                        <area data="3-CTB" full="Cau thang bo 3" href="#" coords="5201,2805,5639,2816,5670,3292,5180,3296" shape="poly">
-                        <area data="3-CTB" full="Cau thang bo 4" href="#" coords="7205,1637,8102,1637,8196,1898,7267,1898" shape="poly">
-                        <area data="3-CTB" full="Cau thang bo 5" href="#" coords="8060,2805,8509,2795,8634,3296,8164,3306" shape="poly">
+                        <area data="3-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo" href="#" coords="1904,3306,2374,3327,2123,4078,1612,4088" shape="poly">
+                        <area data="3-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 2" href="#" coords="3135,897,3866,897,3834,1095,3083,1116" shape="poly">
+                        <area data="3-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 3" href="#" coords="5201,2805,5639,2816,5670,3292,5180,3296" shape="poly">
+                        <area data="3-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 4" href="#" coords="7205,1637,8102,1637,8196,1898,7267,1898" shape="poly">
+                        <area data="3-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 5" href="#" coords="8060,2805,8509,2795,8634,3296,8164,3306" shape="poly">
                         <area data="3-TC" full="Thang cuon" href="#" coords="8644,2284,9542,2274,9876,3045,8916,3035" shape="poly">
                         <area data="3-TM" full="Thang may" href="#" coords="7246,1909,7997,1898,8018,2002,7278,2013" shape="poly">
                         <area data="3-NVS" full="Nha ve sinh" href="#" coords="7163,1432,8050,1421,8112,1640,7194,1630" shape="poly">
@@ -181,11 +181,11 @@
                         <area data="4-NVS" full="Toilet" href="#" coords="3960,1899,4314,1909,4293,2191,3939,2191" shape="poly">
                         <area data="4-NVS" full="Toilet 2" href="#" coords="1779,4653,2624,4643,2520,5332,1664,5321" shape="poly">
                         <area data="4-TM" full="Thang may" href="#" coords="7403,2671,8279,2671,8300,2869,7413,2848" shape="poly">
-                        <area data="4-CTB" full="Cau thang bo" href="#" coords="8217,4100,8759,4090,8874,4852,8321,4841" shape="poly">
-                        <area data="4-CTB" full="Cau thang bo 2" href="#" coords="4878,4090,5410,4111,5399,4841,4846,4841" shape="poly">
-                        <area data="4-CTB" full="Cau thang bo 3" href="#" coords="1236,4789,1758,4789,1529,5906,965,5906" shape="poly">
-                        <area data="4-CTB" full="Cau thang bo 4" href="#" coords="2509,1033,3386,1043,3334,1398,2447,1409" shape="poly">
-                        <area data="4-CTB" full="Cau thang bo 5" href="#" coords="7361,2233,8457,2243,8530,2702,7413,2671" shape="poly">
+                        <area data="4-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo" href="#" coords="8217,4100,8759,4090,8874,4852,8321,4841" shape="poly">
+                        <area data="4-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 2" href="#" coords="4878,4090,5410,4111,5399,4841,4846,4841" shape="poly">
+                        <area data="4-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 3" href="#" coords="1236,4789,1758,4789,1529,5906,965,5906" shape="poly">
+                        <area data="4-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 4" href="#" coords="2509,1033,3386,1043,3334,1398,2447,1409" shape="poly">
+                        <area data="4-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 5" href="#" coords="7361,2233,8457,2243,8530,2702,7413,2671" shape="poly">
                         <area data="4-HT" full="Hoi truong" href="#" coords="3678,4007,4878,4028,4836,4873,5055,4894,4961,7252,1675,7252,1831,6396,2322,6396,2415,5854,2614,5864,2739,4915,3594,4925" shape="poly">
                         <area data="4-PS" full="Phong sanh" href="#" coords="2342,1909,2937,1909,2488,4643,1789,4643" shape="poly">
                         <area data="4-PS" full="Phong sanh 2" href="#" coords="2874,4007,3688,3996,3626,4476,2822,4476" shape="poly">
@@ -204,8 +204,8 @@
                         <area data="5-NVS" full="Nha ve sinh" href="#" coords="7691,1570,8920,1553,9060,1728,7796,1737" shape="poly">
                         <area data="5-NVS" full="WC" href="#" coords="7709,1571,8929,1571,9086,1755,7814,1746" shape="poly">
                         <area data="5-NVS" full="Toilet" href="#" coords="7700,1570,8928,1544,9060,1737,7796,1755" shape="poly">
-                        <area data="5-CTB" full="Cau thang bo" href="#" coords="7796,1737,9060,1737,9253,1992,7928,1974" shape="poly">
-                        <area data="5-CTB" full="Cau thang bo 2" href="#" coords="2347,1097,3251,1105,3164,1298,2216,1281" shape="poly">
+                        <area data="5-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo" href="#" coords="7796,1737,9060,1737,9253,1992,7928,1974" shape="poly">
+                        <area data="5-CTB" data-path="cauthangbo/_html5/Project9.html" full="Cau thang bo 2" href="#" coords="2347,1097,3251,1105,3164,1298,2216,1281" shape="poly">
                         <area data="5-TM" full="Thang may" href="#" coords="7928,1983,8981,1983,9069,2106,8016,2123" shape="poly">
                         <area data="5-TT" full="Thu thuat" href="#" coords="3751,1553,4286,1553,4251,1720,3699,1702" shape="poly">
                         <area data="5-PCSDB" full="Phong cham soc dac biet" href="#" coords="7042,1842,7533,1842,7770,2325,7217,2316" shape="poly">
@@ -247,7 +247,7 @@
 </script>
 <script type="text/javascript">
 function loadJsForMap(id){
-    var img = $('#imageMap'+id);
+    var img = $('#imageMap');
 
     // get each unique value of attribute "state" from the areas;
     // sort them; then generate an unordered list from these values.
@@ -258,12 +258,17 @@ function loadJsForMap(id){
     function (e) {
         return e.getAttribute('data');
     });
-
+    
     // bind selection of a state to the UL we created. The "listSelectedClass"
     // option causes the class "selected" to be added or removed
     // from the element in "boundList" whose "state" attribute has a value
     // matching the mapKey for the selected area.
-    
+    if(id == 1){
+        strkColor = '000033';
+    }
+    else {
+        strkColor = 'ff0000';
+    }
     img.mapster({
         mapKey: 'data',
         singleSelect: true,
@@ -271,26 +276,31 @@ function loadJsForMap(id){
         render_highlight: {
             fill: false,
             stroke: true,
-            strokeColor: 'ff0000',
+            strokeColor: strkColor,
             strokeWidth: 4,
         },
         render_select: {
             fill: false,
             stroke: true,
-            strokeColor: 'ff0000',
+            strokeColor: strkColor,
             strokeWidth: 4,
         },
         onClick: function(e) {
         	if(e.selected){
-        	    showTooltip(e);
+        	    showTooltip(e, strkColor);
         	}
         	else {
         	    $('div.mapTooltip').remove();
+        	    $('div.mapTooltipContent').remove();
         	}
         },
         onShowToolTip: function(e) {
             var areaMapPosition = $('area[data="'+e.key+'"]').attr('coords').split(',');
             var titleArea = $('area[data="'+e.key+'"]').attr('full');
+            var pathImg = 'href="../Panorama/' + $('area[data="'+e.key+'"]').attr('data-path') + '"';
+            if (pathImg === 'href="../Panorama/undefined"'){
+                pathImg = "";
+            }
             var len = areaMapPosition.length;
             var maxLValue = 0;  // Max left of area
             var maxTValue = 0;  // Max top of area
@@ -330,11 +340,16 @@ function loadJsForMap(id){
             var topTooltip = maxTValue;
             var leftTooltip = maxLValue;
             $('div.mapTooltip').remove();
+            $('div.mapTooltipContent').remove();
             $('.mapster_tooltip').remove();
-            $('<div class="mapTooltip"><img src="../images/floor/SelectedPoint.png" width="50" class="pull-left"><a class="txtTooltip" href="../_html5/Project1.html" target="_blank">'+titleArea+'</a></div>').appendTo('#map_content');
+            $('<div class="mapTooltip"><img src="../images/floor/giotnuoc.png" width="20" class="pull-left"></div><div class="mapTooltipContent"><a class="txtTooltip text-bold" style="color: #'+strkColor+'" '+pathImg+'" target="_blank">'+titleArea+'</a></div>').appendTo('#map_content');
             $('div.mapTooltip').css({
-                top: topTooltip + 34 - 80 +"px",
-                left: leftTooltip + 15 - 25 + "px"
+                top: topTooltip + 25 - 25 +"px",
+                left: leftTooltip + 15 - 10 + "px"
+            });
+            $('div.mapTooltipContent').css({
+                top: topTooltip + 25 - 35 +"px",
+                left: leftTooltip + 25 + "px"
             });
             
             // $('.popup-with-zoom-anim').magnificPopup({
@@ -367,11 +382,6 @@ $(document).ready(function () {
     //     $('#floor'+idMap).addClass('hide');
     //     idMap++;
     // }
-    loadJsForMap(0);
-    
-        
-    $('.popup-with-zoom-anim').click(function(){
-       console.log("Click"); 
-    });
+    loadJsForMap(1);
 });
 </script>

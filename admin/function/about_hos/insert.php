@@ -2,7 +2,7 @@
  if(isset($_FILES['infor_logo']))
  {
  		$attachment_file=$_FILES["infor_logo"];
- 		$output_dir = "../../upload/infor_hos/";
+ 		$output_dir = "../../../images/logo/";
  		$fileName = $_FILES["infor_logo"]["name"];
  		move_uploaded_file($_FILES["infor_logo"]["tmp_name"],$output_dir.$fileName);
 		 echo $fileName;

@@ -22,11 +22,11 @@
         <!-- Main Content -->
         <div class="form-horizontal text-left">
           <div class="form-title text-center">
-            <h3>TRA CỨU KẾT QUẢ XÉT NGHIỆM</h3>
-            <p class="color-golden">Vui lòng nhập đầy đủ mã bệnh nhân (SID) và ngày xét nghiệm</p>
+            <h3><?php echo $main['tracuuketqua'];?></h3>
+            <p class="color-golden"><?php echo $main['tracuuketqua-warning'];?></p>
           </div>
           <div class="form-group">
-        		<label class="col-md-4 control-label">Mã bệnh nhân:</label>
+        		<label class="col-md-4 control-label"><?php echo $main['mabenhnhan'];?>:</label>
         		<div class="col-md-4">
         			<div class="input-group">
         				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -35,7 +35,7 @@
         		</div>
         	</div>
         	<div class="form-group">
-        		<label class="col-md-4 control-label" for="customer-phone">Ngày khám:</label>
+        		<label class="col-md-4 control-label" for="customer-phone"><?php echo $main['ngaylaymau'];?>:</label>
         		<div class="col-md-4">
         			<div class="input-group">
         				<div class='input-group date'>
@@ -48,7 +48,7 @@
         		</div>
         	</div>
         	<div class="form-group">
-        		<label class="col-md-4 control-label" for="customer-phone">Mã xác nhận:</label>
+        		<label class="col-md-4 control-label" for="customer-phone"><?php echo $main['maxacnhan'];?>:</label>
         		<div class="col-md-4">
         			<div class="input-group">
         				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -62,11 +62,11 @@
         		</div>
         	</div>
         	<div class="col-md-12 col-xs-12 text-center margin-mid-5">
-           <button type="button" class="btn btn-success" id="xemketqua">XEM KẾT QUẢ</button>
+           <button type="button" class="btn btn-success" id="xemketqua"><?php echo $main['xemketqua'];?></button>
           </div>
         </div>
         <div class="col-md-12 text-left padding-left-0">
-					<p><strong>Quý khách lưu ý:</strong>
+					<p><strong><?php echo $main['tracuuketqua-mota-1'];?></strong>
   				<br>- Kết quả trên website chỉ mang giá trị tham khảo, quý khách vui lòng liên hệ với MedicBacLieu để có kết quả chính thức.
   				<br>- Kết quả trên website không bao gồm:
   				<br>✓ Tất cả các kết quả xét nghiệm cho khách hàng nội trú và khám sức khỏe.

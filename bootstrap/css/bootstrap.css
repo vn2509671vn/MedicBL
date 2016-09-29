@@ -6559,7 +6559,7 @@ button.close {
 
 .carousel-caption-left {
   position: absolute;
-  right: 20%;
+  right: 15%;
   bottom: 20px;
   left: 15%;
   z-index: 10;
@@ -6597,8 +6597,8 @@ button.close {
     padding-bottom: 30px;
   }
   .carousel-caption-left {
-    right: 20%;
-    left: 20%;
+    right: 15%;
+    left: 15%;
     padding-bottom: 30px;
   }
   .carousel-indicators {
@@ -7192,36 +7192,36 @@ table {
 }
 .scroll-right p {
  margin: 0;
- font-size: 25px;
+ font-size: 33px;
  /* Starting position */
- -moz-transform:translateX(-100%);
- -webkit-transform:translateX(-100%);	
- transform:translateX(-100%);
+ -moz-transform:translateX(200%);
+ -webkit-transform:translateX(200%);	
+ transform:translateX(200%);
  /* Apply animation to this element */	
- -moz-animation: scroll-right 5s linear infinite;
- -webkit-animation: scroll-right 5s linear infinite;
- animation: scroll-right 5s linear infinite;
- animation-duration: 6s;
+ -moz-animation: scroll-right 7s linear infinite;
+ -webkit-animation: scroll-right 7s linear infinite;
+ animation: scroll-right 7s linear infinite;
+ animation-duration: 10s;
 }
 /* Move it (define the animation) */
 @-moz-keyframes scroll-right {
- 0%   { -moz-transform: translateX(0%); }
- 100% { -moz-transform: translateX(100%); }
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
 }
 @-webkit-keyframes scroll-right {
- 0%   { -webkit-transform: translateX(0%); }
- 100% { -webkit-transform: translateX(100%); }
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
 }
 @keyframes scroll-right {
  0%   { 
- -moz-transform: translateX(0%); /* Browser bug fix */
- -webkit-transform: translateX(0%); /* Browser bug fix */
- transform: translateX(0%); 		
- }
- 100% { 
  -moz-transform: translateX(100%); /* Browser bug fix */
  -webkit-transform: translateX(100%); /* Browser bug fix */
- transform: translateX(100%); 
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Browser bug fix */
+ -webkit-transform: translateX(-100%); /* Browser bug fix */
+ transform: translateX(-100%); 
  }
 }
 
@@ -7314,9 +7314,14 @@ table {
 		position: absolute;
 		z-index: 2;
 	}
+.mapTooltipContent{
+		position: absolute;
+		z-index: 2;
+		background-color: white;
+	}
 	
 .txtTooltip{
   float: left !important;
-  border: 2px solid #ff0000;
+  border: 2px solid black;
 }
 /*Add end ThangTGM*/

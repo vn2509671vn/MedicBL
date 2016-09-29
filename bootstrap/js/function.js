@@ -17,16 +17,24 @@ function bodauTiengViet(str) {
 }
 
 var changeTooltipPosition = function(e) {
-    var tooltipX = e.e.pageX - 25;
-    var tooltipY = e.e.pageY - 75;
+    var tooltipX = e.e.pageX - 10;
+    var tooltipY = e.e.pageY - 35;
+    var tooltipX_Content = tooltipX + 20;
+    var tooltipY_Content = tooltipY - 10;
     $('div.mapTooltip').css({top: tooltipY, left: tooltipX});
+    $('div.mapTooltipContent').css({top: tooltipY_Content, left: tooltipX_Content});
 };
     
-var showTooltip = function(e) {
+var showTooltip = function(e, color) {
     $('div.mapTooltip').remove();
+    $('div.mapTooltipContent').remove();
     $('#small-dialog').remove();
     var titleArea = $('area[data="'+e.key+'"]').attr('full');
-    $('<div class="mapTooltip"><img src="../images/floor/SelectedPoint.png" width="50" class="pull-left"><a class="txtTooltip" href="../_html5/Project1.html" target="_blank">'+titleArea+'</a></div>').appendTo('body');
+    var pathImg = 'href="../Panorama/' + $('area[data="'+e.key+'"]').attr('data-path') + '"';
+    if (pathImg === 'href="../Panorama/undefined"'){
+        pathImg = "";
+    }
+    $('<div class="mapTooltip"><img src="../images/floor/giotnuoc.png" width="20" class="pull-left"></div><div class="mapTooltipContent"><a class="txtTooltip text-bold" style="color: #'+color+'" '+pathImg+'" target="_blank">'+titleArea+'</a></div>').appendTo('body');
     // $('.popup-with-zoom-anim').magnificPopup({
     //               type: 'inline',
         

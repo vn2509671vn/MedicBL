@@ -21,7 +21,9 @@ if($_GET['edit_id'])
     
     <div id="dis">
     
-	</div>
+	</div> 
+	<!--http://vietjack.com/cau-truc-du-lieu-va-giai-thuat/sap-xep-chen-trong-c.jsp-->
+	<!--http://freetuts.net/thuat-toan-sap-xep-chen-trong-php-18.html-->
         
  	
 	 <form method='post' id='emp-UpdateForm' action='#'>
@@ -36,6 +38,10 @@ if($_GET['edit_id'])
         <tr>
             <td>Services Name EN</td>
             <td><input type='text' name='services_name_en' class='form-control' value="<?php echo $row["services_name_en"]; ?>" required></td>
+        </tr>
+        <tr>
+            <td>Services Sort</td>
+            <td><input type='number' name='services_sort' class='form-control' value="<?php echo $row["services_sort"]; ?>" required></td>
         </tr>
         <tr>
             <td>Services Description VN</td>

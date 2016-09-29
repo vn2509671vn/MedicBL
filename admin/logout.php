@@ -11,5 +11,4 @@ session_start();
 	session_destroy();
 	header("location:../login.php");
 
-	//http://www.thuthuatweb.net/php/so-sanh-thoi-gian-hien-tai-voi-thoi-gian-bai-viet-bang-php.html
 ?>

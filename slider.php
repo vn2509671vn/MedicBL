@@ -1,6 +1,7 @@
 <?php 
   $arrImg = getSliderimg($_SESSION['lang']);
   $countImg = mysql_num_rows($arrImg);
+  $getSlogan = mysql_fetch_array(getSlogan());
 ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -31,7 +32,7 @@
               
             </div>
             <div class="carousel-caption-left scroll-right">
-              <p>Nơi chia sẻ yêu thương, nơi trao niềm tin chất lượng.</p>
+              <p><?php echo $getSlogan['infor_content']?></p>
             </div>
           </div>
         <?php $tmpIndex += 1;?>

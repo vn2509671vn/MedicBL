@@ -288,6 +288,7 @@ if (!isset($_SESSION['ses_name'])) {
                                     <th>Service Nam EN</th>
                                     <th>Service Description VN</th>
                                     <th>Service Description EN</th>
+                                    <th>Service Sort</th>
                                     <th>edit</th>
                                     <th>delete</th>
                                 </tr>
@@ -296,7 +297,7 @@ if (!isset($_SESSION['ses_name'])) {
                                 <?php
                                 require_once '../../../../connect/dbconfig.php';
 
-                                $stmt = $db_con->prepare("SELECT * FROM services ORDER BY services_id DESC");
+                                $stmt = $db_con->prepare("SELECT * FROM services ORDER BY services_sort ASC");
                                 $stmt->execute();
                                 $count = 1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -313,6 +314,7 @@ if (!isset($_SESSION['ses_name'])) {
                                         <td><?php echo $row['services_name_en']; ?></td>
                                         <td><?php echo $services_descript; ?></td>
                                         <td><?php echo $services_descript_en; ?></td>
+                                        <td><?php echo $row['services_sort']; ?></td>
                                         <td align="center">
                                             <a id="<?php echo $row['services_id']; ?>" class="edit-link" href="#"
                                                title="Edit">

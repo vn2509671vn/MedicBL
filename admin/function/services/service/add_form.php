@@ -27,6 +27,10 @@
             <td><input type='text' name='services_name_en' class='form-control' placeholder='EX : Inpatient services' required></td>
         </tr>
         <tr>
+            <td>Services Sort</td>
+            <td><input type='number' name='services_sort' class='form-control' placeholder='EX : number sort' required></td>
+        </tr>
+        <tr>
             <td>Services Description VN</td>
             <td>
                 <textarea id="descript_vn" name='services_descript' class='form-control' placeholder='EX: Cung cáp các dịch vụ nội trú tốt nhất,.. ' required />

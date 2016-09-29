@@ -378,11 +378,11 @@ if (!isset($_SESSION['ses_name'])) {
                                 $count = 1;
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     $infor_name = $row['infor_name'];
-                                    $infor_name = substr($infor_name, 0, 10) . '...';
+                                    $infor_name = substr($infor_name, 0, 50) . '...';
                                     $infor_address = $row['infor_address'];
-                                    $infor_address = substr($infor_address, 0, 10) . '...';
+                                    $infor_address = substr($infor_address, 0, 50) . '...';
                                     $infor_name_en = $row['infor_name_en'];
-                                    $infor_name_en = substr($infor_name_en, 0, 10) . '...';
+                                    $infor_name_en = substr($infor_name_en, 0, 50) . '...';
                                     $infor_address_en = $row['infor_address_en'];
                                     $infor_address_en = substr($infor_address_en, 0, 10) . '...';
                                     $infor_phone = $row['infor_phone'];

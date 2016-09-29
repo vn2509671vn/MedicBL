@@ -30,7 +30,7 @@ $services = getservices($_SESSION['lang']);
               <div class="panel-group" id="accordion">
                 <?php while($service = mysql_fetch_assoc($services)):?>
                 <div class="panel panel-default">
-                  <div class="panel-heading cursor" data-toggle="collapse" data-parent="#accordion" href="#<?php echo $service['services_id'];?>">
+                  <div class="panel-heading cursor text-uppercase" data-toggle="collapse" data-parent="#accordion" href="#<?php echo $service['services_id'];?>">
                     <h4 class="panel-title">
                       <?php $chuyenkhoa = getchuyenkhoa_byID($service['services_id'], $_SESSION['lang']);
                             $num_rows_chuyenkhoa = mysql_num_rows($chuyenkhoa);
