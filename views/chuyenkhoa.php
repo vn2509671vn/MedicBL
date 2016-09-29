@@ -54,9 +54,8 @@ $services = getservices($_SESSION['lang']);
                       <?php endif;?>
                           <li><a href="chuyenkhoa_chitiet.php?id=<?php echo $list_chuyenkhoa['chuyenkhoa_id'];?>"><?php echo $list_chuyenkhoa['name'];?></a></li>
                       <?php $current_row += 1;?>
-                      <?php if($current_row == 7 || $current_row == 15 || $current_row == 23 || $current_row == 31):?>
+                      <?php if($current_row == 8 || $current_row == 16 || $current_row == 24 || $current_row == 32):?>
                         </ul>
-                      </div>
                       <?php $flag = FALSE;?>
                       <?php endif;?>
                       <?php if($flag==FALSE): ?>
